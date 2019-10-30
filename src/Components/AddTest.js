@@ -4,12 +4,12 @@ const AddTest = (props) => {
 
   return(
     <div>
-      <form>
+      <form onSubmit={props.AddTestSubmitBtnHandler}>
         <label>
             Class Name:
-            <select> 
-              {props.classes.map((classes) => (
-                <option key={classes.classTitle}>
+            <select name="selectedClass" onChange={props.FormHandler}> 
+              {props.classes.map((classes, idx) => (
+                <option key={classes.classTitle} value={idx}>
                   {classes.classTitle}
                 </option>
               ))}
@@ -19,9 +19,11 @@ const AddTest = (props) => {
         <br/>
         <label>
           Add new Test To Study For:
-          <input 
+          <input
+            onChange={props.FormHandler} 
             type='text' 
             placeholder='Chapter 1 test' 
+            name='testNameToAdd'
           />
         </label>
         <br/>

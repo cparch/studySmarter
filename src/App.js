@@ -18,6 +18,8 @@ class App extends React.Component {
         {classTitle: "History101",},
       ],
       classNameToAdd: '',
+      testNameToAdd: '',
+      selectedClass: 0,
     }
     this.FormHandler = this.FormHandler.bind(this);
     this.AddClassSubitBtnHandler = this.AddClassSubitBtnHandler.bind(this);
@@ -75,6 +77,7 @@ class App extends React.Component {
               render={(props) => 
               <AddTest
                 classes={this.state.classes}
+                FormHandler={this.FormHandler}
               />}
             />
           </Switch>

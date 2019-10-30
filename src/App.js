@@ -14,8 +14,20 @@ class App extends React.Component {
     super(props);
     this.state={
       classes:[
-        {classTitle: "Psychology101",},
-        {classTitle: "History101",},
+        {
+          classTitle: "Psychology101",
+          test:[
+            {testName: 'psychT1',},
+            {testName: 'psychT2',}
+          ]
+        },
+        {
+          classTitle: "History101",
+          test:[
+            {testName: 'histT1',},
+            {testName: 'HistT2',}
+          ]
+        },
       ],
       classNameToAdd: '',
       testNameToAdd: '',

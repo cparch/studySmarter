@@ -3,13 +3,14 @@ import React from 'react';
 const AddClass = (props) => {
   return (
     <div>
-      <form>
+      <form onSubmit={props.AddClassSubitBtnHandler}>
         <label>
           Add Class Name:
           <input 
+            value={props.classNameToAdd}
+            onChange={props.FormHandler}
             type='text' 
             placeholder='History 101'
-            onChange={props.FormHandler}
             name='classNameToAdd'
           />
         </label>

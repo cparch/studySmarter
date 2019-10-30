@@ -20,6 +20,22 @@ class App extends React.Component {
       classNameToAdd: '',
     }
     this.FormHandler = this.FormHandler.bind(this);
+    this.AddClassSubitBtnHandler = this.AddClassSubitBtnHandler.bind(this);
+  }
+
+  AddClassSubitBtnHandler(event) {
+    event.preventDefault();
+    const updateClasses = [...this.state.classes];
+    updateClasses.push({
+      classTitle: this.state.classNameToAdd,
+      test:[],
+      homePageShowClassInfo: false,
+    })
+
+    this.setState({
+      classes: updateClasses,
+      classNameToAdd: ''
+    })
   }
 
   FormHandler(event) {
@@ -51,6 +67,7 @@ class App extends React.Component {
               render={(props) => 
               <AddClass 
                 FormHandler={this.FormHandler}
+                AddClassSubitBtnHandler={this.AddClassSubitBtnHandler}
               />}
             />
             <Route

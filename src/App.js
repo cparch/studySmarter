@@ -20,10 +20,28 @@ class App extends React.Component {
             {
               testName: 'psychT1',
               homePageShowStudySessions: false,
+              studySession: [
+                {
+                  endTime: "17:50",
+                  notes: "test",
+                  startTime: "13:50",
+                  studySessionNum: 'psychT1 - study session 0',
+                  studyDuration: "4:00"
+                }
+              ],
             },
             {
               testName: 'psychT2',
               homePageShowStudySessions: false,
+              studySession: [
+                {
+                  endTime: "13:00",
+                  notes: "test",
+                  startTime: "13:50",
+                  studySessionNum: 'psychT2 - study session 0',
+                  studyDuration: "0:50"
+                }
+              ],
             }
           ]
         },
@@ -33,10 +51,28 @@ class App extends React.Component {
             {
               testName: 'histT1',
               homePageShowStudySessions: false,
+              studySession: [
+                {
+                  endTime: "6:46",
+                  notes: "test",
+                  startTime: "6:10",
+                  studySessionNum: 'histT1 - study session 0',
+                  studyDuration: "0:36"
+                }
+              ],
             },
             {
               testName: 'HistT2',
               homePageShowStudySessions: false,
+              studySession: [
+                {
+                  endTime: "17:46",
+                  notes: "test",
+                  startTime: "15:00",
+                  studySessionNum: 'histT2 - study session 0',
+                  studyDuration: "2:46"
+                }
+              ],
             }
           ]
         },
@@ -67,6 +103,7 @@ class App extends React.Component {
 
     updateClasses[this.state.selectedClass].test.push({
       testName: this.state.testNameToAdd,
+      studySession: [], 
     })
 
     this.setState({

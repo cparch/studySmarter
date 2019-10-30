@@ -1,4 +1,5 @@
 import React from 'react';
+import ShowTest from './ShowTest.js'
 
 const Home = (props) => {
   const courseNames = props.classList.map((courseInfo) => {
@@ -17,6 +18,7 @@ const Home = (props) => {
       <div>
         {courseNames}
       </div>
+      <ShowTest/>
     </div>
   )
 };

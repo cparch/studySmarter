@@ -17,15 +17,27 @@ class App extends React.Component {
         {
           classTitle: "Psychology101",
           test:[
-            {testName: 'psychT1',},
-            {testName: 'psychT2',}
+            {
+              testName: 'psychT1',
+              homePageShowStudySessions: false,
+            },
+            {
+              testName: 'psychT2',
+              homePageShowStudySessions: false,
+            }
           ]
         },
         {
           classTitle: "History101",
           test:[
-            {testName: 'histT1',},
-            {testName: 'HistT2',}
+            {
+              testName: 'histT1',
+              homePageShowStudySessions: false,
+            },
+            {
+              testName: 'HistT2',
+              homePageShowStudySessions: false,
+            }
           ]
         },
       ],
@@ -33,9 +45,20 @@ class App extends React.Component {
       testNameToAdd: '',
       selectedClass: 0,
     }
+    this.homePageShowClassInfo = this.homePageShowClassInfo.bind(this);
     this.FormHandler = this.FormHandler.bind(this);
     this.AddClassSubitBtnHandler = this.AddClassSubitBtnHandler.bind(this);
     this.AddTestSubmitBtnHandler = this.AddTestSubmitBtnHandler.bind(this);
+  }
+
+
+  homePageShowClassInfo(idx){
+    let updateClasses = [...this.state.classes]
+    updateClasses[idx].homePageShowClassInfo = !updateClasses[idx].homePageShowClassInfo
+
+    this.setState({
+      classes: updateClasses
+    })
   }
 
   AddTestSubmitBtnHandler(event) {
@@ -85,6 +108,7 @@ class App extends React.Component {
               render={(props) => 
               <Home
                 classList={this.state.classes}
+                homePageShowClassInfo={this.homePageShowClassInfo}
               />}
             />
             <Route 

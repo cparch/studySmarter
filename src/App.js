@@ -78,34 +78,49 @@ class App extends React.Component {
           ]
         },
       ],
-      classNameToAdd: '',
-      testNameToAdd: '',
       selectedClass: 0,
+      selectedTest: 0,
       startTimeValue: moment(),
       SelectedStartTimeValue: '',
+      endTimeValue: moment(),
       SelectedEndTimeValue: '',
       notes: '',
+      classNameToAdd: '',
+      testNameToAdd: '',
     }
 
-    this.addStudySessionSubmitBtnHandler = this.addStudySessionSubmitBtnHandler.bind(this);
-    this.handleStudySessionEndTime = this.handleStudySessionEndTime.bind(this);
-    this.handleStudySessionStartTime = this.handleStudySessionStartTime.bind(this);
-    this.homePageShowTestStudySessions = this.homePageShowTestStudySessions.bind(this);
-    this.homePageShowClassInfo = this.homePageShowClassInfo.bind(this);
     this.FormHandler = this.FormHandler.bind(this);
+    this.handleStudySessionStartTime = this.handleStudySessionStartTime.bind(this);
+    this.handleStudySessionEndTime = this.handleStudySessionEndTime.bind(this);
+    this.addStudySessionSubmitBtnHandler = this.addStudySessionSubmitBtnHandler.bind(this);
     this.AddClassSubitBtnHandler = this.AddClassSubitBtnHandler.bind(this);
     this.AddTestSubmitBtnHandler = this.AddTestSubmitBtnHandler.bind(this);
+    this.homePageShowClassInfo = this.homePageShowClassInfo.bind(this);
+    this.homePageShowTestStudySessions = this.homePageShowTestStudySessions.bind(this);
+    this.Duration = this.Duration.bind(this);
+  }
+
+  Duration(startArr, endArr){
+    // console.log("times given to Duration", startArr, endArr)
+    let duration = new Duration(new Date(0, 0, 0, startArr[0], startArr[1]), new Date(0, 0, 0, endArr[0], endArr[1]));
+    return duration.toString("%Hs:%M")
   }
 
   addStudySessionSubmitBtnHandler = (event) => {
     event.preventDefault();
 
+    let startTimeSplit = this.state.SelectedStartTimeValue.split(':');
+    let endTimeSplit = this.state.SelectedEndTimeValue.split(':')
+
     const updateClasses = [...this.state.classes];
+    debugger
     updateClasses[this.state.selectedClass].test[this.state.selectedTest].studySession.push({
       studySessionNum: updateClasses[this.state.selectedClass].test[this.state.selectedTest].studySession.length,
       startTime: this.state.SelectedStartTimeValue,
       endTime: this.state.SelectedEndTimeValue,
       notes: this.state.notes,
+      studyDuration: this.Duration(startTimeSplit, endTimeSplit)
+
     })
 
     this.setState({
@@ -206,11 +221,12 @@ class App extends React.Component {
               classes={this.state.classes}
               tests={this.state.classes[this.state.selectedClass].test}
               startTimeValue={this.state.startTimeValue}
-              FormHandler={this.FormHandler}
-              EndTimeValue ={this.state.SelectedEndTimeValue}
+              endTimeValue={this.state.endTimeValue}
               handleStudySessionStartTime={this.handleStudySessionStartTime}
               handleStudySessionEndTime={this.handleStudySessionEndTime}
+              FormHandler={this.FormHandler}
               addStudySessionSubmitBtnHandler={this.addStudySessionSubmitBtnHandler}
+              // EndTimeValue ={this.state.SelectedEndTimeValue}
               />}
             />
             <Route

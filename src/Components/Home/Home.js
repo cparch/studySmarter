@@ -5,7 +5,17 @@ const Home = (props) => {
   const courseNames = props.classList.map((courseInfo) => {
     return(
       <div>
-          {courseInfo.classTitle}   
+        <div>
+          {courseInfo.classTitle} 
+        </div>
+          
+        <div>
+          <ShowTest
+            courseInfo={courseInfo}
+            // classIdx={idx}
+            // homePageShowTestStudySessions={props.homePageShowTestStudySessions}
+          />
+        </div>  
       </div>
     )
   })
@@ -18,7 +28,6 @@ const Home = (props) => {
       <div>
         {courseNames}
       </div>
-      <ShowTest/>
     </div>
   )
 };

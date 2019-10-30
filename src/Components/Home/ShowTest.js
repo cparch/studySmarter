@@ -1,11 +1,20 @@
 import React from 'react';
 
-const ShowTest = () => {
-  return (
+const ShowTests = (props) => {
+
+  let listItems = props.courseInfo.test.map((testInfo) =>{
+    return(
+      <div>
+        {testInfo.testName}
+      </div> 
+    )
+  });
+
+  return(
     <div>
-      Hello from showTest.js
+      {listItems}
     </div>
   )
 };
 
-export default ShowTest;
+export default ShowTests;

@@ -1,9 +1,17 @@
 import React from 'react';
 
-const AddClass = () => {
-  return(
+const AddClass = (props) => {
+  return (
     <div>
-      Hello from AddClass.js
+      <form>
+        <label>
+          Add Class Name:
+          <input type='text' placeholder='History 101'/>
+        </label>
+        <br/>
+        <br/>
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   )
 };

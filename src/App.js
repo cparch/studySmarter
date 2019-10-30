@@ -16,9 +16,18 @@ class App extends React.Component {
       classes:[
         {classTitle: "Psychology101",},
         {classTitle: "History101",},
-      ]
+      ],
+      classNameToAdd: '',
     }
+    this.FormHandler = this.FormHandler.bind(this);
   }
+
+  FormHandler(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
   render(){
     return (
       <BrowserRouter>
@@ -39,7 +48,10 @@ class App extends React.Component {
             />
             <Route
               path='/addclass'
-              render={(props) => <AddClass {...props}/>}
+              render={(props) => 
+              <AddClass 
+                FormHandler={this.FormHandler}
+              />}
             />
             <Route
               path='/addtest'

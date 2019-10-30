@@ -6,7 +6,12 @@ const AddClass = (props) => {
       <form>
         <label>
           Add Class Name:
-          <input type='text' placeholder='History 101'/>
+          <input 
+            type='text' 
+            placeholder='History 101'
+            onChange={props.FormHandler}
+            name='classNameToAdd'
+          />
         </label>
         <br/>
         <br/>

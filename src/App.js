@@ -23,7 +23,22 @@ class App extends React.Component {
     }
     this.FormHandler = this.FormHandler.bind(this);
     this.AddClassSubitBtnHandler = this.AddClassSubitBtnHandler.bind(this);
+    this.AddTestSubmitBtnHandler = this.AddTestSubmitBtnHandler.bind(this);
   }
+
+  AddTestSubmitBtnHandler(event) {
+    event.preventDefault();
+    let updateClasses = this.state.classes;
+
+    updateClasses[this.state.selectedClass].test.push({
+      testName: this.state.testNameToAdd,
+    })
+
+    this.setState({
+      classes: updateClasses,
+      testNameToAdd: '',
+    })
+  };
 
   AddClassSubitBtnHandler(event) {
     event.preventDefault();
@@ -78,6 +93,7 @@ class App extends React.Component {
               <AddTest
                 classes={this.state.classes}
                 FormHandler={this.FormHandler}
+                AddTestSubmitBtnHandler={this.AddTestSubmitBtnHandler}
               />}
             />
           </Switch>

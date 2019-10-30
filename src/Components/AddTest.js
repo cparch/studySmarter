@@ -20,6 +20,7 @@ const AddTest = (props) => {
         <label>
           Add new Test To Study For:
           <input
+            value={props.testNameToAdd} 
             onChange={props.FormHandler} 
             type='text' 
             placeholder='Chapter 1 test' 

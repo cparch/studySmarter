@@ -87,6 +87,7 @@ class App extends React.Component {
       notes: '',
     }
 
+    this.addStudySessionSubmitBtnHandler = this.addStudySessionSubmitBtnHandler.bind(this);
     this.handleStudySessionEndTime = this.handleStudySessionEndTime.bind(this);
     this.handleStudySessionStartTime = this.handleStudySessionStartTime.bind(this);
     this.homePageShowTestStudySessions = this.homePageShowTestStudySessions.bind(this);
@@ -94,6 +95,22 @@ class App extends React.Component {
     this.FormHandler = this.FormHandler.bind(this);
     this.AddClassSubitBtnHandler = this.AddClassSubitBtnHandler.bind(this);
     this.AddTestSubmitBtnHandler = this.AddTestSubmitBtnHandler.bind(this);
+  }
+
+  addStudySessionSubmitBtnHandler = (event) => {
+    event.preventDefault();
+
+    const updateClasses = [...this.state.classes];
+    updateClasses[this.state.selectedClass].test[this.state.selectedTest].studySession.push({
+      studySessionNum: updateClasses[this.state.selectedClass].test[this.state.selectedTest].studySession.length,
+      startTime: this.state.SelectedStartTimeValue,
+      endTime: this.state.SelectedEndTimeValue,
+      notes: this.state.notes,
+    })
+
+    this.setState({
+      classes: updateClasses
+    })
   }
 
   handleStudySessionEndTime(value) {
@@ -193,8 +210,7 @@ class App extends React.Component {
               EndTimeValue ={this.state.SelectedEndTimeValue}
               handleStudySessionStartTime={this.handleStudySessionStartTime}
               handleStudySessionEndTime={this.handleStudySessionEndTime}
-
-
+              addStudySessionSubmitBtnHandler={this.addStudySessionSubmitBtnHandler}
               />}
             />
             <Route

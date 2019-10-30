@@ -6,7 +6,7 @@ const AddStudySession = (props) => {
   return(
     <div>
       <p>Add Study Session!!!!!!</p>
-      <form>
+      <form onSubmit={props.addStudySessionSubmitBtnHandler}>
         <label>
           Class Name:
 

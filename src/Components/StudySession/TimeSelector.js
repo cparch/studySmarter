@@ -7,6 +7,7 @@ import 'rc-time-picker/assets/index.css';
     <div>
       <TimePicker
         value = {props.TimeValue}
+        onChange={props.timeHandler}
         showSecond={false}
         use12Hours
       />

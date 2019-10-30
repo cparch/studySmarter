@@ -36,6 +36,7 @@ const AddStudySession = (props) => {
           Start:
           <TimeSelector
             TimeValue={props.startTimeValue}
+            timeHandler={props.handleStudySessionStartTime}
           />
         </label>
 
@@ -47,6 +48,7 @@ const AddStudySession = (props) => {
           End:
           <TimeSelector
             TimeValue={props.startTimeValue}
+            timeHandler={props.handleStudySessionEndTime}
           />
         </label>
 

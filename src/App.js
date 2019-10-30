@@ -82,13 +82,33 @@ class App extends React.Component {
       testNameToAdd: '',
       selectedClass: 0,
       startTimeValue: moment(),
+      SelectedStartTimeValue: '',
+      SelectedEndTimeValue: '',
     }
 
+    this.handleStudySessionEndTime = this.handleStudySessionEndTime.bind(this);
+    this.handleStudySessionStartTime = this.handleStudySessionStartTime.bind(this);
     this.homePageShowTestStudySessions = this.homePageShowTestStudySessions.bind(this);
     this.homePageShowClassInfo = this.homePageShowClassInfo.bind(this);
     this.FormHandler = this.FormHandler.bind(this);
     this.AddClassSubitBtnHandler = this.AddClassSubitBtnHandler.bind(this);
     this.AddTestSubmitBtnHandler = this.AddTestSubmitBtnHandler.bind(this);
+  }
+
+  handleStudySessionEndTime(value) {
+    this.setState({ 
+      endTimeValue: value,
+      // [value.target.name]: value,
+      SelectedEndTimeValue: value && value.format('HH:mm')
+    });
+  }
+
+  handleStudySessionStartTime(value) {
+    this.setState({ 
+      startTimeValue: value,
+      // [event.target.name]: value && value.format('HH:mm')
+      SelectedStartTimeValue: value && value.format('HH:mm')
+    });
   }
 
   homePageShowTestStudySessions(classIdx, testIdx){
@@ -168,6 +188,12 @@ class App extends React.Component {
               classes={this.state.classes}
               tests={this.state.classes[this.state.selectedClass].test}
               startTimeValue={this.state.startTimeValue}
+              // startTimeValue = {this.state.SelectedStartTimeValue}
+              EndTimeValue ={this.state.SelectedEndTimeValue}
+              handleStudySessionStartTime={this.handleStudySessionStartTime}
+              handleStudySessionEndTime={this.handleStudySessionEndTime}
+
+
               />}
             />
             <Route

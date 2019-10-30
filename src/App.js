@@ -6,8 +6,9 @@ import './App.css';
 import Nav from './Components/Nav.js';
 import Home from './Components/Home/Home.js';
 import AddClass from './Components/AddClass.js';
-import AddStudySession from './Components/AddStudySession.js';
+import AddStudySession from './Components/StudySession/AddStudySession.js';
 import AddTest from './Components/AddTest.js';
+import moment from 'moment';
 
 class App extends React.Component {
   constructor(props){
@@ -80,6 +81,7 @@ class App extends React.Component {
       classNameToAdd: '',
       testNameToAdd: '',
       selectedClass: 0,
+      startTimeValue: moment(),
     }
 
     this.homePageShowTestStudySessions = this.homePageShowTestStudySessions.bind(this);
@@ -161,7 +163,12 @@ class App extends React.Component {
             />
             <Route 
               path='/addstudysession' 
-              render={(props) => <AddStudySession />}
+              render={(props) => 
+              <AddStudySession 
+              classes={this.state.classes}
+              tests={this.state.classes[this.state.selectedClass].test}
+              startTimeValue={this.state.startTimeValue}
+              />}
             />
             <Route
               path='/addclass'

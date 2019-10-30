@@ -12,7 +12,12 @@ import AddTest from './Components/AddTest.js';
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state={}
+    this.state={
+      classes:[
+        {classTitle: "Psychology101",},
+        {classTitle: "History101",},
+      ]
+    }
   }
   render(){
     return (
@@ -23,7 +28,10 @@ class App extends React.Component {
             <Route 
               exact
               path='/' 
-              render={(props) => <Home/>}
+              render={(props) => 
+              <Home
+                classList={this.state.classes}
+              />}
             />
             <Route 
               path='/addstudysession' 

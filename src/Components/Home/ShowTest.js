@@ -3,13 +3,17 @@ import ShowStudySessions from './ShowStudySessions.js';
 
 const ShowTests = (props) => {
 
-  let listItems = props.courseInfo.test.map((testInfo) =>{
+  let listItems = props.courseInfo.test.map((testInfo, testIdx) =>{
+    let showStudySession = null
+    if(testInfo.homePageShowStudySessions){
+      showStudySession = <ShowStudySessions
+        studySessions={testInfo.studySession}
+      />
+    }
     return(
-      <div>
+      <div onClick={() => props.homePageShowTestStudySessions(props.classIdx, testIdx)}>
         {testInfo.testName}
-        <ShowStudySessions
-          studySessions={testInfo.studySession}
-        />
+        {showStudySession}
       </div> 
     )
   });

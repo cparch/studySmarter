@@ -9,6 +9,8 @@ const Home = (props) => {
     if(courseInfo.homePageShowClassInfo){
       displayClassInfo = <ShowTest
         courseInfo={courseInfo}
+        classIdx={idx}
+        homePageShowTestStudySessions={props.homePageShowTestStudySessions}
       />
     }
     

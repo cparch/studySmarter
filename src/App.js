@@ -81,12 +81,22 @@ class App extends React.Component {
       testNameToAdd: '',
       selectedClass: 0,
     }
+
+    this.homePageShowTestStudySessions = this.homePageShowTestStudySessions.bind(this);
     this.homePageShowClassInfo = this.homePageShowClassInfo.bind(this);
     this.FormHandler = this.FormHandler.bind(this);
     this.AddClassSubitBtnHandler = this.AddClassSubitBtnHandler.bind(this);
     this.AddTestSubmitBtnHandler = this.AddTestSubmitBtnHandler.bind(this);
   }
 
+  homePageShowTestStudySessions(classIdx, testIdx){
+    let updateClasses = [...this.state.classes]
+    updateClasses[classIdx].test[testIdx].homePageShowStudySessions = !updateClasses[classIdx].test[testIdx].homePageShowStudySessions
+
+    this.setState({
+      classes: updateClasses
+    })
+  }
 
   homePageShowClassInfo(idx){
     let updateClasses = [...this.state.classes]
@@ -146,6 +156,7 @@ class App extends React.Component {
               <Home
                 classList={this.state.classes}
                 homePageShowClassInfo={this.homePageShowClassInfo}
+                homePageShowTestStudySessions={this.homePageShowTestStudySessions}
               />}
             />
             <Route 

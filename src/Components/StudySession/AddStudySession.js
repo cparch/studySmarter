@@ -1,5 +1,6 @@
 import React from 'react';
 import TimeSelector from './TimeSelector.js';
+import 'rc-time-picker/assets/index.css';
 
 const AddStudySession = (props) => {
   return(
@@ -9,9 +10,9 @@ const AddStudySession = (props) => {
         <label>
           Class Name:
 
-          <select> 
-            {props.classes.map((classes) => (
-              <option  key={classes.classTitle}>
+          <select name="selectedClass" onChange={props.FormHandler}> 
+            {props.classes.map((classes, idx) => (
+              <option  key={classes.classTitle} value={idx}>
                 {classes.classTitle}
               </option>
             ))}
@@ -22,9 +23,9 @@ const AddStudySession = (props) => {
 
         <label>
           Test Name:
-          <select> 
-              {props.tests.map((test) => (
-                <option key={test.testName}>
+          <select name="selectedTest" onChange={props.FormHandler}> 
+              {props.tests.map((test, idx) => (
+                <option key={test.testName} value={idx}>
                   {test.testName}
                 </option>
               ))}
@@ -58,7 +59,9 @@ const AddStudySession = (props) => {
 
         <label>
           Notes:
-          <input 
+          <input
+            onChange={props.FormHandler}
+            name="notes"
             type="text" 
           />
         </label>

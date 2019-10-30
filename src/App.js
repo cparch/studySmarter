@@ -84,6 +84,7 @@ class App extends React.Component {
       startTimeValue: moment(),
       SelectedStartTimeValue: '',
       SelectedEndTimeValue: '',
+      notes: '',
     }
 
     this.handleStudySessionEndTime = this.handleStudySessionEndTime.bind(this);
@@ -188,7 +189,7 @@ class App extends React.Component {
               classes={this.state.classes}
               tests={this.state.classes[this.state.selectedClass].test}
               startTimeValue={this.state.startTimeValue}
-              // startTimeValue = {this.state.SelectedStartTimeValue}
+              FormHandler={this.FormHandler}
               EndTimeValue ={this.state.SelectedEndTimeValue}
               handleStudySessionStartTime={this.handleStudySessionStartTime}
               handleStudySessionEndTime={this.handleStudySessionEndTime}

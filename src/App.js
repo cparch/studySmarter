@@ -72,7 +72,10 @@ class App extends React.Component {
             />
             <Route
               path='/addtest'
-              render={(props) => <AddTest/>}
+              render={(props) => 
+              <AddTest
+                classes={this.state.classes}
+              />}
             />
           </Switch>
         </div>

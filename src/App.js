@@ -120,7 +120,7 @@ class App extends React.Component {
     let endTimeSplit = this.state.SelectedEndTimeValue.split(':')
 
     const updateClasses = [...this.state.classes];
-    debugger
+    
     updateClasses[this.state.selectedClass].test[this.state.selectedTest].studySession.push({
       studySessionNum: updateClasses[this.state.selectedClass].test[this.state.selectedTest].studySession.length,
       startTime: this.state.SelectedStartTimeValue,

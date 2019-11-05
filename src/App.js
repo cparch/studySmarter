@@ -22,6 +22,7 @@ class App extends React.Component {
             {
               testName: 'psychT1',
               homePageShowStudySessions: false,
+              grade: '',
               studySession: [
                 {
                   endTime: "17:50",
@@ -35,6 +36,7 @@ class App extends React.Component {
             {
               testName: 'psychT2',
               homePageShowStudySessions: false,
+              grade: '',
               studySession: [
                 {
                   endTime: "13:00",
@@ -53,6 +55,7 @@ class App extends React.Component {
             {
               testName: 'histT1',
               homePageShowStudySessions: false,
+              grade: '',
               studySession: [
                 {
                   endTime: "6:46",
@@ -66,6 +69,7 @@ class App extends React.Component {
             {
               testName: 'HistT2',
               homePageShowStudySessions: false,
+              grade: '',
               studySession: [
                 {
                   endTime: "17:46",
@@ -88,6 +92,7 @@ class App extends React.Component {
       notes: '',
       classNameToAdd: '',
       testNameToAdd: '',
+      gradeInput: '',
     }
 
     this.FormHandler = this.FormHandler.bind(this);
@@ -99,6 +104,7 @@ class App extends React.Component {
     this.homePageShowClassInfo = this.homePageShowClassInfo.bind(this);
     this.homePageShowTestStudySessions = this.homePageShowTestStudySessions.bind(this);
     this.Duration = this.Duration.bind(this);
+    this.AddGradeHandler = this.AddGradeHandler.bind(this);
   }
 
   Duration(startArr, endArr){
@@ -127,6 +133,13 @@ class App extends React.Component {
     this.setState({
       classes: updateClasses
     })
+  }
+
+  AddGradeHandler(event){
+    event.preventDefault(); 
+    let updateClasses = this.state.classes
+    updateClasses[this.state.selectedClass].test[this.state.selectedTest].grade = this.state.gradeInput
+    this.setState({classes: updateClasses})
   }
 
   handleStudySessionEndTime(value) {
@@ -170,6 +183,7 @@ class App extends React.Component {
     updateClasses[this.state.selectedClass].test.push({
       testName: this.state.testNameToAdd,
       studySession: [], 
+      grade: '',
     })
 
     this.setState({
@@ -251,7 +265,13 @@ class App extends React.Component {
             <Route
               path='/AddGrade'
               render={(props) => 
-              <AddGrade/>}
+              <AddGrade
+                classes={this.state.classes}
+                FormHandler={this.FormHandler}
+                tests={this.state.classes[this.state.selectedClass].test}
+                AddGradeHandler = {this.AddGradeHandler}
+
+              />}
             />  
           </Switch>
         </div>

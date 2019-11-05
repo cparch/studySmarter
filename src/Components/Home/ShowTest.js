@@ -1,5 +1,6 @@
 import React from 'react';
 import ShowStudySessions from './ShowStudySessions.js';
+import './ShowTest.css';
 
 const ShowTests = (props) => {
 
@@ -11,7 +12,10 @@ const ShowTests = (props) => {
       />
     }
     return(
-      <div onClick={() => props.homePageShowTestStudySessions(props.classIdx, testIdx)}>
+      <div 
+        className='testName'
+        onClick={() => props.homePageShowTestStudySessions(props.classIdx, testIdx)}
+      >
         {testInfo.testName}
         {showStudySession}
       </div> 

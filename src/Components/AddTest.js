@@ -6,7 +6,10 @@ const AddTest = (props) => {
     <div>
       <form onSubmit={props.AddTestSubmitBtnHandler}>
         <label>
-            Class Name:
+            <h2>
+              Class Name:
+            </h2>
+            
             <select name="selectedClass" onChange={props.FormHandler}> 
               {props.classes.map((classes, idx) => (
                 <option key={classes.classTitle} value={idx}>

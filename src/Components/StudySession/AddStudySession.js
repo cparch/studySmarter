@@ -5,7 +5,7 @@ import 'rc-time-picker/assets/index.css';
 const AddStudySession = (props) => {
   return(
     <div>
-      <p>Add Study Session!!!!!!</p>
+      <h2>Add Study Session!!!!!!</h2>
       <form onSubmit={props.addStudySessionSubmitBtnHandler}>
         <label>
           Class Name:

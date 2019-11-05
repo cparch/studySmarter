@@ -5,7 +5,7 @@ const AddClass = (props) => {
     <div>
       <form onSubmit={props.AddClassSubitBtnHandler}>
         <label>
-          Add Class Name:
+          <h2>Add Class Name:</h2>
           <input 
             value={props.classNameToAdd}
             onChange={props.FormHandler}

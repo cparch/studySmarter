@@ -3,9 +3,9 @@ import React from 'react';
 const AddGrade = (props) => {
   return(
     <div>
-      <div>
+      <h2>
         Add test grade!!!
-      </div>
+      </h2>
 
       {/* <form> */}
       <form onSubmit={props.AddGradeHandler}>

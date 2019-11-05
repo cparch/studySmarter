@@ -1,11 +1,12 @@
 import React from 'react';
+import './ShowStudySessions.css'
 
 const ShowStudySession = (props) => { 
 
   const listItems = props.studySessions.map(studySession => {
 
     return(
-      <div>
+      <div className='studySessionContainer'>
         <div>
           Study Session Number: {studySession.studySessionNum}
         </div>

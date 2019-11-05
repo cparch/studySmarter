@@ -1,5 +1,6 @@
 import React from 'react';
 import ShowTest from './ShowTest.js'
+import './Home.css';
 
 const Home = (props) => {
   const courseNames = props.classList.map((courseInfo, idx) => {
@@ -15,8 +16,9 @@ const Home = (props) => {
     }
     
     return(
-      <div>
-        <div 
+      <div className='courseContainer'>
+        <div
+          className='courseTitle' 
           onClick={() => props.homePageShowClassInfo(idx)}
           key={courseInfo.classTitle}
         >
@@ -31,9 +33,9 @@ const Home = (props) => {
 
   return (
     <div>
-      <div>
+      <h2>
         Class Names:
-      </div>
+      </h2>
       <div>
         {courseNames}
       </div>

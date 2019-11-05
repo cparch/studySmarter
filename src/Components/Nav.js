@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './Nav.css';
 
 const Nav = () => {
 
   return (
-    <nav>
+    <nav className='sidenav'>
       <h3>StudySmarter</h3>
       <ul>
         <Link to='/'>

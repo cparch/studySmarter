@@ -218,7 +218,8 @@ class App extends React.Component {
       <BrowserRouter>
         <div>
           <Nav/>
-          <Switch>
+          <div className='main'>
+          <Switch >
             <Route 
               exact
               path='/' 
@@ -274,6 +275,7 @@ class App extends React.Component {
               />}
             />  
           </Switch>
+          </div> 
         </div>
       </BrowserRouter>
     );

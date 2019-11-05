@@ -8,6 +8,7 @@ import Home from './Components/Home/Home.js';
 import AddClass from './Components/AddClass.js';
 import AddStudySession from './Components/StudySession/AddStudySession.js';
 import AddTest from './Components/AddTest.js';
+import AddGrade from './Components/AddGrade';
 import moment from 'moment';
 
 class App extends React.Component {
@@ -246,6 +247,12 @@ class App extends React.Component {
                 AddTestSubmitBtnHandler={this.AddTestSubmitBtnHandler}
               />}
             />
+
+            <Route
+              path='/AddGrade'
+              render={(props) => 
+              <AddGrade/>}
+            />  
           </Switch>
         </div>
       </BrowserRouter>

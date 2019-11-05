@@ -22,6 +22,14 @@ const Nav = () => {
         <Link to='/addstudysession'>
           <li>Add Study Session</li>
         </Link>
+
+        <Link to='/addGrade'>
+          <li>Add Test Grade</li>
+        </Link>
+
+
+
+        
         
       </ul>
     </nav>

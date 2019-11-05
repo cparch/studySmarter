@@ -6,7 +6,7 @@ const Nav = () => {
 
   return (
     <nav className='sidenav'>
-      <h3>StudySmarter</h3>
+      <h2>StudySmarter</h2>
       <ul>
         <Link to='/'>
           <li>Home</li>

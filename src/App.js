@@ -29,7 +29,21 @@ class App extends React.Component {
                   notes: "test",
                   startTime: "13:50",
                   studySessionNum: 'psychT1 - study session 0',
-                  studyDuration: "4:00"
+                  studyDuration: "1:00"
+                },
+                {
+                  endTime: "08:20",
+                  notes: "test",
+                  startTime: "06:50",
+                  studySessionNum: 'psychT1 - study session 1',
+                  studyDuration: "2:00"
+                },
+                {
+                  endTime: "06:15",
+                  notes: "test",
+                  startTime: "06:20",
+                  studySessionNum: 'psychT1 - study session 1',
+                  studyDuration: "0:09"
                 }
               ],
             },
@@ -105,6 +119,65 @@ class App extends React.Component {
     this.homePageShowTestStudySessions = this.homePageShowTestStudySessions.bind(this);
     this.Duration = this.Duration.bind(this);
     this.AddGradeHandler = this.AddGradeHandler.bind(this);
+    this.studyTimePerTest = this.studyTimePerTest.bind(this);
+  }
+
+  /* the func below will calculate the total amount of time a student has spent studying for a tests.
+  I am calling this manually in this file on line 287
+  the next step will be to call this function when a test if clicked from teh home page.
+  when you click on a test name from the home page, that should activate this function
+  and the return should auto populate the state
+  with the new state we should be able to print out the total amount of time studied
+
+   */
+
+  studyTimePerTest(classIdx, testIdx){ 
+    let updatedClass = [...this.state.classes];
+    let totalTime = 0;
+
+    updatedClass[classIdx].test[testIdx].studySession.map(studySession => {
+
+      let timeSplit= studySession.studyDuration.split(':')
+      let hoursToMin = Number(timeSplit[0]) * 60
+      let hoursPlusMin = hoursToMin + Number(timeSplit[1])
+
+      totalTime += hoursPlusMin
+    })
+
+    //Now we have a total number if mintes.
+    // next we need to bring it back to an hour format
+
+    let totalMinToHr = totalTime/60
+    //330 min / 60 min = 5.5 hr
+
+
+    if(totalMinToHr.toString().indexOf('.') === -1){
+      //if there is no decimal aka the total min is evenly divisable by 60 min. e.g. 300 min / 60 min = 5 hr
+      return totalMinToHr.toString() + ':00'
+
+    } else {
+      //if there is a decimal when you divde the total min by 60 (e.g 332 min / 60 min = 5.5333 hr)
+      let totalMinToHrSplit = totalMinToHr.toString().split('.')
+      // split to [5, 5333]
+
+      let num = Number('.' + totalMinToHrSplit[1]).toFixed(2).split('.')
+    
+
+      console.log('line 157 num', num)
+
+      num[1] = (num[1] * .60).toFixed(0).toString()
+      //.53 * .60 = 
+
+      if(num[1].toString().length === 1){
+        num[1] = '0' + num[1].toString()
+      }
+
+      totalMinToHrSplit[1] = num[1]
+      //[5, 53]
+
+      return totalMinToHrSplit.join(':')
+      //return 5:53
+    }
   }
 
   Duration(startArr, endArr){
@@ -214,6 +287,8 @@ class App extends React.Component {
   }
 
   render(){
+
+    console.log("line 243", this.studyTimePerTest(0,0))
     return (
       <BrowserRouter>
         <div>

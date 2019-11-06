@@ -16,11 +16,14 @@ const Home = (props) => {
     }
     
     return(
-      <div className='courseContainer'>
+      <div 
+        className='courseContainer'
+        key={courseInfo.classTitle}
+      >
         <div
           className='courseTitle' 
           onClick={() => props.homePageShowClassInfo(idx)}
-          key={courseInfo.classTitle}
+          
         >
           {courseInfo.classTitle} 
         </div>

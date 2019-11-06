@@ -15,6 +15,7 @@ const ShowTests = (props) => {
       <div 
         className='testName'
         onClick={() => props.homePageShowTestStudySessions(props.classIdx, testIdx)}
+        key={testInfo.testName}
       >
         {testInfo.testName}
         {showStudySession}

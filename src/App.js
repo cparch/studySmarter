@@ -29,21 +29,21 @@ class App extends React.Component {
                   notes: "test",
                   startTime: "13:50",
                   studySessionNum: 'psychT1 - study session 0',
-                  studyDuration: "1:00"
+                  studySessionDuration: "1:00"
                 },
                 {
                   endTime: "08:20",
                   notes: "test",
                   startTime: "06:50",
                   studySessionNum: 'psychT1 - study session 1',
-                  studyDuration: "2:00"
+                  studySessionDuration: "2:00"
                 },
                 {
                   endTime: "06:15",
                   notes: "test",
                   startTime: "06:20",
                   studySessionNum: 'psychT1 - study session 1',
-                  studyDuration: "0:09"
+                  studySessionDuration: "0:09"
                 }
               ],
             },
@@ -57,7 +57,7 @@ class App extends React.Component {
                   notes: "test",
                   startTime: "13:50",
                   studySessionNum: 'psychT2 - study session 0',
-                  studyDuration: "0:50"
+                  studySessionDuration: "0:50"
                 }
               ],
             }
@@ -76,7 +76,7 @@ class App extends React.Component {
                   notes: "test",
                   startTime: "6:10",
                   studySessionNum: 'histT1 - study session 0',
-                  studyDuration: "0:36"
+                  studySessionDuration: "0:36"
                 }
               ],
             },
@@ -90,7 +90,7 @@ class App extends React.Component {
                   notes: "test",
                   startTime: "15:00",
                   studySessionNum: 'histT2 - study session 0',
-                  studyDuration: "2:46"
+                  studySessionDuration: "2:46"
                 }
               ],
             }
@@ -131,13 +131,13 @@ class App extends React.Component {
 
    */
 
-  studyTimePerTest(classIdx, testIdx){ 
-    let updatedClass = [...this.state.classes];
+  studyTimePerTest(classIdx, testIdx, updateClasses){ 
+    let updatedClass = updateClasses;
     let totalTime = 0;
 
     updatedClass[classIdx].test[testIdx].studySession.map(studySession => {
 
-      let timeSplit= studySession.studyDuration.split(':')
+      let timeSplit= studySession.studySessionDuration.split(':')
       let hoursToMin = Number(timeSplit[0]) * 60
       let hoursPlusMin = hoursToMin + Number(timeSplit[1])
 
@@ -161,9 +161,6 @@ class App extends React.Component {
       // split to [5, 5333]
 
       let num = Number('.' + totalMinToHrSplit[1]).toFixed(2).split('.')
-    
-
-      console.log('line 157 num', num)
 
       num[1] = (num[1] * .60).toFixed(0).toString()
       //.53 * .60 = 
@@ -199,9 +196,23 @@ class App extends React.Component {
       startTime: this.state.SelectedStartTimeValue,
       endTime: this.state.SelectedEndTimeValue,
       notes: this.state.notes,
-      studyDuration: this.Duration(startTimeSplit, endTimeSplit)
-
+      studySessionDuration: this.Duration(startTimeSplit, endTimeSplit)
     })
+
+    updateClasses[this.state.selectedClass].test[this.state.selectedTest].totalTimeStudiedPerTest = this.studyTimePerTest(this.state.selectedClass, this.state.selectedTest,updateClasses)
+
+  
+
+    /*
+    here we need to call the find duration function. In this part of teh function
+    the new study session will be added
+
+    */
+
+   
+
+      // console.log("line 211", this.studyTimePerTest(this.state.selectedClass, this.state.selectedTest,updateClasses))
+
 
     this.setState({
       classes: updateClasses
@@ -288,7 +299,7 @@ class App extends React.Component {
 
   render(){
 
-    console.log("line 243", this.studyTimePerTest(0,0))
+    // console.log("line 243", this.studyTimePerTest(0,0))
     return (
       <BrowserRouter>
         <div>

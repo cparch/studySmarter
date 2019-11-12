@@ -19,7 +19,7 @@ const ShowStudySession = (props) => {
         </div>
 
         <div>
-          Duration of study session: {studySession.studyDuration}
+          Duration of study session: {studySession.studySessionDuration}
         </div>
 
         <div>

@@ -122,15 +122,6 @@ class App extends React.Component {
     this.studyTimePerTest = this.studyTimePerTest.bind(this);
   }
 
-  /* the func below will calculate the total amount of time a student has spent studying for a tests.
-  I am calling this manually in this file on line 287
-  the next step will be to call this function when a test if clicked from teh home page.
-  when you click on a test name from the home page, that should activate this function
-  and the return should auto populate the state
-  with the new state we should be able to print out the total amount of time studied
-
-   */
-
   studyTimePerTest(classIdx, testIdx, updateClasses){ 
     let updatedClass = updateClasses;
     let totalTime = 0;
@@ -149,7 +140,6 @@ class App extends React.Component {
 
     let totalMinToHr = totalTime/60
     //330 min / 60 min = 5.5 hr
-
 
     if(totalMinToHr.toString().indexOf('.') === -1){
       //if there is no decimal aka the total min is evenly divisable by 60 min. e.g. 300 min / 60 min = 5 hr
@@ -200,19 +190,6 @@ class App extends React.Component {
     })
 
     updateClasses[this.state.selectedClass].test[this.state.selectedTest].totalTimeStudiedPerTest = this.studyTimePerTest(this.state.selectedClass, this.state.selectedTest,updateClasses)
-
-  
-
-    /*
-    here we need to call the find duration function. In this part of teh function
-    the new study session will be added
-
-    */
-
-   
-
-      // console.log("line 211", this.studyTimePerTest(this.state.selectedClass, this.state.selectedTest,updateClasses))
-
 
     this.setState({
       classes: updateClasses
@@ -298,8 +275,6 @@ class App extends React.Component {
   }
 
   render(){
-
-    // console.log("line 243", this.studyTimePerTest(0,0))
     return (
       <BrowserRouter>
         <div>

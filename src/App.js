@@ -23,6 +23,7 @@ class App extends React.Component {
               testName: 'psychT1',
               homePageShowStudySessions: false,
               grade: '',
+              totalTimeStudiedPerTest: "3:09",
               studySession: [
                 {
                   endTime: "17:50",
@@ -51,6 +52,7 @@ class App extends React.Component {
               testName: 'psychT2',
               homePageShowStudySessions: false,
               grade: '',
+              totalTimeStudiedPerTest: "0:50",
               studySession: [
                 {
                   endTime: "13:00",
@@ -70,6 +72,7 @@ class App extends React.Component {
               testName: 'histT1',
               homePageShowStudySessions: false,
               grade: '',
+              totalTimeStudiedPerTest: "0:36",
               studySession: [
                 {
                   endTime: "6:46",
@@ -84,6 +87,7 @@ class App extends React.Component {
               testName: 'HistT2',
               homePageShowStudySessions: false,
               grade: '',
+              totalTimeStudiedPerTest: "2:46",
               studySession: [
                 {
                   endTime: "17:46",

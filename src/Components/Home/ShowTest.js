@@ -17,7 +17,7 @@ const ShowTests = (props) => {
         onClick={() => props.homePageShowTestStudySessions(props.classIdx, testIdx)}
         key={testInfo.testName}
       >
-        {testInfo.testName}
+        {testInfo.testName}: Total Time Studied for this test: {testInfo.totalTimeStudiedPerTest}
         {showStudySession}
       </div> 
     )

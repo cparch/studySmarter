@@ -249,6 +249,7 @@ class App extends React.Component {
       testName: this.state.testNameToAdd,
       studySession: [], 
       grade: '',
+      totalTimeStudiedPerTest: "0:00",
     })
 
     this.setState({

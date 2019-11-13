@@ -9,6 +9,7 @@ import AddClass from './Components/AddClass.js';
 import AddStudySession from './Components/StudySession/AddStudySession.js';
 import AddTest from './Components/AddTest.js';
 import AddGrade from './Components/AddGrade';
+import StudyInsights from './Components/StudyInsights/StudyInsights.js'
 import moment from 'moment';
 
 class App extends React.Component {
@@ -339,7 +340,18 @@ class App extends React.Component {
                 AddGradeHandler = {this.AddGradeHandler}
 
               />}
-            />  
+            /> 
+
+            <Route
+              path='/StudyInsights'
+              render={(props) => 
+              <StudyInsights/>}
+            /> 
+
+
+
+
+             
           </Switch>
           </div> 
         </div>

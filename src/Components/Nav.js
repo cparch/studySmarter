@@ -28,10 +28,9 @@ const Nav = () => {
           <li>Add Test Grade</li>
         </Link>
 
-
-
-        
-        
+        <Link to= '/StudyInsights'>
+          <li>Study Insights</li>
+        </Link>
       </ul>
     </nav>
   )

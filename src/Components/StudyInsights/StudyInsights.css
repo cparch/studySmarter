@@ -1,0 +1,12 @@
+.cell {
+  border-right: 1px solid black;
+}
+
+th{
+ padding: 2%
+}
+
+th, td {
+  border-bottom: 1px solid black;
+  text-align: center;
+}

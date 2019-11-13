@@ -6,10 +6,15 @@ const ShowTests = (props) => {
 
   let listItems = props.courseInfo.test.map((testInfo, testIdx) =>{
     let showStudySession = null
+    let testGradeOrStudyTime = `Total Time Studied for this test: ${testInfo.totalTimeStudiedPerTest}`
     if(testInfo.homePageShowStudySessions){
       showStudySession = <ShowStudySessions
         studySessions={testInfo.studySession}
       />
+    }
+
+    if(testInfo.grade){
+      testGradeOrStudyTime = `Grade: ${testInfo.grade}`
     }
     return(
       <div 
@@ -17,7 +22,7 @@ const ShowTests = (props) => {
         onClick={() => props.homePageShowTestStudySessions(props.classIdx, testIdx)}
         key={testInfo.testName}
       >
-        {testInfo.testName}: Total Time Studied for this test: {testInfo.totalTimeStudiedPerTest}
+        {testInfo.testName}: {testGradeOrStudyTime}
         {showStudySession}
       </div> 
     )

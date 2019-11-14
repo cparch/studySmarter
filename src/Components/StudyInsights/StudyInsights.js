@@ -17,8 +17,8 @@ class StudyInsights extends React.Component {
   FindAvgStudyTimePerGrade(listOfClasses){
     let totalPerGrade = this.state.avgTimesPerGrade;
 
-    listOfClasses.map( course => {
-      course.test.map(test => {
+    listOfClasses.forEach( course => {
+      course.test.forEach(test => {
         if(test.grade.length > 0){
 
           if(totalPerGrade[test.grade]){
@@ -36,7 +36,7 @@ class StudyInsights extends React.Component {
 
     for(let key in totalPerGrade){
       let timeInMin = 0;
-      totalPerGrade[key].totalStudyTimePerTest.map( time => {
+      totalPerGrade[key].totalStudyTimePerTest.forEach( time => {
 
         let timeSplit= time.split(':')
         let hoursToMin = Number(timeSplit[0]) * 60
@@ -82,7 +82,7 @@ class StudyInsights extends React.Component {
     let updateAvgTimesPerGradeArray = [...this.state.avgTimesPerGradeArray];
 
     for(let key in this.state.avgTimesPerGrade){
-      updateAvgTimesPerGradeArray.map((grade, idx) => {
+      updateAvgTimesPerGradeArray.forEach((grade, idx) => {
     
         if(grade[0] === key){
           updateAvgTimesPerGradeArray[idx][1] = `${this.state.avgTimesPerGrade[key].avgTime} hours`

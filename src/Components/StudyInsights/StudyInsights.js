@@ -10,7 +10,6 @@ class StudyInsights extends React.Component {
       avgTimesPerGrade: {},
       avgTimesPerGradeArray: [["A", "no Data"], ["B", "no Data"], ["C", "no Data"], ["D", "no Data"], ["F", "no Data"]]
     }
-
     this.FindAvgStudyTimePerGrade = this.FindAvgStudyTimePerGrade.bind(this);
     this.fromObjToArray = this.fromObjToArray.bind(this);
   }
@@ -76,7 +75,6 @@ class StudyInsights extends React.Component {
     this.FindAvgStudyTimePerGrade(this.state.classes)
   }
   render(){
-
     let list = this.state.avgTimesPerGradeArray.map(grade => {
       return(
         <tr key={grade[0]}>
@@ -88,24 +86,16 @@ class StudyInsights extends React.Component {
 
     return(
       <div>
-        <h1>
-          Study Insights
-        </h1>
-  
-        <h3>
-          This page is intended to give you an idea of what study habbits give you the best chance of earning a grade.
-        </h3>
-  
+        <h1>Study Insights </h1>
+        <h3>This page is intended to give you an idea of what study habbits give you the best chance of earning a grade.</h3>
         <table id="myTable">
           <thead>
             <tr>
               <th className='cell tableHeader'>Grade</th>
-              <th className='tableHeader'>Average Study Time </th>
+              <th className='tableHeader'>Average Study Time</th>
             </tr>
           </thead>
-          <tbody>
-            {list}
-          </tbody>
+          <tbody>{list}</tbody>
         </table>
       </div>
     )

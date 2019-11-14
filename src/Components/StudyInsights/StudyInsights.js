@@ -1,5 +1,6 @@
 import React from 'react';
 import './StudyInsights.css';
+import Duration from 'duration';
 
 class StudyInsights extends React.Component {
   constructor(props){
@@ -36,43 +37,23 @@ class StudyInsights extends React.Component {
 
     for(let key in totalPerGrade){
       let timeInMin = 0;
+  
       totalPerGrade[key].totalStudyTimePerTest.forEach( time => {
-
+        
         let timeSplit= time.split(':')
         let hoursToMin = Number(timeSplit[0]) * 60
         let hoursPlusMin = hoursToMin + Number(timeSplit[1])
   
         timeInMin += hoursPlusMin 
       })
-      let avgMin = timeInMin/totalPerGrade[key].count
 
-      let totalMinToHr = avgMin/60
-      //330 min / 60 min = 5.5 hr
+      let avgMin = timeInMin/totalPerGrade[key].count;
+      let endDate = new Date(0,0,0);
 
-      if(totalMinToHr.toString().indexOf('.') === -1){
-        //if there is no decimal aka the total min is evenly divisable by 60 min. e.g. 300 min / 60 min = 5 hr
-        totalPerGrade[key].avgTime = totalMinToHr.toString() + ':00'
+      endDate.setMinutes(endDate.getMinutes() + avgMin)
+      let duration = new Duration(new Date(0, 0, 0), endDate).toString("%Hs:%M");
 
-      } else {
-        //if there is a decimal when you divde the total min by 60 (e.g 332 min / 60 min = 5.5333 hr)
-        let totalMinToHrSplit = totalMinToHr.toString().split('.')
-        // split to [5, 5333]
-
-        let num = Number('.' + totalMinToHrSplit[1]).toFixed(2).split('.')
-
-        num[1] = (num[1] * .60).toFixed(0).toString()
-        //.53 * .60 = 
-
-        if(num[1].toString().length === 1){
-          num[1] = '0' + num[1].toString()
-        }
-
-        totalMinToHrSplit[1] = num[1]
-        //[5, 53]
-
-        totalPerGrade[key].avgTime = totalMinToHrSplit.join(':')
-        //return 5:53
-      }
+      totalPerGrade[key].avgTime = duration
     }
     this.setState({avgTimesPerGrade: totalPerGrade})
     this.fromObjToArray(this.state.avgTimesPerGrade)

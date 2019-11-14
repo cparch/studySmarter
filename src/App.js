@@ -128,48 +128,15 @@ class App extends React.Component {
   }
 
   studyTimePerTest(classIdx, testIdx, updateClasses){ 
-    let updatedClass = updateClasses;
-    let totalTime = 0;
+    //need to pass in updateClasses Argument as this will have updated info that the current state does not have.
+    let endDate = new Date(0,0,0);
 
-    updatedClass[classIdx].test[testIdx].studySession.map(studySession => {
-
-      let timeSplit= studySession.studySessionDuration.split(':')
-      let hoursToMin = Number(timeSplit[0]) * 60
-      let hoursPlusMin = hoursToMin + Number(timeSplit[1])
-
-      totalTime += hoursPlusMin
+    updateClasses[classIdx].test[testIdx].studySession.forEach(studySession => {
+      let timeSplit= studySession.studySessionDuration.split(':');
+      endDate.setHours(endDate.getHours() + Number(timeSplit[0]))
+      endDate.setMinutes(endDate.getMinutes() + Number(timeSplit[1]))
     })
-
-    //Now we have a total number if mintes.
-    // next we need to bring it back to an hour format
-
-    let totalMinToHr = totalTime/60
-    //330 min / 60 min = 5.5 hr
-
-    if(totalMinToHr.toString().indexOf('.') === -1){
-      //if there is no decimal aka the total min is evenly divisable by 60 min. e.g. 300 min / 60 min = 5 hr
-      return totalMinToHr.toString() + ':00'
-
-    } else {
-      //if there is a decimal when you divde the total min by 60 (e.g 332 min / 60 min = 5.5333 hr)
-      let totalMinToHrSplit = totalMinToHr.toString().split('.')
-      // split to [5, 5333]
-
-      let num = Number('.' + totalMinToHrSplit[1]).toFixed(2).split('.')
-
-      num[1] = (num[1] * .60).toFixed(0).toString()
-      //.53 * .60 = 
-
-      if(num[1].toString().length === 1){
-        num[1] = '0' + num[1].toString()
-      }
-
-      totalMinToHrSplit[1] = num[1]
-      //[5, 53]
-
-      return totalMinToHrSplit.join(':')
-      //return 5:53
-    }
+    return new Duration(new Date(0, 0, 0), endDate).toString("%Hs:%M");
   }
 
   Duration(startArr, endArr){

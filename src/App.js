@@ -23,7 +23,7 @@ class App extends React.Component {
             {
               testName: 'psychT1',
               homePageShowStudySessions: false,
-              grade: 'A',
+              grade: 'B',
               totalTimeStudiedPerTest: "3:09",
               studySession: [
                 {
@@ -53,14 +53,14 @@ class App extends React.Component {
               testName: 'psychT2',
               homePageShowStudySessions: false,
               grade: 'A',
-              totalTimeStudiedPerTest: "0:50",
+              totalTimeStudiedPerTest: "3:00",
               studySession: [
                 {
                   endTime: "13:00",
                   notes: "test",
                   startTime: "13:50",
                   studySessionNum: 'psychT2 - study session 0',
-                  studySessionDuration: "0:50"
+                  studySessionDuration: "3:00"
                 }
               ],
             }
@@ -73,14 +73,14 @@ class App extends React.Component {
               testName: 'histT1',
               homePageShowStudySessions: false,
               grade: 'A',
-              totalTimeStudiedPerTest: "0:36",
+              totalTimeStudiedPerTest: "4:00",
               studySession: [
                 {
                   endTime: "6:46",
                   notes: "test",
                   startTime: "6:10",
                   studySessionNum: 'histT1 - study session 0',
-                  studySessionDuration: "0:36"
+                  studySessionDuration: "4:00"
                 }
               ],
             },
@@ -345,7 +345,9 @@ class App extends React.Component {
             <Route
               path='/StudyInsights'
               render={(props) => 
-              <StudyInsights/>}
+              <StudyInsights
+                classes = {this.state.classes}
+              />}
             /> 
 
 

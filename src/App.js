@@ -128,7 +128,7 @@ class App extends React.Component {
   }
 
   studyTimePerTest(classIdx, testIdx, updateClasses){ 
-    //need to pass in updateClasses Argument as this will have updated info that the current state does not have.
+    //need to pass in updateClasses argument as this will have updated info that the current state does not have.
     let endDate = new Date(0,0,0);
 
     updateClasses[classIdx].test[testIdx].studySession.forEach(studySession => {
@@ -140,7 +140,7 @@ class App extends React.Component {
   }
 
   Duration(startArr, endArr){
-    // console.log("times given to Duration", startArr, endArr)
+    //The parameteres are times that are pre-split 10:00am, 11:00am ([10, 00], [11, 00])
     let duration = new Duration(new Date(0, 0, 0, startArr[0], startArr[1]), new Date(0, 0, 0, endArr[0], endArr[1]));
     return duration.toString("%Hs:%M")
   }
@@ -316,11 +316,6 @@ class App extends React.Component {
                 classes = {this.state.classes}
               />}
             /> 
-
-
-
-
-             
           </Switch>
           </div> 
         </div>

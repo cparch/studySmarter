@@ -11,7 +11,7 @@ const AddStudySession = (props) => {
           Class Name:
 
           <select name="selectedClass" onChange={props.FormHandler}> 
-            {props.classes.map((classes, idx) => (
+            {props.entireState.classes.map((classes, idx) => (
               <option  key={classes.classTitle} value={idx}>
                 {classes.classTitle}
               </option>
@@ -63,6 +63,7 @@ const AddStudySession = (props) => {
             onChange={props.FormHandler}
             name="notes"
             type="text" 
+            value= {props.entireState.notes}
           />
         </label>
         <br></br>

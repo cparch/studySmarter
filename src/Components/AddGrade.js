@@ -13,7 +13,7 @@ const AddGrade = (props) => {
           Class Name:
 
           <select name="selectedClass" onChange={props.FormHandler}> 
-            {props.classes.map((classes, idx) => (
+            {props.entireState.classes.map((classes, idx) => (
               <option  key={classes.classTitle} value={idx}>
                 {classes.classTitle}
               </option>
@@ -43,6 +43,7 @@ const AddGrade = (props) => {
             placeholder='A'
             onChange={props.FormHandler}
             name="gradeInput"
+            value = {props.entireState.gradeInput}
           />
         </label>
         <br></br>

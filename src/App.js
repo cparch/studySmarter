@@ -164,7 +164,12 @@ class App extends React.Component {
     updateClasses[this.state.selectedClass].test[this.state.selectedTest].totalTimeStudiedPerTest = this.studyTimePerTest(this.state.selectedClass, this.state.selectedTest,updateClasses)
 
     this.setState({
-      classes: updateClasses
+      classes: updateClasses,
+      notes: '',
+      SelectedStartTimeValue: '',
+      SelectedEndTimeValue: '',
+      startTimeValue: moment(),
+      endTimeValue: moment(),
     })
   }
 
@@ -172,7 +177,10 @@ class App extends React.Component {
     event.preventDefault(); 
     let updateClasses = this.state.classes
     updateClasses[this.state.selectedClass].test[this.state.selectedTest].grade = this.state.gradeInput
-    this.setState({classes: updateClasses})
+    this.setState({
+      classes: updateClasses,
+      gradeInput: '',
+    })
   }
 
   handleStudySessionEndTime(value) {
@@ -268,7 +276,7 @@ class App extends React.Component {
               path='/addstudysession' 
               render={(props) => 
               <AddStudySession 
-              classes={this.state.classes}
+              entireState = {this.state}
               tests={this.state.classes[this.state.selectedClass].test}
               startTimeValue={this.state.startTimeValue}
               endTimeValue={this.state.endTimeValue}
@@ -285,13 +293,14 @@ class App extends React.Component {
               <AddClass 
                 FormHandler={this.FormHandler}
                 AddClassSubitBtnHandler={this.AddClassSubitBtnHandler}
+                classNameToAdd={this.state.classNameToAdd}
               />}
             />
             <Route
               path='/addtest'
               render={(props) => 
               <AddTest
-                classes={this.state.classes}
+                entireState={this.state}
                 FormHandler={this.FormHandler}
                 AddTestSubmitBtnHandler={this.AddTestSubmitBtnHandler}
               />}
@@ -301,11 +310,10 @@ class App extends React.Component {
               path='/AddGrade'
               render={(props) => 
               <AddGrade
-                classes={this.state.classes}
+              entireState={this.state}
                 FormHandler={this.FormHandler}
                 tests={this.state.classes[this.state.selectedClass].test}
                 AddGradeHandler = {this.AddGradeHandler}
-
               />}
             /> 
 

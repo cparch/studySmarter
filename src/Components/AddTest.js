@@ -11,7 +11,7 @@ const AddTest = (props) => {
             </h2>
             
             <select name="selectedClass" onChange={props.FormHandler}> 
-              {props.classes.map((classes, idx) => (
+              {props.entireState.classes.map((classes, idx) => (
                 <option key={classes.classTitle} value={idx}>
                   {classes.classTitle}
                 </option>
@@ -23,7 +23,7 @@ const AddTest = (props) => {
         <label>
           Add new Test To Study For:
           <input
-            value={props.testNameToAdd} 
+            value={props.entireState.testNameToAdd} 
             onChange={props.FormHandler} 
             type='text' 
             placeholder='Chapter 1 test' 

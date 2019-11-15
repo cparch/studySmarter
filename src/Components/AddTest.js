@@ -1,9 +1,11 @@
 import React from 'react';
+import './AddTest.css';
 
 const AddTest = (props) => {
 
   return(
     <div>
+      <div className='headerImage'/>
       <form onSubmit={props.AddTestSubmitBtnHandler}>
         <label>
             <h1>Add Test</h1>

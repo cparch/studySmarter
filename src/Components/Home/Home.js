@@ -37,11 +37,9 @@ const Home = (props) => {
   return (
     <div>
       <div className='homeImage'/>
-      <h2>
-        Class Names: 
-        </h2>
-      <div>
-        {courseNames}
+      <div className='container'>
+        <h2>Class Names: </h2>
+        <div>{courseNames}</div>
       </div>
     </div>
   )

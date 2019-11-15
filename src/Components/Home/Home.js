@@ -23,7 +23,7 @@ const Home = (props) => {
         <div
           className='courseTitle' 
           onClick={() => props.homePageShowClassInfo(idx)}
-          
+
         >
           {courseInfo.classTitle} 
         </div>
@@ -36,9 +36,10 @@ const Home = (props) => {
 
   return (
     <div>
+      <div className='homeImage'/>
       <h2>
-        Class Names:
-      </h2>
+        Class Names: 
+        </h2>
       <div>
         {courseNames}
       </div>

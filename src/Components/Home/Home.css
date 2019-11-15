@@ -4,5 +4,13 @@
 
 .courseContainer{
   border-bottom: black 2px solid;
+}
 
+.homeImage {
+  background-image: url("../../Images/HomeImage.jpg");
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }

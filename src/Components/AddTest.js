@@ -19,7 +19,7 @@ const AddTest = (props) => {
         <br/>
         <br/>
         <label>
-          Add new Test To Study For:
+          Test I'm Studying For:
           <input
             value={props.entireState.testNameToAdd} 
             onChange={props.FormHandler} 

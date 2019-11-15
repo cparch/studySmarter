@@ -1,12 +1,18 @@
-.cell {
-  border-right: 1px solid black;
-}
-
-th{
- padding: 2%
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
 }
 
 th, td {
   border-bottom: 1px solid black;
   text-align: center;
+}
+
+th {
+  padding: 2%;
+  background: rgb(145, 223, 243);
+ }
+
+ tr:nth-child(even) {
+  background: rgb(145, 223, 243);
 }

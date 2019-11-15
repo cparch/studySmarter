@@ -88,10 +88,10 @@ class StudyInsights extends React.Component {
       <div>
         <h1>Study Insights </h1>
         <h3>This page is intended to give you an idea of what study habbits give you the best chance of earning a grade.</h3>
-        <table id="myTable">
+        <table>
           <thead>
             <tr>
-              <th className='cell tableHeader'>Grade</th>
+              <th className='tableHeader'>Grade</th>
               <th className='tableHeader'>Average Study Time</th>
             </tr>
           </thead>

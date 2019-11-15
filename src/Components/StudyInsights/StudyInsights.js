@@ -86,17 +86,19 @@ class StudyInsights extends React.Component {
 
     return(
       <div>
-        <h1>Study Insights </h1>
-        <h3>This page is intended to give you an idea of what study habbits give you the best chance of earning a grade.</h3>
-        <table>
-          <thead>
-            <tr>
-              <th className='tableHeader'>Grade</th>
-              <th className='tableHeader'>Average Study Time</th>
-            </tr>
-          </thead>
-          <tbody>{list}</tbody>
-        </table>
+        <div className='mainContainer'>
+          <h1>Study Insights </h1>
+          <h3>This page is intended to give you an idea of what study habbits give you the best chance of earning a grade.</h3>
+          <table>
+            <thead>
+              <tr>
+                <th className='tableHeader'>Grade</th>
+                <th className='tableHeader'>Average Study Time</th>
+              </tr>
+            </thead>
+            <tbody>{list}</tbody>
+          </table>
+        </div>
       </div>
     )
   }

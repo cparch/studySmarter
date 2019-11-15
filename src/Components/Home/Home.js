@@ -37,7 +37,7 @@ const Home = (props) => {
   return (
     <div>
       <div className='homeImage'/>
-      <div className='container'>
+      <div className='mainContainer'>
         <h2>Class Names: </h2>
         <div>{courseNames}</div>
       </div>

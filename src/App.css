@@ -3,6 +3,10 @@
   font-size: 28px;
 }
 
+.mainContainer{
+  padding: 0% 2%;
+}
+
 input {
   margin: 1%;
   font-size: 15px;

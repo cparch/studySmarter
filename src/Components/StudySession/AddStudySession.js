@@ -1,10 +1,12 @@
 import React from 'react';
+import './AddStudySession.css';
 import TimeSelector from './TimeSelector.js';
 import 'rc-time-picker/assets/index.css';
 
 const AddStudySession = (props) => {
   return(
     <div>
+      <div className='AddStudySessionHeaderImage'></div>
       <div className='mainContainer'>
         <h2>Add Study Session!!!!!!</h2>
         <form onSubmit={props.addStudySessionSubmitBtnHandler}>

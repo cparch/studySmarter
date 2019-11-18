@@ -4,8 +4,8 @@ import './AddGrade.css';
 const AddGrade = (props) => {
   return(
     <div>
+      <div className='headerImage'/>
       <div className='mainContainer'>
-        <div className='headerImage'/>
         <h2>
           Add test grade!!!
         </h2>

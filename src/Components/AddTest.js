@@ -5,7 +5,7 @@ const AddTest = (props) => {
 
   return(
     <div>
-      <div className='headerImage'/>
+      <div className='addTestHeaderImage'></div>
       <div className='mainContainer'>
         <form onSubmit={props.AddTestSubmitBtnHandler}>
           <label>

@@ -11,6 +11,7 @@ import AddTest from './Components/AddTest.js';
 import AddGrade from './Components/AddGrade';
 import StudyInsights from './Components/StudyInsights/StudyInsights.js'
 import moment from 'moment';
+import SideDrawer from './Components/Navigation/SideDrawer.js'
 
 class App extends React.Component {
   constructor(props){
@@ -260,6 +261,7 @@ class App extends React.Component {
       <BrowserRouter>
         <div>
           <Nav/>
+          <SideDrawer/>
           <div className='main'>
           <Switch >
             <Route 

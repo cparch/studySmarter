@@ -1,3 +1,13 @@
+.StudyInsightsHeaderImage {
+  background-image: url("../../Images/formula.jpg");
+
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 table {
   border: 1px solid black;
   border-collapse: collapse;

@@ -85,7 +85,8 @@ class StudyInsights extends React.Component {
     })
 
     return(
-      <div>
+      <div >
+        <div className='StudyInsightsHeaderImage'></div>
         <div className='mainContainer'>
           <h1>Study Insights </h1>
           <h3>This page is intended to give you an idea of what study habbits give you the best chance of earning a grade.</h3>

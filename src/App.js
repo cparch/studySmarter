@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Duration from 'duration';
 
 import './App.css';
-import Nav from './Components/Nav.js';
+import Nav from './Components/Navigation/Nav.js';
 import Home from './Components/Home/Home.js';
 import AddClass from './Components/AddClass.js';
 import AddStudySession from './Components/StudySession/AddStudySession.js';

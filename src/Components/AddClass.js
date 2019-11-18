@@ -1,8 +1,10 @@
 import React from 'react';
+import './AddClass.css';
 
 const AddClass = (props) => {
   return (
     <div>
+      <div className='AddClassHeaderImage'></div>
       <div className='mainContainer'>
         <h1>Add Class Name</h1>
         <form onSubmit={props.AddClassSubitBtnHandler}>

@@ -11,11 +11,11 @@ const ShowStudySession = (props) => {
           Study Session Number: {studySession.studySessionNum}
         </div>
         <div>
-          Start Time:{studySession.startTime}
+          Start Time:{studySession.startTimeToDisplay}
         </div>
 
         <div>
-          End Time: {studySession.endTime}
+          End Time: {studySession.endTimeToDisplay}
         </div>
 
         <div>

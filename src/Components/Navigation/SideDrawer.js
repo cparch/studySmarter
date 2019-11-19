@@ -8,25 +8,29 @@ class SideDrawer extends React.Component {
     this.state={
       showSideDrawer: false
     }
-    this.showSideDrawer = this.showSideDrawer.bind(this)
+    this.toggleSideDrawerHandler = this.toggleSideDrawerHandler.bind(this);
   }
 
-  showSideDrawer(){
-    // console.log(this.state)
-    this.setState({showSideDrawer : !this.state.showSideDrawer})
+  toggleSideDrawerHandler(){
+    console.log("mobile menu clicked")
+    this.setState({showSideDrawer: !this.state.showSideDrawer})
   }
+
   render(){
-    let toggleSideDrawer = 'SideDrawer Open'
-    if(this.state.showSideDrawer){
-      toggleSideDrawer = 'SideDrawer Close'
+    let toggleSideDrawer = 'SideDrawer Close'; 
 
+    if(this.state.showSideDrawer){
+      toggleSideDrawer = 'SideDrawer Open'
     }
     return(
-      <div className={toggleSideDrawer}>
+      <div >
+        <div className='menuBtn' onClick={this.toggleSideDrawerHandler}>Menu</div>
         <div 
-          className='mobileNav'
-          onClick={this.showSideDrawer}
-        > toogle button</div>
+          className={toggleSideDrawer}
+          onClick={this.toggleSideDrawerHandler}
+        >
+          <Nav/>
+        </div>
       </div>
     )
   }

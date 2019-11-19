@@ -1,6 +1,8 @@
 .main {
   margin-left: 20%;
   font-size: 28px;
+  position: relative;
+  z-index: 0;
 }
 
 .mainContainer{
@@ -15,4 +17,16 @@ input {
 select {
   font-size: 15px;
   margin: 1%;
+}
+
+@media(max-width: 900px) {
+  .nav {
+    display: none;
+  }
+  .main {
+    margin-left: 0;
+    font-size: 28px;
+    top: 0px;
+    left: 0px;
+  }
 }

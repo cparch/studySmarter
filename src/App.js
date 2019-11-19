@@ -260,7 +260,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <Nav/>
+          <div className='nav'>
+            <Nav/>
+          </div>
           <SideDrawer/>
           <div className='main'>
           <Switch >

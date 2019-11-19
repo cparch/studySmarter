@@ -3,17 +3,24 @@
   width: 300px;
   max-width: 70%;
   height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 200;
-  background-color: white;
-  padding: 32px 16px;
-  box-sizing: border-box;
-  transition: transform 0.3 ease-out;
+  z-index: 2;
+  top:0; 
+  left:0;
+  display: block;
+  transition: transform 0.3s ease-out;
+}
+
+.menuBtn {
+  position: absolute;
+  z-index: 1; 
+  color: white;
 }
 
 @media(min-width: 900px) {
-  .SideDrawer{
+  .menuBtn {
+    display: none;
+  }
+  .SideDrawer {
     display: none;
   }
 }
@@ -25,8 +32,3 @@
 .Close {
   transform: translateX(-100%);
 }
-
-.mobileNav {
-  margin: 10%;
-}
-

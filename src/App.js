@@ -28,22 +28,28 @@ class App extends React.Component {
               totalTimeStudiedPerTest: "3:09",
               studySession: [
                 {
+                  endTimeToDisplay: "5:50 PM",
                   endTime: "17:50",
                   notes: "test",
+                  startTimeToDisplay: "1:50 PM",
                   startTime: "13:50",
                   studySessionNum: 'psychT1 - study session 0',
                   studySessionDuration: "1:00"
                 },
                 {
+                  endTimeToDisplay: "8:20 am",
                   endTime: "08:20",
                   notes: "test",
+                  startTimeToDisplay: "6:50 AM",
                   startTime: "06:50",
                   studySessionNum: 'psychT1 - study session 1',
                   studySessionDuration: "2:00"
                 },
                 {
+                  endTimeToDisplay: "6:15 AM",
                   endTime: "06:15",
                   notes: "test",
+                  startTimeToDisplay: "6:20 AM",
                   startTime: "06:20",
                   studySessionNum: 'psychT1 - study session 1',
                   studySessionDuration: "0:09"
@@ -57,9 +63,11 @@ class App extends React.Component {
               totalTimeStudiedPerTest: "3:00",
               studySession: [
                 {
+                  endTimeToDisplay: "1:00 PM",
                   endTime: "13:00",
                   notes: "test",
                   startTime: "13:50",
+                  startTimeToDisplay: "1:50 PM",
                   studySessionNum: 'psychT2 - study session 0',
                   studySessionDuration: "3:00"
                 }
@@ -77,9 +85,11 @@ class App extends React.Component {
               totalTimeStudiedPerTest: "4:00",
               studySession: [
                 {
+                  endTimeToDisplay: "6:46 AM",
                   endTime: "6:46",
                   notes: "test",
                   startTime: "6:10",
+                  startTimeToDisplay: "6:10 AM",
                   studySessionNum: 'histT1 - study session 0',
                   studySessionDuration: "4:00"
                 }
@@ -92,9 +102,11 @@ class App extends React.Component {
               totalTimeStudiedPerTest: "2:46",
               studySession: [
                 {
+                  endTimeToDisplay: "5:46 PM",
                   endTime: "17:46",
                   notes: "test",
                   startTime: "15:00",
+                  startTimeToDisplay: "3:00 PM",
                   studySessionNum: 'histT2 - study session 0',
                   studySessionDuration: "2:46"
                 }

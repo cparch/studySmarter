@@ -1,4 +1,10 @@
 .studySessionContainer{
 margin-left: 2%;
 margin-top: 1%;
+padding: 2%;
+border: 3px solid blue
+}
+
+.sessionNum {
+  font-weight: bold;
 }

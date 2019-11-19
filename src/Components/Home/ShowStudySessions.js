@@ -7,9 +7,10 @@ const ShowStudySession = (props) => {
 
     return(
       <div className='studySessionContainer'>
-        <div>
+        <div className='sessionNum'>
           Study Session Number: {studySession.studySessionNum}
         </div>
+        <br/>
         <div>
           Start Time:{studySession.startTimeToDisplay}
         </div>
@@ -21,7 +22,7 @@ const ShowStudySession = (props) => {
         <div>
           Duration of study session: {studySession.studySessionDuration}
         </div>
-
+        <br/>
         <div>
           Notes: {studySession.notes}
         </div>

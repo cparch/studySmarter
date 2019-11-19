@@ -158,6 +158,8 @@ class App extends React.Component {
       studySessionNum: updateClasses[this.state.selectedClass].test[this.state.selectedTest].studySession.length,
       startTime: this.state.SelectedStartTimeValue,
       endTime: this.state.SelectedEndTimeValue,
+      startTimeToDisplay: this.state.SelectedStartTimeValueToDisplay,
+      endTimeToDisplay: this.state.SelectedEndTimeValueToDisplay,
       notes: this.state.notes,
       studySessionDuration: this.Duration(startTimeSplit, endTimeSplit)
     })
@@ -188,6 +190,7 @@ class App extends React.Component {
     this.setState({ 
       endTimeValue: value,
       // [value.target.name]: value,
+      SelectedEndTimeValueToDisplay: value && value.format('LT'),
       SelectedEndTimeValue: value && value.format('HH:mm')
     });
   }
@@ -196,7 +199,8 @@ class App extends React.Component {
     this.setState({ 
       startTimeValue: value,
       // [event.target.name]: value && value.format('HH:mm')
-      SelectedStartTimeValue: value && value.format('HH:mm')
+      SelectedStartTimeValueToDisplay: value && value.format('LT') ,
+      SelectedStartTimeValue: value && value.format('HH:mm') 
     });
   }
 

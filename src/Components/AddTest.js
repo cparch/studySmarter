@@ -7,9 +7,12 @@ const AddTest = (props) => {
     <div>
       <div className='addTestHeaderImage'></div>
       <div className='mainContainer'>
-        <form onSubmit={props.AddTestSubmitBtnHandler}>
+      <h1>Add Test</h1>
+        <form 
+          onSubmit={props.AddTestSubmitBtnHandler}
+          className='addTestForm'
+        >
           <label>
-              <h1>Add Test</h1>
               Class Name:
               <select name="selectedClass" onChange={props.FormHandler}> 
                 {props.entireState.classes.map((classes, idx) => (
@@ -19,7 +22,6 @@ const AddTest = (props) => {
                 ))}
               </select>
           </label>
-          <br/>
           <br/>
           <label>
             Test I'm Studying For:
@@ -32,8 +34,7 @@ const AddTest = (props) => {
             />
           </label>
           <br/>
-          <br/>
-          <input type="submit" value="Submit" />
+          <input className='button' type="submit" value="Submit" />
         </form>
       </div>
       

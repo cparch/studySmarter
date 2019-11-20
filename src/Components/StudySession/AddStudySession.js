@@ -8,7 +8,7 @@ const AddStudySession = (props) => {
     <div>
       <div className='AddStudySessionHeaderImage'></div>
       <div className='mainContainer'>
-        <h2>Add Study Session!!!!!!</h2>
+        <h1>Add Study Session</h1>
         <form onSubmit={props.addStudySessionSubmitBtnHandler}>
           <label>
             Class Name:
@@ -22,8 +22,6 @@ const AddStudySession = (props) => {
             </select>
           </label>
           <br></br>
-          <br></br>
-
           <label>
             Test Name:
             <select name="selectedTest" onChange={props.FormHandler}> 
@@ -35,7 +33,6 @@ const AddStudySession = (props) => {
             </select>
           </label>
           <br></br>
-          <br></br>
           <label>
             Start:
             <TimeSelector
@@ -43,11 +40,7 @@ const AddStudySession = (props) => {
               timeHandler={props.handleStudySessionStartTime}
             />
           </label>
-
           <br/>
-          <br/>
-
-
           <label>
             End:
             <TimeSelector
@@ -55,11 +48,7 @@ const AddStudySession = (props) => {
               timeHandler={props.handleStudySessionEndTime}
             />
           </label>
-
           <br/>
-          <br/>
-
-
           <label>
             Notes:
             <input
@@ -70,8 +59,7 @@ const AddStudySession = (props) => {
             />
           </label>
           <br></br>
-          <br></br>
-          <input type="submit" value="Submit" />
+          <input className='button' type="submit" value="Submit" />
         </form>
       </div>
     </div>

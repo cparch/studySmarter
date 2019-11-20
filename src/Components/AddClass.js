@@ -1,6 +1,8 @@
 import React from 'react';
 import './AddClass.css';
 
+import Input from './Reusable Components/Input.js';
+
 const AddClass = (props) => {
   return (
     <div>
@@ -8,16 +10,13 @@ const AddClass = (props) => {
       <div className='mainContainer'>
         <h1>Add Class Name</h1>
         <form onSubmit={props.AddClassSubitBtnHandler}>
-          <label>
-            Class Name: 
-            <input 
-              value={props.classNameToAdd}
-              onChange={props.FormHandler}
-              type='text' 
-              placeholder='History 101'
-              name='classNameToAdd'
-            />
-          </label>
+          <Input
+            placeholder="New History 101" 
+            name='classNameToAdd' 
+            onChangeFunc={props.FormHandler}
+            value={props.classNameToAdd}
+            label="Class Name"
+          />
           <br/>
           <input className='button' type="submit" value="Submit" />
         </form>

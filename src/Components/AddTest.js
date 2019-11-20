@@ -1,5 +1,6 @@
 import React from 'react';
 import './AddTest.css';
+import Input from './Reusable Components/Input.js';
 
 const AddTest = (props) => {
 
@@ -23,16 +24,14 @@ const AddTest = (props) => {
               </select>
           </label>
           <br/>
-          <label>
-            Test I'm Studying For:
-            <input
-              value={props.entireState.testNameToAdd} 
-              onChange={props.FormHandler} 
-              type='text' 
-              placeholder='Chapter 1 test' 
-              name='testNameToAdd'
-            />
-          </label>
+          <Input
+            placeholder='Chapter 1 test'
+            name='testNameToAdd'
+            onChangeFunc={props.FormHandler}
+            value={props.entireState.testNameToAdd}
+            label="Test I'm Studying For"
+          
+          />
           <br/>
           <input className='button' type="submit" value="Submit" />
         </form>

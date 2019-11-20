@@ -1,5 +1,6 @@
 import React from 'react';
 import './AddGrade.css';
+import Input from './Reusable Components/Input.js';
 
 const AddGrade = (props) => {
   return(
@@ -10,7 +11,6 @@ const AddGrade = (props) => {
           Add test grade!!!
         </h2>
 
-        {/* <form> */}
         <form onSubmit={props.AddGradeHandler}>
           <label>
             Class Name:
@@ -24,8 +24,6 @@ const AddGrade = (props) => {
             </select>
           </label>
           <br></br>
-          <br></br>
-
           <label>
             Test Name:
             <select name="selectedTest" onChange={props.FormHandler}> 
@@ -37,21 +35,14 @@ const AddGrade = (props) => {
             </select>
           </label>
           <br></br>
+          <Input
+             placeholder='A'
+             name='gradeInput' 
+             onChangeFunc={props.FormHandler}
+             value={props.entireState.gradeInput}
+             label='Grade'
+          />
           <br></br>
-
-          <label>
-            Grade:
-            <input 
-              type='text' 
-              placeholder='A'
-              onChange={props.FormHandler}
-              name="gradeInput"
-              value = {props.entireState.gradeInput}
-            />
-          </label>
-          <br></br>
-          <br></br>
-          
           <input className='button' type="submit" value="Submit" />
         </form>
       </div>

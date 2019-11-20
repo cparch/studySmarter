@@ -43,7 +43,12 @@ LEVEL 3. PRESENTATION STYLES
 .a-field{
   --uiFieldHeight: var(--fieldHeight, 40px);  
   --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
-  --uiFieldBorderColor: var(--fieldBorderColor);
+  /* --uiFieldBorderColor: var(--fieldBorderColor); */
+  --uiFieldBorderColor: rgb(145, 223, 243);
+
+
+
+  
 
   --uiFieldFontSize: var(--fieldFontSize, 1em);
   --uiFieldHintFontSize: var(--fieldHintFontSize, 1em);

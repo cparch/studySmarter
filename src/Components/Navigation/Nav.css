@@ -23,7 +23,7 @@ h2{
 @media(max-width: 900px) {
   .sidenav{
     position: relative;
-    background-color: tomato;
+    background-color: rgb(145, 223, 243);;
     width: 100%
   }
   

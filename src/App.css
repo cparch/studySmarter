@@ -53,3 +53,9 @@ Form {
   font-size: 25px;
   border-radius: 25px;
 }
+
+select {
+  width: 100%;
+  font-size: 25px;
+  background-color: rgb(145, 223, 243);
+}

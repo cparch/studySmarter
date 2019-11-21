@@ -6,3 +6,9 @@
   background-size: cover;
   position: relative;
 }
+
+.select {
+  width: 100%;
+  font-size: 25px;
+  background-color: rgb(145, 223, 243);
+}

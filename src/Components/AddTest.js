@@ -13,9 +13,9 @@ const AddTest = (props) => {
           onSubmit={props.AddTestSubmitBtnHandler}
           className='addTestForm'
         >
-          <label>
-              Class Name:
-              <select name="selectedClass" onChange={props.FormHandler}> 
+          <label> 
+              <select className='select' name="selectedClass" onChange={props.FormHandler}>
+                <option>Class Name:</option> 
                 {props.entireState.classes.map((classes, idx) => (
                   <option key={classes.classTitle} value={idx}>
                     {classes.classTitle}

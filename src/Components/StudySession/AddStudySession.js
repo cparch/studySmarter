@@ -33,31 +33,36 @@ const AddStudySession = (props) => {
             </select>
           </label>
           <br></br>
+          
+          <div className='timeSelector'>
+            <label >
+              Start:
+              <TimeSelector
+                TimeValue={props.startTimeValue}
+                timeHandler={props.handleStudySessionStartTime}
+              />
+            </label>
+            <label>
+              End:
+              <TimeSelector
+                TimeValue={props.endTimeValue}
+                timeHandler={props.handleStudySessionEndTime}
+              />
+            </label>
+          </div>
+          <br></br>
           <label>
-            Start:
-            <TimeSelector
-              TimeValue={props.startTimeValue}
-              timeHandler={props.handleStudySessionStartTime}
-            />
-          </label>
-          <br/>
-          <label>
-            End:
-            <TimeSelector
-              TimeValue={props.endTimeValue}
-              timeHandler={props.handleStudySessionEndTime}
-            />
-          </label>
-          <br/>
-          <label>
-            Notes:
-            <input
-              onChange={props.FormHandler}
-              name="notes"
-              type="text" 
-              value= {props.entireState.notes}
-            />
-          </label>
+            <div>
+              Notes:
+            </div>
+              <textarea
+                onChange={props.FormHandler}
+                name="notes"
+                type="text" 
+                value= {props.entireState.notes}
+              />
+            </label>
+          
           <br></br>
           <input className='button' type="submit" value="Submit" />
         </form>

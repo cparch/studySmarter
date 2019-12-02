@@ -6,3 +6,13 @@
   background-size: cover;
   position: relative;
 }
+
+.timeSelector {
+  display: flex;
+  justify-content: space-between;
+}
+
+textarea {
+  width: 100%;
+  font-size: 25px;
+}

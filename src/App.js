@@ -12,6 +12,7 @@ import AddGrade from './Components/AddGrade';
 import StudyInsights from './Components/StudyInsights/StudyInsights.js'
 import moment from 'moment';
 import SideDrawer from './Components/Navigation/SideDrawer.js'
+import SubmitAlert from './Components/Reusable Components/SubmitAlert/SubmitAlert.js'
 
 class App extends React.Component {
   constructor(props){
@@ -125,6 +126,7 @@ class App extends React.Component {
       classNameToAdd: '',
       testNameToAdd: '',
       gradeInput: '',
+      showSubmitConfirmation: false,
     }
 
     this.FormHandler = this.FormHandler.bind(this);
@@ -138,6 +140,11 @@ class App extends React.Component {
     this.Duration = this.Duration.bind(this);
     this.AddGradeHandler = this.AddGradeHandler.bind(this);
     this.studyTimePerTest = this.studyTimePerTest.bind(this);
+    this.submitAcknowledged = this.submitAcknowledged.bind(this);
+  }
+
+  submitAcknowledged(){
+    this.setState({showSubmitConfirmation: false})
   }
 
   studyTimePerTest(classIdx, testIdx, updateClasses){ 
@@ -185,6 +192,7 @@ class App extends React.Component {
       SelectedEndTimeValue: '',
       startTimeValue: moment(),
       endTimeValue: moment(),
+      showSubmitConfirmation: true,
     })
   }
 
@@ -195,6 +203,7 @@ class App extends React.Component {
     this.setState({
       classes: updateClasses,
       gradeInput: '',
+      showSubmitConfirmation: true,
     })
   }
 
@@ -248,6 +257,8 @@ class App extends React.Component {
     this.setState({
       classes: updateClasses,
       testNameToAdd: '',
+      showSubmitConfirmation: true,
+      
     })
   };
 
@@ -262,7 +273,8 @@ class App extends React.Component {
 
     this.setState({
       classes: updateClasses,
-      classNameToAdd: ''
+      classNameToAdd: '',
+      showSubmitConfirmation: true,
     })
   }
 
@@ -280,7 +292,12 @@ class App extends React.Component {
             <Nav/>
           </div>
           <SideDrawer/>
+          
           <div className='main'>
+          <SubmitAlert
+            showSubmitConfirmation={this.state.showSubmitConfirmation}
+            submitAcknowledged={this.submitAcknowledged}
+          />
           <Switch >
             <Route 
               exact

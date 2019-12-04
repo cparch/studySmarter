@@ -1,14 +1,14 @@
 .submitAlertContainer{
   position: absolute;
   z-index: 1;
-  background-color: rgba(128, 128, 128, 0.80);
+  background-color: rgba(128, 128, 128, 0.90);
   width: 100%;
   height: 100vh;
 }
 
 .submitAlertContent{
   position: relative;
-  background-color: brown;
+  background-color: rgb(240, 237, 237);
   padding: 5%;
   width: 50%;
   top: 35%;
@@ -17,4 +17,15 @@
   bottom: 0;
   margin: auto;
   text-align: center;
+  border-radius: 25px;
+}
+
+button {
+  background-color: rgb(145, 223, 243);
+  display: block;
+  width: 100%;
+  padding: 1% 10%;
+  font-size: 25px;
+  border-radius: 25px;
+  margin-top: 10%;
 }

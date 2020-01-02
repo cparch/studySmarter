@@ -10,10 +10,30 @@
   padding-top: 20px;
 }
 
-.sidenav li {
+.sideNavList{
+  display: flex;
+  flex-direction: column;
   font-size: 25px;
-  display: block;
-  padding-bottom: 4%;
+  padding: 0% 15% 0% 10%;
+}
+
+/* NavList {
+  display: flex;
+  flex-direction: column; 
+}  */
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+.sideNavList a{
+  padding-bottom: 10%;
+}
+
+
+
+.sideNavList a.chosen,
+.sideNavList a:hover {
+  color: red;
 }
 
 h2{

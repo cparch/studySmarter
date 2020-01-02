@@ -301,7 +301,7 @@ class App extends React.Component {
           <Switch >
             <Route 
               exact
-              path='/' 
+              path='/home' 
               render={(props) => 
               <Home
                 classList={this.state.classes}

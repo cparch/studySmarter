@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './Nav.css';
 
 const Nav = () => {
@@ -7,31 +7,18 @@ const Nav = () => {
   return (
     <nav className='sidenav'>
       <h2>StudySmarter</h2>
-      <ul>
-        <Link to='/'>
-          <li>Home</li>
-        </Link>
+      <div className='sideNavList' >
+        <NavLink to='/home' activeClassName="chosen">Home</NavLink>
+        <NavLink to='/addclass' activeClassName="chosen">Add Class</NavLink>
 
-        <Link to='/addclass'>
-          <li>Add Class</li>
-        </Link>
-
-        <Link to='/addtest'>
-        <li>Add Test</li>
-        </Link>
+        <NavLink to='/addtest' activeClassName="chosen">Add Test</NavLink>
         
-        <Link to='/addstudysession'>
-          <li>Add Study Session</li>
-        </Link>
+        <NavLink to='/addstudysession' activeClassName="chosen">Add Study Session</NavLink>
 
-        <Link to='/addGrade'>
-          <li>Add Test Grade</li>
-        </Link>
+        <NavLink to='/addGrade' activeClassName="chosen">Add Test Grade</NavLink>
 
-        <Link to= '/StudyInsights'>
-          <li>Study Insights</li>
-        </Link>
-      </ul>
+        <NavLink to= '/StudyInsights' activeClassName="chosen">Study Insights</NavLink>
+      </div>
     </nav>
   )
 };

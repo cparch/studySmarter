@@ -286,12 +286,10 @@ class App extends React.Component {
   }
 
   // componentDidMount(){
-  //   $.ajax({
-  //     url: 'http://localhost:3000/getalldata',
-  //     success: function(success){
+  //   $.get('/getalldata', function(success){
   //       console.log("success getAllData: ", success)
-  //     },
-  //   });
+  //     }
+  //   );
   // }
 
   render(){

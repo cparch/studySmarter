@@ -5,11 +5,17 @@ const morgan = require('morgan');
 const db = require('../db/index')
 const controller = require('../db/controller/studySmaterController')
 const app = express()
-const port = 3000
+const port = 3444
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.unsubscribe(express.static(path.join(__dirname, '../client/public')));
+// app.unsubscribe(express.static(path.join(__dirname, '../client/public')));
+// app.use(express.static(`./client/dist`))
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 // app.get('/', (req, res) => res.send('Hello World!'))
 

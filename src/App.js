@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Duration from 'duration';
+import $ from 'jquery';
 
 import './App.css';
 import Nav from './Components/Navigation/Nav.js';
@@ -283,6 +284,15 @@ class App extends React.Component {
       [event.target.name]: event.target.value
     });
   }
+
+  // componentDidMount(){
+  //   $.ajax({
+  //     url: 'http://localhost:3000/getalldata',
+  //     success: function(success){
+  //       console.log("success getAllData: ", success)
+  //     },
+  //   });
+  // }
 
   render(){
     return (

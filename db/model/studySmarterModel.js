@@ -15,7 +15,7 @@ module.exports.add = (param, callback) => {
 
   let ClassToAdd = new classData ({
     classTitle: param.classTitle,
-    test: param.test,
+    // test: param.test,
   })
 
   ClassToAdd.save(callback)
@@ -131,7 +131,7 @@ module.exports.addNewStudySession = (param, callback) => {
 //==================
 // this func will add a grade to a specific class > test
 
-module.exports.addNewStudySession = (param, callback) => {
+module.exports.addNewTestGrade = (param, callback) => {
 // let addNewTestGrade = (param, callback) => {
     classData.findOneAndUpdate({"classTitle" : param.classTitle},{$set: {[`test.${param.testIdx}.grade`]: param.grade}}, (err, success) => {
     callback(err, success)

@@ -14,5 +14,9 @@ app.unsubscribe(express.static(path.join(__dirname, '../client/public')));
 // app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/getAllData', controller.getAllData);
+app.post('/addClass', controller.addClass);
+app.post('/addNewTest', controller.addNewTest);
+app.post('/addNewStudySession', controller.addNewStudySession);
+app.post('/addNewTestGrade', controller.addNewTestGrade);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

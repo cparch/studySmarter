@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "duration": "^0.2.2",
+    "express": "^4.17.1",
     "moment": "^2.24.0",
     "mongoose": "^5.8.3",
+    "morgan": "^1.9.1",
     "rc-time-picker": "^3.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

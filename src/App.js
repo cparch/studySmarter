@@ -285,12 +285,19 @@ class App extends React.Component {
     });
   }
 
-  // componentDidMount(){
-  //   $.get('/getalldata', function(success){
-  //       console.log("success getAllData: ", success)
-  //     }
-  //   );
-  // }
+  componentDidMount(){
+    fetch("http://localhost:3444/getalldata")
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.state.classes = result
+      console.log("results: ", result)
+      },
+      (error) => {
+        console.log("error")
+      }
+    )
+  }
 
   render(){
     return (

@@ -11,6 +11,7 @@ exports.getAllData = (req, res) => {
 }
 
 exports.addClass = (req, res) => {
+  console.log("req: ", req)
   gradeInfo.add(req.body, (err, success) => {
     if(err){
       res.status(500).end()
@@ -47,6 +48,7 @@ exports.addNewStudySession = (req, res) => {
 }
 
 exports.addNewTestGrade = (req, res) => {
+  console.log(req)
   gradeInfo.addNewTestGrade(req.body, (err, success) => {
     if(err){
       res.send(500).end();

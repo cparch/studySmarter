@@ -1,3 +1,7 @@
+To start this project
+'npm start'
+'node studySmartServer.js'
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

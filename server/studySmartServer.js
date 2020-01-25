@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express')
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 const morgan = require('morgan');
 const db = require('../db/index')
 const controller = require('../db/controller/studySmaterController')
@@ -9,6 +9,7 @@ const port = 3444
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 // app.unsubscribe(express.static(path.join(__dirname, '../client/public')));
 // app.use(express.static(`./client/dist`))
 

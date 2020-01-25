@@ -8,7 +8,7 @@ const Nav = () => {
     <nav className='sidenav'>
       <h2>StudySmarter</h2>
       <div className='sideNavList' >
-        <NavLink to='/' activeClassName="chosen">Home</NavLink>
+        <NavLink exact to='/' activeClassName="chosen">Home</NavLink>
         <NavLink to='/addclass' activeClassName="chosen">Add Class</NavLink>
 
         <NavLink to='/addtest' activeClassName="chosen">Add Test</NavLink>

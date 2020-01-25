@@ -2,12 +2,14 @@
   padding: 0% 2%;
 }
 
-.courseTitle{
+.courseInfo{
   margin: 3%;
+  cursor: pointer;
 }
 
 .courseContainer{
   border-bottom: black 2px solid;
+  
 }
 
 .homeImage {
@@ -17,4 +19,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+
+.testName{
+  cursor: pointer;
 }

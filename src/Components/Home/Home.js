@@ -21,11 +21,11 @@ const Home = (props) => {
         key={courseInfo.classTitle}
       >
         <div
-          className='courseTitle' 
+          className='courseInfo' 
           onClick={() => props.homePageShowClassInfo(idx)}
 
         >
-          {courseInfo.classTitle} 
+          <div className='courseTitle' >{courseInfo.classTitle} </div>
         </div>
         <div>
           {displayClassInfo}

@@ -7,9 +7,9 @@ const AddGrade = (props) => {
     <div>
       <div className='headerImage'/>
       <div className='mainContainer'>
-        <h2>
+        <h1>
           Add test grade!!!
-        </h2>
+        </h1>
 
         <form onSubmit={props.AddGradeHandler}>
           <label>

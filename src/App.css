@@ -6,8 +6,10 @@
 .main {
   margin-left: 272px;
   font-size: 28px;
-  position: relative;
-  z-index: 0;
+  /* position: relative;
+  z-index: 0; */
+  background-color: white;
+  height: 1000px;
 }
 
 .mainContainer{

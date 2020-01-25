@@ -23,7 +23,6 @@ const Home = (props) => {
         <div
           className='courseInfo' 
           onClick={() => props.homePageShowClassInfo(idx)}
-
         >
           <div className='courseTitle' >{courseInfo.classTitle} </div>
         </div>

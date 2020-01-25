@@ -24,7 +24,8 @@ a:-webkit-any-link {
 }
 
 .sideNavList a{
-  padding-bottom: 10%;
+  margin-bottom: 10%;
+  cursor: pointer;
 }
 
 

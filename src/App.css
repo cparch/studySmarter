@@ -1,5 +1,10 @@
+#root{
+  width: 900px;
+  margin: 0% auto;
+}
+
 .main {
-  margin-left: 20%;
+  margin-left: 272px;
   font-size: 28px;
   position: relative;
   z-index: 0;
@@ -52,10 +57,15 @@ Form {
   padding: 1% 10%;
   font-size: 25px;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 select {
   width: 100%;
   font-size: 25px;
   background-color: rgb(145, 223, 243);
+}
+
+select{
+  cursor: pointer;
 }

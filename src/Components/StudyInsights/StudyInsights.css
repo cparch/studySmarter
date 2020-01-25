@@ -12,6 +12,7 @@ table {
   border: 1px solid black;
   border-collapse: collapse;
   width: 42%;
+  cursor: default;
 }
 
 th, td {

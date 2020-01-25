@@ -1,6 +1,12 @@
 #root{
-  width: 900px;
+  /* width: 900px; */
   margin: 0% auto;
+}
+
+@media(min-width: 1000px) {
+  #root{
+    width: 1250px;
+  }
 }
 
 .main {

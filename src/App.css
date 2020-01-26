@@ -21,6 +21,7 @@
 
 .mainContainer{
   padding: 0% 2%;
+  background-color: white;
 }
 
 input {
@@ -51,10 +52,10 @@ Form {
   border: black 1px solid;
   background-color: rgb(240, 237, 237);
   display: block;
-  width: 75%;
+  width: 51%;
   display: flex;
   flex-direction: column;
-  padding: 5%;
+  padding: 5% 10%;
   margin: auto;
   border-radius: 25px;
 }
@@ -62,11 +63,12 @@ Form {
 .button {
   background-color: rgb(145, 223, 243);
   display: block;
-  width: 100%;
+  width: 40%;
   padding: 1% 10%;
   font-size: 25px;
   border-radius: 25px;
   cursor: pointer;
+  margin: 0px auto;
 }
 
 select {

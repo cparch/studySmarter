@@ -11,9 +11,8 @@ const AddStudySession = (props) => {
         <h1>Add Study Session</h1>
         <form onSubmit={props.addStudySessionSubmitBtnHandler}>
           <label>
-            Class Name:
-
             <select name="selectedClass" onChange={props.FormHandler}> 
+            <option>Class Name:</option> 
               {props.entireState.classes.map((classes, idx) => (
                 <option  key={classes.classTitle} value={idx}>
                   {classes.classTitle}
@@ -23,8 +22,8 @@ const AddStudySession = (props) => {
           </label>
           <br></br>
           <label>
-            Test Name:
             <select name="selectedTest" onChange={props.FormHandler}> 
+            <option>Test Name:</option> 
                 {props.tests.map((test, idx) => (
                   <option key={test.testName} value={idx}>
                     {test.testName}

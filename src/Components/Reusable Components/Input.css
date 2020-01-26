@@ -111,6 +111,12 @@ LEVEL 3. PRESENTATION STYLES
   will-change: border-color;
 }
 
+@media(max-width: 400px){
+  .a-field_a1 .a-field__input{
+    margin-top: 25px;
+  }
+}
+
 .a-field_a1 .a-field__input:focus{
   border-color: #673AB7;
 }

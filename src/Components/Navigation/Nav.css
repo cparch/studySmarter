@@ -28,11 +28,15 @@ a:-webkit-any-link {
   cursor: pointer;
 }
 
+a:visited { text-decoration: none; color:black; }
+
 
 
 .sideNavList a.chosen,
 .sideNavList a:hover {
-  color: red;
+  /* color: rgb(237, 237, 87); */
+  color: rgb(37, 120, 245);
+
 }
 
 h2{

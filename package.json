@@ -11,15 +11,20 @@
     "body-parser": "^1.19.0",
     "duration": "^0.2.2",
     "express": "^4.17.1",
+    "fibers": "^3.1.1",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "mongoose": "^5.8.3",
     "morgan": "^1.9.1",
+    "node-sass": "^4.13.1",
     "rc-time-picker": "^3.7.2",
-    "react": "^16.11.0",
+    "react": "^16.13.1",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.0"
+    "react-scripts": "^3.3.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.0",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +46,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "react-test-renderer": "^16.13.1"
   }
 }

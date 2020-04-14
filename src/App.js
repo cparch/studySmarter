@@ -144,19 +144,19 @@ class App extends React.Component {
     this.submitAcknowledged = this.submitAcknowledged.bind(this);
   }
 
-  getAllData(){
-    fetch("http://localhost:3444/getalldata")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.state.classes = result
-      console.log("results: ", result)
-      },
-      (error) => {
-        console.log("error")
-      }
-    )
-  }
+  // getAllData(){
+  //   fetch("http://localhost:3444/getalldata")
+  //   .then(res => res.json())
+  //   .then(
+  //     (result) => {
+  //       this.state.classes = result
+  //     console.log("results: ", result)
+  //     },
+  //     (error) => {
+  //       console.log("error")
+  //     }
+  //   )
+  // }
 
   submitAcknowledged(){
     this.setState({showSubmitConfirmation: false})
@@ -200,36 +200,36 @@ class App extends React.Component {
 
     updateClasses[this.state.selectedClass].test[this.state.selectedTest].totalTimeStudiedPerTest = this.studyTimePerTest(this.state.selectedClass, this.state.selectedTest,updateClasses)
 
-    // this.setState({
-    //   classes: updateClasses,
-    //   notes: '',
-    //   SelectedStartTimeValue: '',
-    //   SelectedEndTimeValue: '',
-    //   startTimeValue: moment(),
-    //   endTimeValue: moment(),
-    //   showSubmitConfirmation: true,
-    // })
-
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:3444/addNewStudySession",
-      data:{
-        classTitle: this.state.classes[Number(this.state.selectedClass)].classTitle,
-        testIdx: this.state.selectedTest,
-        endTimeToDisplay: this.state.SelectedEndTimeValueToDisplay,
-        endTime: this.state.SelectedEndTimeValue,
-        notes: this.state.notes,
-        startTimeToDisplay: this.state.SelectedStartTimeValueToDisplay,
-        startTime: this.state.SelectedStartTimeValue,
-        studySessionNum: updateClasses[this.state.selectedClass].test[this.state.selectedTest].studySession.length,
-        studySessionDuration: this.Duration(startTimeSplit, endTimeSplit)
-      },
-      success: function(response){
-        console.log("Response addClass: ", response)
-        
-      },
+    this.setState({
+      classes: updateClasses,
+      notes: '',
+      SelectedStartTimeValue: '',
+      SelectedEndTimeValue: '',
+      startTimeValue: moment(),
+      endTimeValue: moment(),
+      showSubmitConfirmation: true,
     })
-    this.getAllData()
+
+    // $.ajax({
+    //   type: "POST",
+    //   url: "http://localhost:3444/addNewStudySession",
+    //   data:{
+    //     classTitle: this.state.classes[Number(this.state.selectedClass)].classTitle,
+    //     testIdx: this.state.selectedTest,
+    //     endTimeToDisplay: this.state.SelectedEndTimeValueToDisplay,
+    //     endTime: this.state.SelectedEndTimeValue,
+    //     notes: this.state.notes,
+    //     startTimeToDisplay: this.state.SelectedStartTimeValueToDisplay,
+    //     startTime: this.state.SelectedStartTimeValue,
+    //     studySessionNum: updateClasses[this.state.selectedClass].test[this.state.selectedTest].studySession.length,
+    //     studySessionDuration: this.Duration(startTimeSplit, endTimeSplit)
+    //   },
+    //   success: function(response){
+    //     console.log("Response addClass: ", response)
+        
+    //   },
+    // })
+    // this.getAllData()
   }
 
   AddGradeHandler(event){
@@ -243,12 +243,12 @@ class App extends React.Component {
     })
 
     
-    let test = {
-      classTitle: this.state.classes[Number(this.state.selectedClass)].classTitle,
-      testIdx: Number(this.state.selectedTest),
-      grade: this.state.gradeInput
-    }
-    debugger
+    // let test = {
+    //   classTitle: this.state.classes[Number(this.state.selectedClass)].classTitle,
+    //   testIdx: Number(this.state.selectedTest),
+    //   grade: this.state.gradeInput
+    // }
+    // debugger
 
     $.ajax({
       type: "POST",
@@ -263,7 +263,7 @@ class App extends React.Component {
         
       },
     })
-    this.getAllData()
+    // this.getAllData()
   }
 
   handleStudySessionEndTime(value) {
@@ -304,91 +304,93 @@ class App extends React.Component {
 
   AddTestSubmitBtnHandler(event) {
     event.preventDefault();
-    // let updateClasses = this.state.classes;
+    let updateClasses = this.state.classes;
 
-    // updateClasses[this.state.selectedClass].test.push({
-    //   testName: this.state.testNameToAdd,
-    //   studySession: [], 
-    //   grade: '',
-    //   totalTimeStudiedPerTest: "0:00",
-    // })
-
-    // this.setState({
-    //   classes: updateClasses,
-    //   testNameToAdd: '',
-    //   showSubmitConfirmation: true,
-      
-    // })
-
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:3444/addNewTest",
-      data:{
-        classTitle: this.state.classes[Number(this.state.selectedClass)].classTitle,
-        testName: this.state.testNameToAdd,
-        homePageShowStudySessions: false,
-        grade: "",
-        totalTimeStudiedPerTest: "0:00",
-        studySession: []
-      },
-      success: function(response){
-        console.log("Response addClass: ", response)
-        
-      },
+    updateClasses[this.state.selectedClass].test.push({
+      testName: this.state.testNameToAdd,
+      studySession: [], 
+      grade: '',
+      totalTimeStudiedPerTest: "0:00",
     })
-    this.getAllData()
+
+    this.setState({
+      classes: updateClasses,
+      testNameToAdd: '',
+      showSubmitConfirmation: true,
+      
+    })
+
+    // $.ajax({
+    //   type: "POST",
+    //   url: "http://localhost:3444/addNewTest",
+    //   data:{
+    //     classTitle: this.state.classes[Number(this.state.selectedClass)].classTitle,
+    //     testName: this.state.testNameToAdd,
+    //     homePageShowStudySessions: false,
+    //     grade: "",
+    //     totalTimeStudiedPerTest: "0:00",
+    //     studySession: []
+    //   },
+    //   success: function(response){
+    //     console.log("Response addClass: ", response)
+        
+    //   },
+    // })
+    // this.getAllData()
   };
 
   AddClassSubitBtnHandler(event) {
     event.preventDefault();
-    // const updateClasses = [...this.state.classes];
-    // updateClasses.push({
-    //   classTitle: this.state.classNameToAdd,
-    //   test:[],
-    //   homePageShowClassInfo: false,
-    // })
-
-    // this.setState({
-    //   classes: updateClasses,
-    //   classNameToAdd: '',
-    //   showSubmitConfirmation: true,
-    // })
-
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:3444/addClass",
-      data:{
-        classTitle: this.state.classNameToAdd
-      },
-      success: function(response){
-        console.log("Response addClass: ", response)
-      },
+    const updateClasses = [...this.state.classes];
+    updateClasses.push({
+      classTitle: this.state.classNameToAdd,
+      test:[],
+      homePageShowClassInfo: false,
     })
+
+    this.setState({
+      classes: updateClasses,
+      classNameToAdd: '',
+      showSubmitConfirmation: true,
+    })
+
+    // $.ajax({
+    //   type: "POST",
+    //   url: "http://localhost:3444/addClass",
+    //   data:{
+    //     classTitle: this.state.classNameToAdd
+    //   },
+    //   success: function(response){
+    //     console.log("Response addClass: ", response)
+    //   },
+    // })
   }
 
   FormHandler(event) {
+    console.log(event.target.value)
+    // debugger
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
-  getAllData(){
-    fetch("http://localhost:3444/getalldata")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.state.classes = result
-      console.log("results: ", result)
-      this.setState({classes: result})
-      },
-      (error) => {
-        console.log("error")
-      }
-    )
-  }
+  // getAllData(){
+  //   fetch("http://localhost:3444/getalldata")
+  //   .then(res => res.json())
+  //   .then(
+  //     (result) => {
+  //       this.state.classes = result
+  //     console.log("results: ", result)
+  //     this.setState({classes: result})
+  //     },
+  //     (error) => {
+  //       console.log("error")
+  //     }
+  //   )
+  // }
 
   componentDidMount(){
-    this.getAllData()
+    // this.getAllData()
   }
 
   render(){

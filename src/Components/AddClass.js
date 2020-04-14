@@ -6,11 +6,12 @@ import Input from './Reusable Components/Input.js';
 const AddClass = (props) => {
   return (
     <div>
-      <div className='AddClassHeaderImage'></div>
+      <div className='AddClassHeaderImage' id='test'></div>
       <div className='mainContainer'>
         <h1>Add Class Name</h1>
-        <form onSubmit={props.AddClassSubitBtnHandler}>
+        <form className='test' onSubmit={props.AddClassSubitBtnHandler}>
           <Input
+            className="enzymeTest"
             placeholder="New History 101" 
             name='classNameToAdd' 
             onChangeFunc={props.FormHandler}

@@ -1,23 +1,47 @@
 import React from 'react';
 import { shallow, mount, render }  from 'enzyme';
-import AddClassName from '../Components/AddClass.js';
+import App from '../App.js';
 
 describe('addClassName Test Suite', () => {
 
-  it('should render the form', () => {
-      let wrapper = shallow(<AddClassName />);
+  it('should test if FormHandler() adds the value to state.classNameToAdd', ()=>{
+    let wrapper = shallow(<App/>);
+    let valueToCheck = "art"
 
-      // expect(wrapper.find('form').exists()).toBe(true);
-      expect(wrapper.find('form.test').exists()).toBe(true);
-      // expect(wrapper.find('.AddClassHeaderImage').exists()).toBe(true);
-      // expect(wrapper.find('.AddClassHeaderImages').exists()).toBe(false);
-      // expect(wrapper.find('#test').exists()).toBe(true);
+    wrapper.instance().FormHandler({target:{value: valueToCheck, name: "classNameToAdd"}})
+    expect(wrapper.state('classNameToAdd')).toEqual(valueToCheck)
+
   })
 
-  it('should test if component Input exists', ()=>{
-    let wrapper = shallow(<AddClassName />);
-    expect(wrapper.find('Input.enzymeTest').exists()).toBe(true)
+  it('should test is submitAcknowledged() state.showSubmitConfirmation sets back ti false', () => {
+    let wrapper = shallow(<App/>);
+    // console.log(wrapper.state('showSubmitConfirmation'))
+    wrapper.setState({showSubmitConfirmation: true})
+    // console.log(wrapper.state('showSubmitConfirmation'))
+    wrapper.instance().submitAcknowledged()
+    expect(wrapper.state('showSubmitConfirmation')).toBeFalsy()
   })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //Since the text above passed, that shows that the component does exist. 
   // it('should simulate entering text into form', ()=> {

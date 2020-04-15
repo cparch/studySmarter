@@ -134,7 +134,7 @@ class App extends React.Component {
     this.handleStudySessionStartTime = this.handleStudySessionStartTime.bind(this);
     this.handleStudySessionEndTime = this.handleStudySessionEndTime.bind(this);
     this.addStudySessionSubmitBtnHandler = this.addStudySessionSubmitBtnHandler.bind(this);
-    this.AddClassSubitBtnHandler = this.AddClassSubitBtnHandler.bind(this);
+    this.AddClassSubmitBtnHandler = this.AddClassSubmitBtnHandler.bind(this);
     this.AddTestSubmitBtnHandler = this.AddTestSubmitBtnHandler.bind(this);
     this.homePageShowClassInfo = this.homePageShowClassInfo.bind(this);
     this.homePageShowTestStudySessions = this.homePageShowTestStudySessions.bind(this);
@@ -339,7 +339,7 @@ class App extends React.Component {
     // this.getAllData()
   };
 
-  AddClassSubitBtnHandler(event) {
+  AddClassSubmitBtnHandler(event) {
     event.preventDefault();
     const updateClasses = [...this.state.classes];
     updateClasses.push({
@@ -439,7 +439,7 @@ class App extends React.Component {
               render={(props) => 
               <AddClass 
                 FormHandler={this.FormHandler}
-                AddClassSubitBtnHandler={this.AddClassSubitBtnHandler}
+                AddClassSubmitBtnHandler={this.AddClassSubmitBtnHandler}
                 classNameToAdd={this.state.classNameToAdd}
               />}
             />

@@ -367,7 +367,8 @@ class App extends React.Component {
   }
 
   FormHandler(event) {
-    console.log(event.target.value)
+    // console.log(event.target)
+    // console.log(event.target.value)
     // debugger
     this.setState({
       [event.target.name]: event.target.value

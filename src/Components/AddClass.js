@@ -9,7 +9,7 @@ const AddClass = (props) => {
       <div className='AddClassHeaderImage' id='test'></div>
       <div className='mainContainer'>
         <h1>Add Class Name</h1>
-        <form className='test' onSubmit={props.AddClassSubitBtnHandler}>
+        <form className='test' onSubmit={props.AddClassSubmitBtnHandler}>
           <Input
             className="enzymeTest"
             placeholder="New History 101" 

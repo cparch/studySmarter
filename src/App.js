@@ -65,13 +65,13 @@ class App extends React.Component {
               totalTimeStudiedPerTest: "3:00",
               studySession: [
                 {
-                  endTimeToDisplay: "1:00 PM",
-                  endTime: "13:00",
+                  endTimeToDisplay: "1:50 PM",
+                  endTime: "13:50",
                   notes: "test",
-                  startTime: "13:50",
-                  startTimeToDisplay: "1:50 PM",
+                  startTime: "13:00",
+                  startTimeToDisplay: "1:00 PM",
                   studySessionNum: 'psychT2 - study session 0',
-                  studySessionDuration: "3:00"
+                  studySessionDuration: "0:50"
                 }
               ],
             }

@@ -36,7 +36,10 @@ a:visited { text-decoration: none; color:black; }
 .sideNavList a:hover {
   /* color: rgb(237, 237, 87); */
   color: rgb(37, 120, 245);
+}
 
+.sideNavList a:hover {
+  text-decoration: underline;
 }
 
 h2{

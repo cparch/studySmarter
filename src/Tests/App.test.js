@@ -22,6 +22,15 @@ describe('addClassName Test Suite', () => {
     expect(wrapper.state('showSubmitConfirmation')).toBeFalsy()
   })
 
+  // it('should update state by adding a new class', () => {
+  //   let wrapper = shallow(<App/>);
+  //   let originalArrayLength = wrapper.state().classes.length
+  //   wrapper.setState({classNameToAdd: 'Math 101'})
+  //   console.log(wrapper.state().classes)
+  //   wrapper.instance().AddClassSubmitBtnHandler()
+  //   console.log(wrapper.state().classes)
+  // })
+
 
 
 

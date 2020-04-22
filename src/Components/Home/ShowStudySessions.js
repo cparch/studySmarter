@@ -12,7 +12,7 @@ const ShowStudySession = (props) => {
         </div>
         <br/>
         <div>
-          Start Time:{studySession.startTimeToDisplay}
+          Start Time: {studySession.startTimeToDisplay}
         </div>
 
         <div>

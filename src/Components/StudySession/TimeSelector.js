@@ -3,9 +3,11 @@ import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
 
  const TimeSelector = (props) => {
+
   return (
     <div>
       <TimePicker
+        id = {props.id}
         value = {props.TimeValue}
         onChange={props.timeHandler}
         showSecond={false}

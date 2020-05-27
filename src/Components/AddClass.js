@@ -2,20 +2,25 @@ import React from 'react';
 import './AddClass.css';
 
 import Input from './Reusable Components/Input.js';
+import {useDispatch, useSelector} from 'react-redux'
+import {formHandler} from '../actions/index.js'
 
 const AddClass = (props) => {
+  const dispatch = useDispatch()
+  const classValue = useSelector(state => state.FormHandlerReducer.classNameToAdd)
+
   return (
     <div>
       <div className='AddClassHeaderImage' id='test'></div>
       <div className='mainContainer'>
         <h1>Add Class Name</h1>
-        <form className='test' onSubmit={props.AddClassSubmitBtnHandler}>
+        <form className='test' onSubmit={(event) => props.AddClassSubmitBtnHandler(event, classValue)}>
           <Input
             className="enzymeTest"
             placeholder="New History 101" 
             name='classNameToAdd' 
-            onChangeFunc={props.FormHandler}
-            value={props.classNameToAdd}
+            onChangeFunc={(event) => dispatch(formHandler(event))}
+            value={classValue}
             label="Class Name"
           />
           <br/>

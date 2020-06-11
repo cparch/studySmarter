@@ -1,8 +1,13 @@
 import React from 'react';
 import './AddGrade.css';
 import Input from './Reusable Components/Input.js';
+import {useDispatch, useSelector} from 'react-redux'
+import {formHandler} from '../actions/index.js'
 
 const AddGrade = (props) => {
+  const dispatch = useDispatch()
+  const gradeValue = useSelector(state => state.FormHandlerReducer.gradeInput)
+
   return(
     <div>
       <div className='headerImage'/>
@@ -10,8 +15,7 @@ const AddGrade = (props) => {
         <h1>
           Add test grade!!!
         </h1>
-
-        <form onSubmit={props.AddGradeHandler}>
+        <form onSubmit={(event) => props.AddGradeHandler(event, gradeValue)}>
           <label>
             <select name="selectedClass" onChange={props.FormHandler}> 
             <option>Class Name:</option> 
@@ -37,8 +41,13 @@ const AddGrade = (props) => {
           <Input
              placeholder='A'
              name='gradeInput' 
-             onChangeFunc={props.FormHandler}
-             value={props.entireState.gradeInput}
+            //  onChangeFunc={props.FormHandler}
+             onChangeFunc={(event) => dispatch(formHandler(event))}
+
+            //  value={props.entireState.gradeInput}
+            value={gradeValue}
+
+             
              label='Grade'
           />
           <br></br>

@@ -14,6 +14,7 @@ import StudyInsights from './Components/StudyInsights/StudyInsights.js'
 import moment from 'moment';
 import SideDrawer from './Components/Navigation/SideDrawer.js'
 import SubmitAlert from './Components/Reusable Components/SubmitAlert/SubmitAlert.js'
+import {useSelector} from 'react-redux'
 
 class App extends React.Component {
   constructor(props){
@@ -232,10 +233,12 @@ class App extends React.Component {
     // this.getAllData()
   }
 
-  AddGradeHandler(event){
+  AddGradeHandler(event, gradeValue){
     event.preventDefault(); 
     let updateClasses = this.state.classes
-    updateClasses[this.state.selectedClass].test[this.state.selectedTest].grade = this.state.gradeInput
+    // updateClasses[this.state.selectedClass].test[this.state.selectedTest].grade = this.state.gradeInput
+    updateClasses[this.state.selectedClass].test[this.state.selectedTest].grade = gradeValue
+
     this.setState({
       classes: updateClasses,
       gradeInput: '',
@@ -276,6 +279,11 @@ class App extends React.Component {
   }
 
   handleStudySessionStartTime(value) {
+    // console.log("hello frp, startTimeFunc")
+    // console.log(value && value.format('LT'))
+    // console.log(value && value.format('HH:mm'))
+    // console.log(value)
+
     this.setState({ 
       startTimeValue: value,
       // [event.target.name]: value && value.format('HH:mm')
@@ -302,12 +310,14 @@ class App extends React.Component {
     })
   }
 
-  AddTestSubmitBtnHandler(event) {
+  AddTestSubmitBtnHandler(event, testName) {
     event.preventDefault();
     let updateClasses = this.state.classes;
 
     updateClasses[this.state.selectedClass].test.push({
-      testName: this.state.testNameToAdd,
+      // testName: this.state.testNameToAdd,
+      testName: testName,
+
       studySession: [], 
       grade: '',
       totalTimeStudiedPerTest: "0:00",
@@ -339,11 +349,12 @@ class App extends React.Component {
     // this.getAllData()
   };
 
-  AddClassSubmitBtnHandler(event) {
+  AddClassSubmitBtnHandler(event, newClassName) {
     event.preventDefault();
     const updateClasses = [...this.state.classes];
     updateClasses.push({
-      classTitle: this.state.classNameToAdd,
+      // classTitle: this.state.classNameToAdd, //before redux
+       classTitle: newClassName, 
       test:[],
       homePageShowClassInfo: false,
     })
@@ -367,6 +378,7 @@ class App extends React.Component {
   }
 
   FormHandler(event) {
+    console.log("hello test 2")
     // console.log(event.target)
     // console.log(event.target.value)
     // debugger
@@ -394,7 +406,10 @@ class App extends React.Component {
     // this.getAllData()
   }
 
+
+
   render(){
+
     return (
       <BrowserRouter>
         <div>

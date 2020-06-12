@@ -11,3 +11,9 @@ export const studySessionStartTime = (startTimeValue) => {
     payload: startTimeValue
   }
 }
+
+export const sideDrawerToggle = () => {
+  return {
+    type: 'SIDE_DRAWER_TOGGLE'
+  }
+}

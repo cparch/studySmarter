@@ -2,11 +2,18 @@ import React from 'react';
 import './AddTest.css';
 import Input from './Reusable Components/Input.js';
 import {useDispatch, useSelector} from 'react-redux'
-import {formHandler} from '../actions/index.js'
+import {formHandler, showSubmitMessage} from '../actions/index.js'
 
 const AddTest = (props) => {
   const dispatch = useDispatch()
   const testNameValue = useSelector(state => state.FormHandlerReducer.testNameToAdd)
+
+  const submit = (event, testNameValue) => {
+    event.preventDefault();
+    console.log("Submit Clicked")
+    props.AddTestSubmitBtnHandler(event, testNameValue)
+    dispatch(showSubmitMessage())
+  }
 
   return(
     <div>
@@ -18,8 +25,8 @@ const AddTest = (props) => {
 
         <form 
           // onSubmit={props.AddTestSubmitBtnHandler}
-          onSubmit={(event) => props.AddTestSubmitBtnHandler(event, testNameValue)}
-
+          // onSubmit={(event) => props.AddTestSubmitBtnHandler(event, testNameValue)}
+          onSubmit={(event) => submit(event, testNameValue)}
           className='addTestForm'
         >
           <label> 

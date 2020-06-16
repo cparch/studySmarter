@@ -2,11 +2,18 @@ import React from 'react';
 import './AddGrade.css';
 import Input from './Reusable Components/Input.js';
 import {useDispatch, useSelector} from 'react-redux'
-import {formHandler} from '../actions/index.js'
+import {formHandler, showSubmitMessage} from '../actions/index.js'
 
 const AddGrade = (props) => {
   const dispatch = useDispatch()
   const gradeValue = useSelector(state => state.FormHandlerReducer.gradeInput)
+
+  const submit = (event, gradeValue) => {
+    event.preventDefault();
+    console.log("Submit Clicked")
+    props.AddGradeHandler(event, gradeValue)
+    dispatch(showSubmitMessage())
+  }
 
   return(
     <div>
@@ -15,7 +22,10 @@ const AddGrade = (props) => {
         <h1>
           Add test grade!!!
         </h1>
-        <form onSubmit={(event) => props.AddGradeHandler(event, gradeValue)}>
+        {/* <form onSubmit={(event) => props.AddGradeHandler(event, gradeValue)}> */}
+        <form onSubmit={(event) => submit(event, gradeValue)}>
+
+
           <label>
             <select name="selectedClass" onChange={props.FormHandler}> 
             <option>Class Name:</option> 
@@ -43,12 +53,9 @@ const AddGrade = (props) => {
              name='gradeInput' 
             //  onChangeFunc={props.FormHandler}
              onChangeFunc={(event) => dispatch(formHandler(event))}
-
             //  value={props.entireState.gradeInput}
             value={gradeValue}
-
-             
-             label='Grade'
+            label='Grade'
           />
           <br></br>
           <input className='button' type="submit" value="Submit" />

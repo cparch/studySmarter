@@ -3,7 +3,7 @@ import './AddStudySession.css';
 import TimeSelector from './TimeSelector.js';
 import 'rc-time-picker/assets/index.css';
 import {useDispatch, useSelector} from 'react-redux'
-import {formHandler, studySessionStartTime, startTimeHandler} from '../../actions/index.js'
+import {formHandler, showSubmitMessage, studySessionStartTime, startTimeHandler} from '../../actions/index.js'
 
 const AddStudySession = (props) => {
 
@@ -11,17 +11,23 @@ const AddStudySession = (props) => {
   const notesValue = useSelector(state => state.FormHandlerReducer.notes)
   let startTimeValue = useSelector(state => state.FormHandlerReducer.SelectedStartTimeValueToDisplay)
 
+  const submit = (event) => {
+    event.preventDefault();
+    console.log("Submit Clicked")
+    props.addStudySessionSubmitBtnHandler(event)
+    dispatch(showSubmitMessage())
+  }
 
   return(
     <div>
       <div className='AddStudySessionHeaderImage'></div>
       <div className='mainContainer'>
         <h1>Add Study Session</h1>
-        <form onSubmit={props.addStudySessionSubmitBtnHandler}>
+        {/* <form onSubmit={props.addStudySessionSubmitBtnHandler}> */}
+        <form onSubmit={(event) => submit(event)}>
+
           <label>
-            {/* <select name="selectedClass" onChange={props.FormHandler}>  */}
             <select name="selectedClass" onChange={(event) => dispatch(formHandler(event))}> 
-            {/* <select name="selectedClass" onChange={() => console.log("test 10:36")}>  */}
             <option>Class Name:</option> 
               {props.entireState.classes.map((classes, idx) => (
                 <option  key={classes.classTitle} value={idx}>
@@ -32,9 +38,7 @@ const AddStudySession = (props) => {
           </label>
           <br></br>
           <label>
-            {/* <select name="selectedTest" onChange={props.FormHandler}>  */}
             <select name="selectedTest" onChange={(event) => dispatch(formHandler(event))}> 
-
 
             <option>Test Name:</option> 
                 {props.tests.map((test, idx) => (

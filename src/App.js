@@ -14,7 +14,6 @@ import StudyInsights from './Components/StudyInsights/StudyInsights.js'
 import moment from 'moment';
 import SideDrawer from './Components/Navigation/SideDrawer.js'
 import SubmitAlert from './Components/Reusable Components/SubmitAlert/SubmitAlert.js'
-// import {useSelector} from 'react-redux'
 
 class App extends React.Component {
   constructor(props){

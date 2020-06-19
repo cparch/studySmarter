@@ -14,7 +14,7 @@ import StudyInsights from './Components/StudyInsights/StudyInsights.js'
 import moment from 'moment';
 import SideDrawer from './Components/Navigation/SideDrawer.js'
 import SubmitAlert from './Components/Reusable Components/SubmitAlert/SubmitAlert.js'
-import {useSelector} from 'react-redux'
+// import {useSelector} from 'react-redux'
 
 class App extends React.Component {
   constructor(props){
@@ -317,7 +317,6 @@ class App extends React.Component {
     updateClasses[this.state.selectedClass].test.push({
       // testName: this.state.testNameToAdd,
       testName: testName,
-
       studySession: [], 
       grade: '',
       totalTimeStudiedPerTest: "0:00",

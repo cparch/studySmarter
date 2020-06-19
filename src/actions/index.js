@@ -29,3 +29,18 @@ export const showSubmitMessage = () => {
     type: 'SHOW_SUBMIT_MESSAGE'
   }
 }
+
+export const addClass = (classTitleToAdd) => {
+  return {
+    type: 'ADD_CLASS',
+    payload: classTitleToAdd
+  }
+}
+
+export const addTest = (classIdNumber, testTitleToAdd) => {
+  return {
+    type: 'ADD_TEST',
+    classIdNumber,
+    testTitleToAdd
+  }
+}

@@ -2,11 +2,11 @@ const classTitleObj = {
   byID : {
     "class0": {
       id: "class0",
-      classTitle: 'Psychology102'
+      classTitle: 'PsychologyRedux'
     },
     "class1": {
       id: "class1",
-      classTitle: 'History102',
+      classTitle: 'HistoryRedux',
     } 
   },
   allID: ["class0", "class1"]

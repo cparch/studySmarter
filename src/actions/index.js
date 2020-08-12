@@ -44,3 +44,12 @@ export const addTest = (classIdNumber, testTitleToAdd) => {
     testTitleToAdd
   }
 }
+
+export const addStudySessionDetails = (classID, testID, notes) => {
+  return {
+    type: 'ADD_STUDY_SESSION_DETAILS',
+    classID, 
+    testID, 
+    notes
+  }
+}

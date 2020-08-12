@@ -1,3 +1,8 @@
+//next I need to convert study session to use redux 
+// study insights to use redux
+// home page to render class / study info based on redux state
+
+
 To start this project
 'npm start'
 'node studySmartServer.js'

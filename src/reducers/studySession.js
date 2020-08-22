@@ -1,3 +1,5 @@
+import Duration from 'duration';
+
 const studySessionReducer = (state = {}, action) => {
   switch(action.type){
     case 'ADD_STUDY_SESSION_DETAILS':

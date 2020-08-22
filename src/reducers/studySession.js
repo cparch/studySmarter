@@ -8,10 +8,6 @@ const studySessionReducer = (state = {}, action) => {
         - It might make more sense to figure out that times first. That ways we understand the entire state obj stricture, before we try to copy it in an immutable fashion.
       */
 
-    // old codes that works, but is not immutable
-    // const updatedState = {...state}
-
-    // new code that doesn't work. It seems like this is immutable
      let updatedState = {};
 
      for(const key in state) {
@@ -19,7 +15,6 @@ const studySessionReducer = (state = {}, action) => {
         updatedState[key] = {...state[key]}
      }
 
-      
       const testName = 'test' + action.testID      
       // if no class, add the class, test, and notes
       if(updatedState['class'+ action.classID] === undefined){

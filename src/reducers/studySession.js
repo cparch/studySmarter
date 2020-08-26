@@ -1,5 +1,3 @@
-import Duration from 'duration';
-
 const studySessionReducer = (state = {}, action) => {
   switch(action.type){
     case 'ADD_STUDY_SESSION_DETAILS':
@@ -32,7 +30,7 @@ const studySessionReducer = (state = {}, action) => {
         selectedTestStudySessionArray.push({['studySession' + selectedTestStudySessionArray.length]: {notes: action.notes}})
       }
 
-      console.log("LINE 21: updated state :", updatedState )
+      // console.log("LINE 21: updated state :", updatedState )
       return updatedState 
     
     default: 

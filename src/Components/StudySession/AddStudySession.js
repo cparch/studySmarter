@@ -12,8 +12,7 @@ const AddStudySession = (props) => {
   let startTimeValue = useSelector(state => state.FormHandlerReducer.startTimeValue);
   let endTimeValue = useSelector(state => state.FormHandlerReducer.endTimeValue);
 
-  let classesObj = useSelector(state => state.classesReducer);
-  let selectedClass = useSelector(state => state.FormHandlerReducer.selectedClass)
+  
   let selectedTest = useSelector(state => state.FormHandlerReducer.selectedTest)
 
   let SelectedStartTimeValue = useSelector(state => state.FormHandlerReducer.SelectedStartTimeValue)
@@ -22,10 +21,13 @@ const AddStudySession = (props) => {
   let SelectedEndTimeValue = useSelector(state => state.FormHandlerReducer.SelectedEndTimeValue)
   let SelectedEndTimeValueToDisplay = useSelector(state => state.FormHandlerReducer.SelectedEndTimeValueToDisplay)
 
-
-  let testObj = useSelector(state => state.testReducer);
   let notes = useSelector(state => state.FormHandlerReducer.notes);
 
+
+  let testObj = useSelector(state => state.testReducer);
+  let classesObj = useSelector(state => state.classesReducer);
+  let selectedClass = useSelector(state => state.FormHandlerReducer.selectedClass)
+  
   let testListObj = testObj[classesObj.allID[selectedClass]];
   let chosenClassTestList = []
 

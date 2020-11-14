@@ -20,6 +20,20 @@ const AddGrade = (props) => {
 
   console.log("testList: ", testList)
 
+  //test list
+  let testObj = useSelector(state => state.testReducer);
+  let classesObj = useSelector(state => state.classesReducer);
+  let selectedClass = useSelector(state => state.FormHandlerReducer.selectedClass)
+  
+  let testListObj = testObj[classesObj.allID[selectedClass]];
+  let chosenClassTestList = []
+
+  for(const key in testListObj){
+    chosenClassTestList.push(testListObj[key].testTitle)
+  }
+
+  console.log('chosenClassTestList: ', chosenClassTestList)
+
 
 
 
@@ -30,7 +44,7 @@ const AddGrade = (props) => {
     dispatch(addTestGrade(gradeValue, classID, testID))
     dispatch(showSubmitMessage())
   }
-  // 11/7: working on adding the test grade to redux. The test drop down isn't getting the correct info. It's always showing the tests for class0 even when class1 is selected. To start, class1 should have no options for test name: similar to add study session page > select class historyRedux > then open test name drop down. There are no classes there and the only thing in the drop down is test name. Fix the test drop down below to behave similarly. Then after that you can continue working on testGradeHandler.js
+  // 11/14:  continue working on testGradeHandler.js. when you try and update a test grade which has already been entered, nothing happens. Work on that logic. To start: enter a new test grade, and then try to override that. You'll see nothing happens. that logic is in testGradeHandler.js
 
   return(
     <div>
@@ -45,13 +59,7 @@ const AddGrade = (props) => {
             {/* <select name="selectedClass" onChange={props.FormHandler}> */}
             <select name="selectedClass" onChange={(event) => dispatch(formHandler(event))}>
             <option>Class Name:</option> 
-              {/* {props.entireState.classes.map((classes, idx) => (
-                <option  key={classes.classTitle} value={idx}>
-                  {classes.classTitle}
-                </option>
-              ))} */}
               {classIdList.map((classId, idx) => (
-
                 <option  key={classNameObj[classId].classTitle} value={idx}>
                   {classNameObj[classId].classTitle}
                 </option>
@@ -60,21 +68,13 @@ const AddGrade = (props) => {
           </label>
           <br></br>
           <label>
-            {/* <select name="selectedTest" onChange={props.FormHandler}>  */}
             <select name="selectedTest" onChange={(event) => dispatch(formHandler(event))}> 
               <option>Test Name:</option> 
-                {/* {props.tests.map((test, idx) => (
-                  <option key={test.testName} value={idx}>
-                    {test.testName}
-                  </option>
-                ))} */}
-
-                {props.tests.map((test, idx) => (
-                  <option key={test.testName} value={idx}>
-                    {test.testName}
+                {chosenClassTestList.map((testName, idx) => (
+                  <option key={testName} value={idx}>
+                    {testName}
                   </option>
                 ))}
-                
             </select>
           </label>
           <br></br>

@@ -5,6 +5,22 @@ export const formHandler = (event) => {
   }
 }
 
+export const startTimeHandlerRedux = (startTimeObj) => {
+  return {
+    type: 'START_TIME_HANDLER',
+    payload: startTimeObj
+  }
+}
+
+export const endTimeHandlerRedux = (endTimeObj) => {
+  return {
+    type: 'END_TIME_HANDLER',
+    payload: endTimeObj
+  }
+}
+
+
+
 export const studySessionStartTime = (startTimeValue) => {
   return {
     type: 'START_TIME',
@@ -45,11 +61,24 @@ export const addTest = (classIdNumber, testTitleToAdd) => {
   }
 }
 
-export const addStudySessionDetails = (classID, testID, notes) => {
+export const addStudySessionDetails = (classID, testID, notes, SelectedStartTimeValue, SelectedStartTimeValueToDisplay, SelectedEndTimeValue, SelectedEndTimeValueToDisplay) => {
   return {
     type: 'ADD_STUDY_SESSION_DETAILS',
     classID, 
     testID, 
-    notes
+    notes,
+    SelectedStartTimeValue,
+    SelectedStartTimeValueToDisplay,
+    SelectedEndTimeValue,
+    SelectedEndTimeValueToDisplay
+  }
+}
+
+export const addTestGrade = (testGrade, classID, testID) => {
+  return {
+    type: 'ADD_FINAL_TEST_GRADE',
+    testGrade,
+    classID,
+    testID
   }
 }

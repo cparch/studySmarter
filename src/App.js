@@ -281,7 +281,7 @@ class App extends React.Component {
     // console.log("hello frp, startTimeFunc")
     // console.log(value && value.format('LT'))
     // console.log(value && value.format('HH:mm'))
-    // console.log(value)
+    console.log("value from app.sj: ", value)
 
     this.setState({ 
       startTimeValue: value,

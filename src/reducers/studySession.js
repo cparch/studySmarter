@@ -2,13 +2,6 @@ const studySessionReducer = (state = {}, action) => {
   switch(action.type){
     case 'ADD_STUDY_SESSION_DETAILS':
 
-      /* 
-      - Add times
-        - there are a few different times that we need for various calculations. Check the old state for everything we need. 
-        - It might make more sense to figure out that times first. That ways we understand the entire state obj stricture, before we try to copy it in an immutable fashion.
-      */
-
-
      let updatedState = {};
 
      for(const key in state) {

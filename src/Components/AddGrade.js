@@ -44,7 +44,6 @@ const AddGrade = (props) => {
     dispatch(addTestGrade(gradeValue, classID, testID))
     dispatch(showSubmitMessage())
   }
-  // 11/14:  continue working on testGradeHandler.js. when you try and update a test grade which has already been entered, nothing happens. Work on that logic. To start: enter a new test grade, and then try to override that. You'll see nothing happens. that logic is in testGradeHandler.js
 
   return(
     <div>

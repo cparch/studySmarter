@@ -11,22 +11,16 @@ const testGradeReducer = (state = {}, action) => {
       const testName = 'test' + action.testID      
       // if no class, add the class, and test grade
       if(updatedState['class'+ action.classID] === undefined){
-        
         updatedState['class'+ action.classID] = {[testName]: {grade: action.testGrade}}
-      } else if (updatedState['class'+ action.classID][testName] === undefined) {
+      } 
+      // if the class exists, but the test doesn't exist, add test and teh grade
+      else if (updatedState['class'+ action.classID][testName] === undefined) {
         updatedState['class'+ action.classID][testName] = {grade: action.testGrade}
       } 
-      // else update test grade
-      // else {
-      //   let selectedTestStudySessionArray = updatedState['class'+ action.classID][testName]
-      //   selectedTestStudySessionArray.push({['studySession' + selectedTestStudySessionArray.length]: {
-      //     notes: action.notes,
-      //     SelectedStartTimeValue: action.SelectedStartTimeValue, 
-      //     SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
-      //     SelectedEndTimeValue: action.SelectedEndTimeValue,
-      //     SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay
-      //   }})
-      // }
+      // if class, test, and grade already exist, just update the grade.
+      else {
+        updatedState['class'+ action.classID][testName] = {grade: action.testGrade}
+      }
 
       return updatedState 
     

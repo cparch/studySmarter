@@ -82,3 +82,10 @@ export const addTestGrade = (testGrade, classID, testID) => {
     testID
   }
 }
+
+export const toggleShowTests = (classId) => {
+  return {
+    type: 'SHOW_TEST_TOGGLE',
+    classId
+  }
+}

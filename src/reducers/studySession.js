@@ -11,27 +11,39 @@ const studySessionReducer = (state = {}, action) => {
       const testName = 'test' + action.testID      
       // if no class, add the class, test, and notes
       if(updatedState['class'+ action.classID] === undefined){
-        updatedState['class'+ action.classID] = {[testName]: [{StudySession0: {
-          notes: action.notes,
-          SelectedStartTimeValue: action.SelectedStartTimeValue, 
-          SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
-          SelectedEndTimeValue: action.SelectedEndTimeValue,
-          SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay
-        }}] }
+        updatedState['class'+ action.classID] = { 
+          [testName]: {
+            showStudySessions: false,
+            studySessionList: [
+              {StudySession0: {
+                notes: action.notes,
+                SelectedStartTimeValue: action.SelectedStartTimeValue, 
+                SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
+                SelectedEndTimeValue: action.SelectedEndTimeValue,
+                SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay
+              }}
+            ]
+          }
+        }
       } 
       // else if no test add the test
       else if (updatedState['class'+ action.classID][testName] === undefined) {
-        updatedState['class'+ action.classID][testName] = [{StudySession0: {
-          notes: action.notes,
-          SelectedStartTimeValue: action.SelectedStartTimeValue, 
-          SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
-          SelectedEndTimeValue: action.SelectedEndTimeValue,
-          SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay
-        }}]
+        updatedState['class'+ action.classID][testName] = {
+          showStudySessions: false,
+          studySessionList: [
+            {StudySession0: {
+              notes: action.notes,
+              SelectedStartTimeValue: action.SelectedStartTimeValue, 
+              SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
+              SelectedEndTimeValue: action.SelectedEndTimeValue,
+              SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay
+            }}
+          ]
+        }
       } 
       // else add the study session to the test
       else {
-        let selectedTestStudySessionArray = updatedState['class'+ action.classID][testName]
+        let selectedTestStudySessionArray = updatedState['class'+ action.classID][testName].studySessionList
         selectedTestStudySessionArray.push({['studySession' + selectedTestStudySessionArray.length]: {
           notes: action.notes,
           SelectedStartTimeValue: action.SelectedStartTimeValue, 
@@ -44,6 +56,13 @@ const studySessionReducer = (state = {}, action) => {
       // console.log("LINE 21: updated state :", updatedState )
       return updatedState 
     
+    case 'TOGGLE_SHOW_STUDY_SESSIONS':
+      const updatedState2 = {...state};
+      const classId = action.classId 
+      const testId = action.testId 
+      updatedState2[classId][testId].showStudySessions = !state[classId][testId].showStudySessions
+      return updatedState2
+
     default: 
       return state
   }

@@ -89,3 +89,12 @@ export const toggleShowTests = (classId) => {
     classId
   }
 }
+
+export const toggleShowStudySessions = (classId, testId) => {
+  return {
+    type: 'TOGGLE_SHOW_STUDY_SESSIONS',
+    classId,
+    testId
+  }
+}
+

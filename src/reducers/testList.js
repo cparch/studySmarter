@@ -3,10 +3,6 @@ const testList = {
     "test0" : {
       id: "test0",
       testTitle: 'Chapter 1'
-    },
-    "test1" : {
-      id: "test1",
-      testTitle: 'Chapter 2'
     }
   }
 }

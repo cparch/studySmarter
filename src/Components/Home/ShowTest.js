@@ -2,33 +2,49 @@ import React from 'react';
 import ShowStudySessions from './ShowStudySessions.js';
 import './ShowTest.css';
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import {toggleShowStudySessions} from '../../actions/index.js'
+
 
 const ShowTests = (props) => {
+  const dispatch = useDispatch()
   let testList = useSelector(state => state.testReducer)
+  let allStudySessions = useSelector(state => state.studySessionReducer)
+
+
   let testNameArray = [];
+  let classId = ''
+  
 
   // this gathers all the test names for the selected class and puts them in an array
   for(const classObj in testList){
+    classId = classObj
     for(const testObj in testList[classObj]){
       testNameArray.push(testList[classObj][testObj].testTitle)
     }
   }
 
-  //11/21: on the home page, when you click the class name, we can now see the test names. The next thing is when you click on the test name we should get all the study session info. The very next task is to have HomePageHandler update showStudySessions for that particular test. I think I need to add the showStudySessions boolen to study session reducer, because we only want to see the study sessions for the test of our choice. 
 
   // let listItems = props.courseInfo.test.map((testInfo, testIdx) =>{
   let listItems = testNameArray.map((testName, testIdx) =>{
 
-    let showStudySession = null
+    let StudySession = null
     // let testGradeOrStudyTime = `Total Time Studied for this test: ${testInfo.totalTimeStudiedPerTest}`
-    let testGradeOrStudyTime = `Work on line 9 in showTest.js`
+    let testGradeOrStudyTime = `Work on line 33 in showTest.js`
 
-    //11/21: work on this once test are displaied. This shows the study session info
+    let selectedTestId = 'test'+testIdx
+
+    // console.log("*****SHOW STUDY SESSIONS: ", allStudySessions[classId][selectedTestId].showStudySessions )
     // if(testInfo.homePageShowStudySessions){
-    //   showStudySession = <ShowStudySessions
+    debugger
+    if(allStudySessions[classId][selectedTestId].showStudySessions){
+      console.log("***** SHOW STUDY Session")
+      // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true. below on line 43, we need to figure out what to pass the showStudySessions component to have it display all the study sessions for that test
+      
+    //   StudySession = <ShowStudySessions
     //     studySessions={testInfo.studySession}
     //   />
-    // }
+    } 
 
     // if(testInfo.grade){
     //   testGradeOrStudyTime = `Grade: ${testInfo.grade}`
@@ -36,11 +52,12 @@ const ShowTests = (props) => {
     return(
       <div 
         className='testName'
-        onClick={() => props.homePageShowTestStudySessions(props.classIdx, testIdx)}
+        // onClick={() => props.homePageShowTestStudySessions(props.classIdx, testIdx)}
+        onClick={() => dispatch( toggleShowStudySessions(classId, selectedTestId))}
         key={testName}
       >
         {testName}: {testGradeOrStudyTime}
-        {showStudySession}
+        {StudySession}
       </div> 
     )
   });

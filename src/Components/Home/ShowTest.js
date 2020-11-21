@@ -39,7 +39,7 @@ const ShowTests = (props) => {
     debugger
     if(allStudySessions[classId][selectedTestId].showStudySessions){
       console.log("***** SHOW STUDY Session")
-      // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true. below on line 43, we need to figure out what to pass the showStudySessions component to have it display all the study sessions for that test
+      // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true. below on line 43, we need to figure out what to pass the showStudySessions component to have it display all the study sessions for that test.... merge branch updateStudySessionReducer with branch UpdateHomePage..... merge branch updateHomePage with branch normalizeState
       
     //   StudySession = <ShowStudySessions
     //     studySessions={testInfo.studySession}

@@ -44,7 +44,7 @@ const studySessionReducer = (state = {}, action) => {
       // else add the study session to the test
       else {
         let selectedTestStudySessionArray = updatedState['class'+ action.classID][testName].studySessionList
-        selectedTestStudySessionArray.push({['studySession' + selectedTestStudySessionArray.length]: {
+        selectedTestStudySessionArray.push({['StudySession' + selectedTestStudySessionArray.length]: {
           notes: action.notes,
           SelectedStartTimeValue: action.SelectedStartTimeValue, 
           SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,

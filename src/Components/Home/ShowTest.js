@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import {toggleShowStudySessions} from '../../actions/index.js'
 
+// 12/05: we are getting errors when we: refresh > home > click on historyRedux (this should have no tests or study sessions attached to it yet) > error..... we want this to send a message says no data to display, or on the home page next to the name it should say no data to display and be un-clickable. 
 
 const ShowTests = (props) => {
   
@@ -30,8 +31,7 @@ const ShowTests = (props) => {
     let selectedTestId = 'test'+testIdx
     
     if(Object.keys(allStudySessions).length > 0 && allStudySessions[classId][selectedTestId].showStudySessions){
-      console.log("***** SHOW STUDY Session")
-      // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true in studysessionHandler.  merge branch updateStudySessionReducer with branch UpdateHomePage..... merge branch updateHomePage with branch normalizeState
+      // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true in studysessionHandler.
       
       StudySession = <ShowStudySessions
         studySessions={{classId: classId, testId: selectedTestId}}

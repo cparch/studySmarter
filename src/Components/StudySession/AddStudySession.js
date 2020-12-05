@@ -35,9 +35,35 @@ const AddStudySession = (props) => {
     chosenClassTestList.push(testListObj[key].testTitle)
   }
 
+  const getStudySessionDuration = (StartTime, EndTime) => {
+    let startDate = new Date("October 13, 2014 " + StartTime)
+    let endDate = new Date("October 13, 2014 " + EndTime)
+    let studySessionDuration = endDate - startDate
+    let durationInHours = studySessionDuration / 3600000
+    let durationInHoursSplit = durationInHours.toString().split('.')
+    let convertSecondsToDecimal = '.' + durationInHoursSplit[1]
+    let durationInTimeFormat = durationInHoursSplit[0] +':'+  Math.ceil(convertSecondsToDecimal * 60)
+    
+    if(isNaN(durationInTimeFormat.split(':')[1])) {
+      let updateTime = durationInTimeFormat.split(':')
+      updateTime[1] = '00'
+      durationInTimeFormat = updateTime.join(':')
+    }
+
+    if(durationInTimeFormat.split(':')[1].length < 2) {
+      let updateTime = durationInTimeFormat.split(':')
+      updateTime[1] = '0'+ updateTime[1]
+      durationInTimeFormat = updateTime.join(':')
+    }
+
+    return durationInTimeFormat
+  }
+
   const submit = (event) => {
     event.preventDefault();
-    dispatch(addStudySessionDetails(selectedClass, selectedTest, notes, SelectedStartTimeValue, SelectedStartTimeValueToDisplay, SelectedEndTimeValue, SelectedEndTimeValueToDisplay))
+    let studySessionDuration = getStudySessionDuration(SelectedStartTimeValue, SelectedEndTimeValue)
+    
+    dispatch(addStudySessionDetails(selectedClass, selectedTest, notes, SelectedStartTimeValue, SelectedStartTimeValueToDisplay, SelectedEndTimeValue, SelectedEndTimeValueToDisplay, studySessionDuration))
     dispatch(showSubmitMessage())
   }
 

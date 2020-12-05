@@ -9,7 +9,7 @@ const ShowStudySession = (props) => {
 
   console.log('studySessionList: ', studySessionList)
 
-  //11/28: need to figure out how to come up with a function to determine the duration of study time. Check and see how we did it the old way before redux Read note from 11/21 in showTest.js to figure out how to merge back to master.
+  //11/28: need to figure out how to come up with a function to determine the duration of study time. Check and see how we did it the old way before redux. Read note from 11/21 in showTest.js to figure out how to merge back to master.
 
   const listItems = studySessionList.map((studySessionObj, idx )=> {
     console.log('line 21: studySession+idx: ', 'studySession'+idx)
@@ -29,9 +29,9 @@ const ShowStudySession = (props) => {
           End Time: {studySessionObj['StudySession'+idx].SelectedEndTimeValueToDisplay}
         </div>
 
-        {/* <div>
-          Duration of study session: {studySession.studySessionDuration}
-        </div> */}
+        <div>
+          Duration of study session: {studySessionObj['StudySession'+idx].studySessionDuration}
+        </div>
         <br/>
         <div>
           Notes: {studySessionObj['StudySession'+idx].notes}

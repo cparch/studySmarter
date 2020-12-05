@@ -7,10 +7,6 @@ const ShowStudySession = (props) => {
   const testId = props.studySessions.testId
   const studySessionList = useSelector(state => state.studySessionReducer[classId][testId].studySessionList)
 
-  console.log('studySessionList: ', studySessionList)
-
-  //12/05: Getting an error when we add a new class > go to home page > try to view new study session. Once that is fixed, read note from 11/21 in showTest.js to figure out how to merge back to master.
-
   const listItems = studySessionList.map((studySessionObj, idx )=> {
     console.log('line 21: studySession+idx: ', 'studySession'+idx)
     console.log(studySessionObj['StudySession'+idx].SelectedStartTimeValueToDisplay)

@@ -61,7 +61,7 @@ export const addTest = (classIdNumber, testTitleToAdd) => {
   }
 }
 
-export const addStudySessionDetails = (classID, testID, notes, SelectedStartTimeValue, SelectedStartTimeValueToDisplay, SelectedEndTimeValue, SelectedEndTimeValueToDisplay) => {
+export const addStudySessionDetails = (classID, testID, notes, SelectedStartTimeValue, SelectedStartTimeValueToDisplay, SelectedEndTimeValue, SelectedEndTimeValueToDisplay, studySessionDuration) => {
   return {
     type: 'ADD_STUDY_SESSION_DETAILS',
     classID, 
@@ -70,7 +70,8 @@ export const addStudySessionDetails = (classID, testID, notes, SelectedStartTime
     SelectedStartTimeValue,
     SelectedStartTimeValueToDisplay,
     SelectedEndTimeValue,
-    SelectedEndTimeValueToDisplay
+    SelectedEndTimeValueToDisplay,
+    studySessionDuration
   }
 }
 

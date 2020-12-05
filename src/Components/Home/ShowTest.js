@@ -7,25 +7,20 @@ import {toggleShowStudySessions} from '../../actions/index.js'
 
 
 const ShowTests = (props) => {
+  
   const dispatch = useDispatch()
-  let testList = useSelector(state => state.testReducer)
+  let testList = useSelector(state => state.testReducer[props.classId])
   let allStudySessions = useSelector(state => state.studySessionReducer)
-
-
   let testNameArray = [];
-  let classId = ''
+  let classId = props.classId
+  debugger
   
 
   // this gathers all the test names for the selected class and puts them in an array
   for(const classObj in testList){
-    classId = classObj
-    for(const testObj in testList[classObj]){
-      testNameArray.push(testList[classObj][testObj].testTitle)
-    }
+    testNameArray.push(testList[classObj].testTitle)
   }
 
-
-  // let listItems = props.courseInfo.test.map((testInfo, testIdx) =>{
   let listItems = testNameArray.map((testName, testIdx) =>{
 
     let StudySession = null
@@ -33,18 +28,15 @@ const ShowTests = (props) => {
     let testGradeOrStudyTime = `Work on line 33 in showTest.js`
 
     let selectedTestId = 'test'+testIdx
-
-    // console.log("*****SHOW STUDY SESSIONS: ", allStudySessions[classId][selectedTestId].showStudySessions )
-    // if(testInfo.homePageShowStudySessions){
-    debugger
-    if(allStudySessions[classId][selectedTestId].showStudySessions){
+    
+    if(Object.keys(allStudySessions).length > 0 && allStudySessions[classId][selectedTestId].showStudySessions){
       console.log("***** SHOW STUDY Session")
-      // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true in studysessionHandler. below on line 44, we need to figure out what to pass the showStudySessions component to have it display all the study sessions for that test. I think it just needs the classId and testId. Once it has that I think it will just map over that array.... merge branch updateStudySessionReducer with branch UpdateHomePage..... merge branch updateHomePage with branch normalizeState
+      // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true in studysessionHandler.  merge branch updateStudySessionReducer with branch UpdateHomePage..... merge branch updateHomePage with branch normalizeState
       
       StudySession = <ShowStudySessions
         studySessions={{classId: classId, testId: selectedTestId}}
       />
-    } 
+    }
 
     // if(testInfo.grade){
     //   testGradeOrStudyTime = `Grade: ${testInfo.grade}`
@@ -52,7 +44,6 @@ const ShowTests = (props) => {
     return(
       <div 
         className='testName'
-        // onClick={() => props.homePageShowTestStudySessions(props.classIdx, testIdx)}
         onClick={() => dispatch( toggleShowStudySessions(classId, selectedTestId))}
         key={testName}
       >

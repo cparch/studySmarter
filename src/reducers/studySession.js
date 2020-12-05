@@ -20,7 +20,8 @@ const studySessionReducer = (state = {}, action) => {
                 SelectedStartTimeValue: action.SelectedStartTimeValue, 
                 SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
                 SelectedEndTimeValue: action.SelectedEndTimeValue,
-                SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay
+                SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay,
+                studySessionDuration: action.studySessionDuration
               }}
             ]
           }
@@ -36,7 +37,8 @@ const studySessionReducer = (state = {}, action) => {
               SelectedStartTimeValue: action.SelectedStartTimeValue, 
               SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
               SelectedEndTimeValue: action.SelectedEndTimeValue,
-              SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay
+              SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay,
+              studySessionDuration: action.studySessionDuration
             }}
           ]
         }
@@ -49,7 +51,8 @@ const studySessionReducer = (state = {}, action) => {
           SelectedStartTimeValue: action.SelectedStartTimeValue, 
           SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
           SelectedEndTimeValue: action.SelectedEndTimeValue,
-          SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay
+          SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay,
+          studySessionDuration: action.studySessionDuration
         }})
       }
 

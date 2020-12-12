@@ -22,36 +22,46 @@ const ShowTests = (props) => {
     testNameArray.push(testList[classObj].testTitle)
   }
 
-  let listItems = testNameArray.map((testName, testIdx) =>{
+  let listItems = null;
 
-    let StudySession = null
-    // let testGradeOrStudyTime = `Total Time Studied for this test: ${testInfo.totalTimeStudiedPerTest}`
-    let testGradeOrStudyTime = `Work on line 33 in showTest.js`
-
-    let selectedTestId = 'test'+testIdx
-    
-    if(Object.keys(allStudySessions).length > 0 && allStudySessions[classId][selectedTestId].showStudySessions){
-      // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true in studysessionHandler.
+  if(testNameArray.length === 0){
+    listItems =  <div>no test data to show. Please add a test.</div>
       
-      StudySession = <ShowStudySessions
-        studySessions={{classId: classId, testId: selectedTestId}}
-      />
-    }
 
-    // if(testInfo.grade){
-    //   testGradeOrStudyTime = `Grade: ${testInfo.grade}`
-    // }
-    return(
-      <div 
-        className='testName'
-        onClick={() => dispatch( toggleShowStudySessions(classId, selectedTestId))}
-        key={testName}
-      >
-        {testName}: {testGradeOrStudyTime}
-        {StudySession}
-      </div> 
-    )
-  });
+  } else {
+     listItems = testNameArray.map((testName, testIdx) =>{
+
+      let StudySession = null
+      // let testGradeOrStudyTime = `Total Time Studied for this test: ${testInfo.totalTimeStudiedPerTest}`
+      let testGradeOrStudyTime = `Work on line 33 in showTest.js`
+  
+      let selectedTestId = 'test'+testIdx
+      
+      if(Object.keys(allStudySessions).length > 0 && allStudySessions[classId][selectedTestId].showStudySessions){
+        // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true in studysessionHandler.
+        
+        StudySession = <ShowStudySessions
+          studySessions={{classId: classId, testId: selectedTestId}}
+        />
+      }
+  
+      // if(testInfo.grade){
+      //   testGradeOrStudyTime = `Grade: ${testInfo.grade}`
+      // }
+      return(
+        <div 
+          className='testName'
+          onClick={() => dispatch( toggleShowStudySessions(classId, selectedTestId))}
+          key={testName}
+        >
+          {testName}: {testGradeOrStudyTime}
+          {StudySession}
+        </div> 
+      )
+    });
+  }
+
+
 
   return(
     <div>

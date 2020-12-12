@@ -23,11 +23,9 @@ const ShowTests = (props) => {
   }
 
   let listItems = null;
-
+  // if no test for this class, else show tests
   if(testNameArray.length === 0){
     listItems =  <div>no test data to show. Please add a test.</div>
-      
-
   } else {
      listItems = testNameArray.map((testName, testIdx) =>{
 

@@ -25,7 +25,7 @@ const ShowTests = (props) => {
   let listItems = null;
   // if no test for this class, else show tests
   if(testNameArray.length === 0){
-    listItems =  <div>no test data to show. Please add a test.</div>
+    listItems =  <div className='testName'> You have not added any tests. Please add a test.</div> 
   } else {
      listItems = testNameArray.map((testName, testIdx) =>{
 
@@ -41,21 +41,33 @@ const ShowTests = (props) => {
         StudySession = <ShowStudySessions
           studySessions={{classId: classId, testId: selectedTestId}}
         />
-      }
+      
   
-      // if(testInfo.grade){
-      //   testGradeOrStudyTime = `Grade: ${testInfo.grade}`
-      // }
-      return(
-        <div 
-          className='testName'
-          onClick={() => dispatch( toggleShowStudySessions(classId, selectedTestId))}
-          key={testName}
-        >
-          {testName}: {testGradeOrStudyTime}
-          {StudySession}
-        </div> 
-      )
+        // if(testInfo.grade){
+        //   testGradeOrStudyTime = `Grade: ${testInfo.grade}`
+        // }
+
+        return(
+          <div 
+            className='testName'
+            onClick={() => dispatch( toggleShowStudySessions(classId, selectedTestId))}
+            key={testName}
+          >
+            {testName}: {testGradeOrStudyTime}
+            {StudySession}
+          </div> 
+        )
+      } else {
+        return(
+          <div 
+            className='testName'
+            key={testName}
+          >
+            {testName}: No Study Session info to display. Please add a study session.
+            
+          </div> 
+        )  
+      }
     });
   }
 

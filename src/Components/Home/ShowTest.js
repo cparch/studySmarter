@@ -35,7 +35,7 @@ const ShowTests = (props) => {
   
       let selectedTestId = 'test'+testIdx
       
-      if(Object.keys(allStudySessions).length > 0 && allStudySessions[classId][selectedTestId].showStudySessions){
+      if(Object.keys(allStudySessions).length > 0){
         // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true in studysessionHandler.
         
         StudySession = <ShowStudySessions

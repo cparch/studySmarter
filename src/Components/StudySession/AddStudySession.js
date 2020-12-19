@@ -35,11 +35,13 @@ const AddStudySession = (props) => {
     chosenClassTestList.push(testListObj[key].testTitle)
   }
 
+  // this func will return an obj with the time in a HH:MM format (i.e. 1:30), and total number of minutes
   const getStudySessionDuration = (StartTime, EndTime) => {
     let startDate = new Date("October 13, 2014 " + StartTime)
     let endDate = new Date("October 13, 2014 " + EndTime)
     let studySessionDuration = endDate - startDate
     let durationInHours = studySessionDuration / 3600000
+    let durationInMinutes = studySessionDuration/60000
     let durationInHoursSplit = durationInHours.toString().split('.')
     let convertSecondsToDecimal = '.' + durationInHoursSplit[1]
     let durationInTimeFormat = durationInHoursSplit[0] +':'+  Math.ceil(convertSecondsToDecimal * 60)
@@ -56,14 +58,14 @@ const AddStudySession = (props) => {
       durationInTimeFormat = updateTime.join(':')
     }
 
-    return durationInTimeFormat
+    return {durationInTimeFormat, durationInMinutes}
   }
 
   const submit = (event) => {
     event.preventDefault();
     let studySessionDuration = getStudySessionDuration(SelectedStartTimeValue, SelectedEndTimeValue)
     
-    dispatch(addStudySessionDetails(selectedClass, selectedTest, notes, SelectedStartTimeValue, SelectedStartTimeValueToDisplay, SelectedEndTimeValue, SelectedEndTimeValueToDisplay, studySessionDuration))
+    dispatch(addStudySessionDetails(selectedClass, selectedTest, notes, SelectedStartTimeValue, SelectedStartTimeValueToDisplay, SelectedEndTimeValue, SelectedEndTimeValueToDisplay, studySessionDuration.durationInTimeFormat, studySessionDuration.durationInMinutes))
     dispatch(showSubmitMessage())
   }
 

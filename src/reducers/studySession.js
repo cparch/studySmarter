@@ -14,6 +14,7 @@ const studySessionReducer = (state = {}, action) => {
         updatedState['class'+ action.classID] = { 
           [testName]: {
             showStudySessions: false,
+            TotalTimeStudiedForTest: action.studyDurationInMinutes,
             studySessionList: [
               {StudySession0: {
                 notes: action.notes,
@@ -21,7 +22,7 @@ const studySessionReducer = (state = {}, action) => {
                 SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
                 SelectedEndTimeValue: action.SelectedEndTimeValue,
                 SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay,
-                studySessionDuration: action.studySessionDuration
+                studySessionDuration: action.studySessionDurationInTimeFormat
               }}
             ]
           }
@@ -31,6 +32,7 @@ const studySessionReducer = (state = {}, action) => {
       else if (updatedState['class'+ action.classID][testName] === undefined) {
         updatedState['class'+ action.classID][testName] = {
           showStudySessions: false,
+          TotalTimeStudiedForTest: action.studyDurationInMinutes,
           studySessionList: [
             {StudySession0: {
               notes: action.notes,
@@ -38,7 +40,7 @@ const studySessionReducer = (state = {}, action) => {
               SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
               SelectedEndTimeValue: action.SelectedEndTimeValue,
               SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay,
-              studySessionDuration: action.studySessionDuration
+              studySessionDuration: action.studySessionDurationInTimeFormat
             }}
           ]
         }
@@ -52,8 +54,9 @@ const studySessionReducer = (state = {}, action) => {
           SelectedStartTimeValueToDisplay: action.SelectedStartTimeValueToDisplay,
           SelectedEndTimeValue: action.SelectedEndTimeValue,
           SelectedEndTimeValueToDisplay: action.SelectedEndTimeValueToDisplay,
-          studySessionDuration: action.studySessionDuration
+          studySessionDuration: action.studySessionDurationInTimeFormat
         }})
+        updatedState['class'+ action.classID][testName].TotalTimeStudiedForTest += action.studyDurationInMinutes
       }
 
       // console.log("LINE 21: updated state :", updatedState )

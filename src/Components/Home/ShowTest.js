@@ -27,12 +27,25 @@ const ShowTests = (props) => {
     listItems =  <div className='testName'> You have not added any tests. Please add a test.</div> 
   } else {
      listItems = testNameArray.map((testName, testIdx) =>{
-
-      let StudySession = null
-      // let testGradeOrStudyTime = `Total Time Studied for this test: ${testInfo.totalTimeStudiedPerTest}`
-      let testGradeOrStudyTime = `Work on line 33 in showTest.js`
-  
       let selectedTestId = 'test'+testIdx
+
+      //12/19: next we need to check grade addition/update. Display the grade somewhere. And get AVG time studying spent to achieve a grade
+      let convertMinuteToTime = (timeInMinutes) => {
+        let minutes = timeInMinutes % 60;
+        let hours = (timeInMinutes - minutes)/60
+
+        if(minutes < 10){
+          minutes = '0' + minutes
+        }
+
+        return hours + ":" + minutes
+      }
+      
+      let timeInMinutes = allStudySessions[classId][selectedTestId].TotalTimeStudiedForTest
+      let testGradeOrStudyTime = `Total Time Studied for this test: ${convertMinuteToTime(timeInMinutes)}`
+      
+      let StudySession = null
+
       if(allStudySessions[classId][selectedTestId]){
         // 11/21: Now add study session, then go to home page. Clicking on the class name will show you the tests. Clicking on the tests will change the showStudySession property of the selected test to true in studysessionHandler.
         StudySession = <ShowStudySessions

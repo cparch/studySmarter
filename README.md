@@ -1,6 +1,8 @@
-//next I need to convert study session to use redux 
-// study insights to use redux
-// home page to render class / study info based on redux state
+// TO DO
+// - fix entry spelling mistake
+// - display test grade
+// - avg study time per grade letter
+//12/11: check add/display test grade functionality
 
 
 To start this project

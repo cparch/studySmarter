@@ -92,6 +92,14 @@ export const toggleShowTests = (classId) => {
   }
 }
 
+export const addNewClassToHomepage = () => {
+  return {
+    type: 'ADD_NEW_CLASS_TO_HOMEPAGE',
+  }
+}
+
+
+
 export const toggleShowStudySessions = (classId, testId) => {
   return {
     type: 'TOGGLE_SHOW_STUDY_SESSIONS',

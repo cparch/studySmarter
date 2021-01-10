@@ -22,6 +22,14 @@ const homePageReducer = (state = homePageInfo, action) => {
       console.log("updated state :", updatedState )
       
       return updatedState 
+
+    case 'ADD_NEW_CLASS_TO_HOMEPAGE':
+      const updatedState2 = {...state}
+      let newClass = 'class'+ (Object.keys(state).length)
+
+      updatedState2[newClass] = {ShowTests: false,ShowStudySessions:false}
+
+      return updatedState2
     
     default:
       return state

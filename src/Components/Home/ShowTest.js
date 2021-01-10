@@ -46,6 +46,7 @@ const ShowTests = (props) => {
 
           return hours + ":" + minutes
         }
+        debugger
 
         let timeInMinutes = allStudySessions[classId][selectedTestId].TotalTimeStudiedForTest
 

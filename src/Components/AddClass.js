@@ -3,7 +3,7 @@ import './AddClass.css';
 
 import Input from './Reusable Components/Input.js';
 import {useDispatch, useSelector} from 'react-redux'
-import {formHandler, showSubmitMessage, addClass} from '../actions/index.js'
+import {formHandler, showSubmitMessage, addClass, addNewClassToHomepage} from '../actions/index.js'
 
 const AddClass = (props) => {
   const dispatch = useDispatch()
@@ -15,6 +15,8 @@ const AddClass = (props) => {
     props.AddClassSubmitBtnHandler(event, classValue)
     dispatch(addClass(classValue))
     dispatch(showSubmitMessage())
+    dispatch(addNewClassToHomepage())
+
   }
 
   return (

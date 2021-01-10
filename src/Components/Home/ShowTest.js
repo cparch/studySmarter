@@ -46,6 +46,8 @@ const ShowTests = (props) => {
 
           return hours + ":" + minutes
         }
+
+        //01/10: recreate issue: add study session to psychRedux. Then add a new psych redux test. 
         debugger
 
         let timeInMinutes = allStudySessions[classId][selectedTestId].TotalTimeStudiedForTest

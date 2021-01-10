@@ -31,7 +31,8 @@ const ShowTests = (props) => {
       
       let StudySession = null
 
-      if(allStudySessions[classId]){
+      if(allStudySessions[classId][selectedTestId]){
+
 
       //12/19: next we need to Display the grade somewhere. And get AVG time studying spent to achieve a grade. Also try to make func convertMinuteToTime a reusable function. We will need it again to display the avg time per grade. I think I just need to make a new file, add the logic, it will take props as timeInMinutes and spit out the time in HH:MM
 
@@ -47,8 +48,6 @@ const ShowTests = (props) => {
           return hours + ":" + minutes
         }
 
-        //01/10: recreate issue: add study session to psychRedux. Then add a new psych redux test. 
-        debugger
 
         let timeInMinutes = allStudySessions[classId][selectedTestId].TotalTimeStudiedForTest
 

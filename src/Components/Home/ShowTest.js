@@ -53,8 +53,13 @@ const ShowTests = (props) => {
         // what to display for the test grade
         let testGrade = 'No test grade entered.'
         
-        if(Object.keys(allTestGrades).length > 0){
-          if(allTestGrades[classId][selectedTestId].grade){
+        // if(Object.keys(allTestGrades).length > 0){
+        //   if(allTestGrades[classId][selectedTestId].grade){
+        //     testGrade = allTestGrades[classId][selectedTestId].grade
+        //   } 
+        // }
+        if(allTestGrades[classId]){
+          if(allTestGrades[classId][selectedTestId]){
             testGrade = allTestGrades[classId][selectedTestId].grade
           } 
         }

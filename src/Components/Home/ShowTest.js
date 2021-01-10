@@ -30,8 +30,8 @@ const ShowTests = (props) => {
       let selectedTestId = 'test'+testIdx      
       
       let StudySession = null
-      
-      if(Object.keys(allStudySessions).length > 0){
+
+      if(allStudySessions[classId]){
 
       //12/19: next we need to Display the grade somewhere. And get AVG time studying spent to achieve a grade. Also try to make func convertMinuteToTime a reusable function. We will need it again to display the avg time per grade. I think I just need to make a new file, add the logic, it will take props as timeInMinutes and spit out the time in HH:MM
 

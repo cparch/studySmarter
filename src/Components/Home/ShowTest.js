@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import {toggleShowStudySessions} from '../../actions/index.js'
 
-
 const ShowTests = (props) => {
   
   const dispatch = useDispatch()
@@ -14,7 +13,6 @@ const ShowTests = (props) => {
   let allTestGrades = useSelector(state => state.testGradeReducer)
   let testNameArray = [];
   let classId = props.classId
-
 
   // this gathers all the test names for the selected class and puts them in an array
   for(const classObj in testList){
@@ -44,21 +42,15 @@ const ShowTests = (props) => {
           if(minutes < 10){
             minutes = '0' + minutes
           }
-
+          
           return hours + ":" + minutes
         }
-
 
         let timeInMinutes = allStudySessions[classId][selectedTestId].TotalTimeStudiedForTest
 
         // what to display for the test grade
         let testGrade = 'No test grade entered.'
         
-        // if(Object.keys(allTestGrades).length > 0){
-        //   if(allTestGrades[classId][selectedTestId].grade){
-        //     testGrade = allTestGrades[classId][selectedTestId].grade
-        //   } 
-        // }
         if(allTestGrades[classId]){
           if(allTestGrades[classId][selectedTestId]){
             testGrade = allTestGrades[classId][selectedTestId].grade

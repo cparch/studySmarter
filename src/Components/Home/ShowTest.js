@@ -29,7 +29,7 @@ const ShowTests = (props) => {
      listItems = testNameArray.map((testName, testIdx) =>{
       let selectedTestId = 'test'+testIdx
 
-      //12/19: next we need to check grade addition/update. Display the grade somewhere. And get AVG time studying spent to achieve a grade
+      //12/19: next we need to Display the grade somewhere. And get AVG time studying spent to achieve a grade. Also try to make func convertMinuteToTime a reusable function. We will need it again to display the avg time per grade. I think I just need to make a new file, add the logic, it will take props as timeInMinutes and spit out the time in HH:MM
       let convertMinuteToTime = (timeInMinutes) => {
         let minutes = timeInMinutes % 60;
         let hours = (timeInMinutes - minutes)/60

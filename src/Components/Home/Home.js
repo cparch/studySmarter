@@ -31,7 +31,6 @@ const Home = (props) => {
     let displayClassInfo = null
 
     // if(courseInfo.homePageShowClassInfo){
-      debugger
     if(showTestList[classId].ShowTests){
       // console.log("***** show test list")
       displayClassInfo = <ShowTest

@@ -11,8 +11,10 @@ const ShowTests = (props) => {
   const dispatch = useDispatch()
   let testList = useSelector(state => state.testReducer[props.classId])
   let allStudySessions = useSelector(state => state.studySessionReducer)
+  let allTestGrades = useSelector(state => state.testGradeReducer)
   let testNameArray = [];
   let classId = props.classId
+
 
   // this gathers all the test names for the selected class and puts them in an array
   for(const classObj in testList){
@@ -32,6 +34,8 @@ const ShowTests = (props) => {
       if(Object.keys(allStudySessions).length > 0){
 
       //12/19: next we need to Display the grade somewhere. And get AVG time studying spent to achieve a grade. Also try to make func convertMinuteToTime a reusable function. We will need it again to display the avg time per grade. I think I just need to make a new file, add the logic, it will take props as timeInMinutes and spit out the time in HH:MM
+
+      // What to display for the total study time.
       let convertMinuteToTime = (timeInMinutes) => {
         let minutes = timeInMinutes % 60;
         let hours = (timeInMinutes - minutes)/60
@@ -43,10 +47,18 @@ const ShowTests = (props) => {
           return hours + ":" + minutes
         }
 
-      let testGradeOrStudyTime = null
-
         let timeInMinutes = allStudySessions[classId][selectedTestId].TotalTimeStudiedForTest
-        testGradeOrStudyTime = `Total Time Studied for this test: ${convertMinuteToTime(timeInMinutes)}`
+
+        // what to display for the test grade
+        let testGrade = 'No test grade entered.'
+        
+        if(Object.keys(allTestGrades).length > 0){
+          if(allTestGrades[classId][selectedTestId].grade){
+            testGrade = allTestGrades[classId][selectedTestId].grade
+          } 
+        }
+        
+        let testGradeOrStudyTime = `Total Time Studied for this test: ${convertMinuteToTime(timeInMinutes)}. Grade: ${testGrade}`
   
         //show study session
         StudySession = <ShowStudySessions

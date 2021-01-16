@@ -36,7 +36,7 @@ const Home = (props) => {
       displayClassInfo = <ShowTest
         // courseInfo={courseInfo}
         classId={classId}
-
+        convertMinuteToTime = {props.convertMinuteToTime}
         classIdx={idx}
         homePageShowTestStudySessions={props.homePageShowTestStudySessions}
       />

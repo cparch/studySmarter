@@ -2,6 +2,8 @@ import React from 'react';
 import './StudyInsights.css';
 import Duration from 'duration';
 
+//01/16: next we need to convert this component to use redux. We should be able to do that with this as a functional component.
+
 class StudyInsights extends React.Component {
   constructor(props){
     super(props)

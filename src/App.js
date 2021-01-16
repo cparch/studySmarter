@@ -142,7 +142,19 @@ class App extends React.Component {
     this.AddGradeHandler = this.AddGradeHandler.bind(this);
     this.studyTimePerTest = this.studyTimePerTest.bind(this);
     this.submitAcknowledged = this.submitAcknowledged.bind(this);
+    this.convertMinuteToTime = this.convertMinuteToTime.bind(this)
   }
+
+  convertMinuteToTime = (timeInMinutes) => {
+    let minutes = timeInMinutes % 60;
+    let hours = (timeInMinutes - minutes)/60
+
+      if(minutes < 10){
+        minutes = '0' + minutes
+      }
+
+      return hours + ":" + minutes
+    }
 
   // getAllData(){
   //   fetch("http://localhost:3444/getalldata")
@@ -430,6 +442,7 @@ class App extends React.Component {
                 classList={this.state.classes}
                 homePageShowClassInfo={this.homePageShowClassInfo}
                 homePageShowTestStudySessions={this.homePageShowTestStudySessions}
+                convertMinuteToTime = {this.convertMinuteToTime}
               />}
             />
             <Route 

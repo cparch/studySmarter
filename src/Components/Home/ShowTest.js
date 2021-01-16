@@ -34,18 +34,6 @@ const ShowTests = (props) => {
 
       //1/10:Test the site around adding classes, test, study sessions, and grades for errors. Try multiple of each per class.  Next we need to get AVG time studying spent to achieve a grade. Also try to make func convertMinuteToTime a reusable function. We will need it again to display the avg time per grade. I think I just need to make a new file, add the logic, it will take props as timeInMinutes and spit out the time in HH:MM
 
-      // What to display for the total study time.
-      let convertMinuteToTime = (timeInMinutes) => {
-        let minutes = timeInMinutes % 60;
-        let hours = (timeInMinutes - minutes)/60
-
-          if(minutes < 10){
-            minutes = '0' + minutes
-          }
-
-          return hours + ":" + minutes
-        }
-
         let timeInMinutes = allStudySessions[classId][selectedTestId].TotalTimeStudiedForTest
 
         // what to display for the test grade
@@ -57,7 +45,7 @@ const ShowTests = (props) => {
           } 
         }
         
-        let testGradeOrStudyTime = `Total Time Studied for this test: ${convertMinuteToTime(timeInMinutes)}. Grade: ${testGrade}`
+        let testGradeOrStudyTime = `Total Time Studied for this test: ${props.convertMinuteToTime(timeInMinutes)}. Grade: ${testGrade}`
   
         //show study session
         StudySession = <ShowStudySessions

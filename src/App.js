@@ -495,6 +495,7 @@ class App extends React.Component {
               render={(props) => 
               <StudyInsights
                 classes = {this.state.classes}
+                convertMinuteToTime = {this.convertMinuteToTime}
               />}
             /> 
           </Switch>

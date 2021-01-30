@@ -5,58 +5,67 @@ import Duration from 'duration';
 import { useSelector, useDispatch } from 'react-redux'
 
 
-//01/16: next we need to convert this component to use redux. We should be able to do that with this as a functional component.
+//01/16: next we need to convert this component to use redux. We should be able to do that with this as a functional component. This branch is off of master.
+
+// our goal is to 
+//- get all grades
+//- when we find a grade, we need to get the total study time and add it to avgTimesPerGradeArray
+//- from there we need to pass each idx of avgTimesPerGradeArray to the min to time func and add that back to avgTimesPerGradeArray for each grade.
+//then at the very bottom  we will moa through avgTimesPerGradeArray and display each avg time
 
 const StudyInsights = () => {
 
   // const classes = props.classes
-  const allGrades = 
-  // const avgTimesPerGrade = {}
-  // const avgTimesPerGradeArray = [["A", "no Data"], ["B", "no Data"], ["C", "no Data"], ["D", "no Data"], ["F", "no Data"]]
+
+  const allGrades = useSelector(state => state.testGradeReducer)
+  const avgTimesPerGrade = {}
+  const avgTimesPerGradeArray = [["A", "no Data"], ["B", "no Data"], ["C", "no Data"], ["D", "no Data"], ["F", "no Data"]]
+
+  console.log(allGrades, avgTimesPerGrade, avgTimesPerGradeArray)
     
-  // FindAvgStudyTimePerGrade = (listOfClasses) => {
-  //   let totalPerGrade = this.state.avgTimesPerGrade;
+  const FindAvgStudyTimePerGrade = (listOfClasses) => {
+    let totalPerGrade = this.state.avgTimesPerGrade;
 
-  //   listOfClasses.forEach( course => {
-  //     course.test.forEach(test => {
-  //       if(test.grade.length > 0){
+    listOfClasses.forEach( course => {
+      course.test.forEach(test => {
+        if(test.grade.length > 0){
 
-  //         if(totalPerGrade[test.grade]){
-  //           totalPerGrade[test.grade].count += 1;
-  //           totalPerGrade[test.grade].totalStudyTimePerTest.push(test.totalTimeStudiedPerTest)
-  //         } else {
-  //           totalPerGrade[test.grade] = {
-  //             count: 1,
-  //             totalStudyTimePerTest: [test.totalTimeStudiedPerTest]
-  //           }
-  //         }
-  //       }
-  //     })
-  //   })
+          if(totalPerGrade[test.grade]){
+            totalPerGrade[test.grade].count += 1;
+            totalPerGrade[test.grade].totalStudyTimePerTest.push(test.totalTimeStudiedPerTest)
+          } else {
+            totalPerGrade[test.grade] = {
+              count: 1,
+              totalStudyTimePerTest: [test.totalTimeStudiedPerTest]
+            }
+          }
+        }
+      })
+    })
 
-  //   for(let key in totalPerGrade){
-  //     let timeInMin = 0;
+    for(let key in totalPerGrade){
+      let timeInMin = 0;
   
-  //     totalPerGrade[key].totalStudyTimePerTest.forEach( time => {
+      totalPerGrade[key].totalStudyTimePerTest.forEach( time => {
         
-  //       let timeSplit= time.split(':')
-  //       let hoursToMin = Number(timeSplit[0]) * 60
-  //       let hoursPlusMin = hoursToMin + Number(timeSplit[1])
+        let timeSplit= time.split(':')
+        let hoursToMin = Number(timeSplit[0]) * 60
+        let hoursPlusMin = hoursToMin + Number(timeSplit[1])
   
-  //       timeInMin += hoursPlusMin 
-  //     })
+        timeInMin += hoursPlusMin 
+      })
 
-  //     let avgMin = timeInMin/totalPerGrade[key].count;
-  //     let endDate = new Date(0,0,0);
+      let avgMin = timeInMin/totalPerGrade[key].count;
+      let endDate = new Date(0,0,0);
 
-  //     endDate.setMinutes(endDate.getMinutes() + avgMin)
-  //     let duration = new Duration(new Date(0, 0, 0), endDate).toString("%Hs:%M");
+      endDate.setMinutes(endDate.getMinutes() + avgMin)
+      let duration = new Duration(new Date(0, 0, 0), endDate).toString("%Hs:%M");
 
-  //     totalPerGrade[key].avgTime = duration
-  //   }
-  //   this.setState({avgTimesPerGrade: totalPerGrade})
-  //   this.fromObjToArray(this.state.avgTimesPerGrade)
-  // }
+      totalPerGrade[key].avgTime = duration
+    }
+    this.setState({avgTimesPerGrade: totalPerGrade})
+    this.fromObjToArray(this.state.avgTimesPerGrade)
+  }
 
   // fromObjToArray = (obj) => {
   //   let updateAvgTimesPerGradeArray = [...this.state.avgTimesPerGradeArray];

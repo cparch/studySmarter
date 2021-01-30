@@ -2,11 +2,15 @@ import React from 'react';
 import './StudyInsights.css';
 import Duration from 'duration';
 
+import { useSelector, useDispatch } from 'react-redux'
+
+
 //01/16: next we need to convert this component to use redux. We should be able to do that with this as a functional component.
 
 const StudyInsights = () => {
 
   // const classes = props.classes
+  const allGrades = 
   // const avgTimesPerGrade = {}
   // const avgTimesPerGradeArray = [["A", "no Data"], ["B", "no Data"], ["C", "no Data"], ["D", "no Data"], ["F", "no Data"]]
     

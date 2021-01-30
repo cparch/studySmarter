@@ -8,82 +8,46 @@ import { useSelector, useDispatch } from 'react-redux'
 //01/16: next we need to convert this component to use redux. We should be able to do that with this as a functional component. This branch is off of master.
 
 // our goal is to 
-//- get all grades
-//- when we find a grade, we need to get the total study time and add it to avgTimesPerGradeArray
-//- from there we need to pass each idx of avgTimesPerGradeArray to the min to time func and add that back to avgTimesPerGradeArray for each grade.
+//- pass each idx of avgTimesPerGradeArray to the min to time func and add that back to avgTimesPerGradeArray for each grade.
 //then at the very bottom  we will moa through avgTimesPerGradeArray and display each avg time
 
-const StudyInsights = () => {
-
-  // const classes = props.classes
+const StudyInsights = (props) => {
 
   const allGrades = useSelector(state => state.testGradeReducer)
+  const allClassInfo = useSelector(state => state.studySessionReducer)
   const avgTimesPerGrade = {}
   const avgTimesPerGradeArray = [["A", "no Data"], ["B", "no Data"], ["C", "no Data"], ["D", "no Data"], ["F", "no Data"]]
 
-  console.log(allGrades, avgTimesPerGrade, avgTimesPerGradeArray)
-    
-  const FindAvgStudyTimePerGrade = (listOfClasses) => {
-    let totalPerGrade = this.state.avgTimesPerGrade;
+  const getTotalTimePerGrade = (obj) => {
+    const possibleGrades = ["A", "B", "C", "D", "F"]
+    let gradesClassId = null
+    let gradesTestId = null
 
-    listOfClasses.forEach( course => {
-      course.test.forEach(test => {
-        if(test.grade.length > 0){
+    for (const classId in obj) { 
+      gradesClassId = classId
+      let classIdObj = obj[classId]
 
-          if(totalPerGrade[test.grade]){
-            totalPerGrade[test.grade].count += 1;
-            totalPerGrade[test.grade].totalStudyTimePerTest.push(test.totalTimeStudiedPerTest)
-          } else {
-            totalPerGrade[test.grade] = {
-              count: 1,
-              totalStudyTimePerTest: [test.totalTimeStudiedPerTest]
+      for (const testID in classIdObj) {
+        gradesTestId = testID
+        let grade = obj[classId][testID].grade
+        let totalStudyTimeForTestGrade = allClassInfo[gradesClassId][gradesTestId].TotalTimeStudiedForTest
+
+        avgTimesPerGradeArray.map((letterGradeArr, idx) => {
+          if(letterGradeArr.indexOf(grade) > -1){
+            if(typeof avgTimesPerGradeArray[idx][1] == 'number'){
+              avgTimesPerGradeArray[idx][1] += totalStudyTimeForTestGrade
+            } else {
+              avgTimesPerGradeArray[idx][1] = totalStudyTimeForTestGrade
             }
           }
-        }
-      })
-    })
-
-    for(let key in totalPerGrade){
-      let timeInMin = 0;
-  
-      totalPerGrade[key].totalStudyTimePerTest.forEach( time => {
-        
-        let timeSplit= time.split(':')
-        let hoursToMin = Number(timeSplit[0]) * 60
-        let hoursPlusMin = hoursToMin + Number(timeSplit[1])
-  
-        timeInMin += hoursPlusMin 
-      })
-
-      let avgMin = timeInMin/totalPerGrade[key].count;
-      let endDate = new Date(0,0,0);
-
-      endDate.setMinutes(endDate.getMinutes() + avgMin)
-      let duration = new Duration(new Date(0, 0, 0), endDate).toString("%Hs:%M");
-
-      totalPerGrade[key].avgTime = duration
-    }
-    this.setState({avgTimesPerGrade: totalPerGrade})
-    this.fromObjToArray(this.state.avgTimesPerGrade)
+        })
+      }  
+    }  
+    
   }
 
-  // fromObjToArray = (obj) => {
-  //   let updateAvgTimesPerGradeArray = [...this.state.avgTimesPerGradeArray];
+  getTotalTimePerGrade(allGrades)
 
-  //   for(let key in this.state.avgTimesPerGrade){
-  //     updateAvgTimesPerGradeArray.forEach((grade, idx) => {
-    
-  //       if(grade[0] === key){
-  //         updateAvgTimesPerGradeArray[idx][1] = `${this.state.avgTimesPerGrade[key].avgTime} hours`
-  //       }
-  //     })
-  //   }
-  // }
-
-  // // componentDidMount() {
-  // //   this.FindAvgStudyTimePerGrade(this.state.classes)
-  // // }
-  
   // let list = this.state.avgTimesPerGradeArray.map(grade => {
   //   return(
   //     <tr key={grade[0]}>

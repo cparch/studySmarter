@@ -5,11 +5,6 @@ import Duration from 'duration';
 import { useSelector, useDispatch } from 'react-redux'
 
 
-//01/16: next we need to convert this component to use redux. We should be able to do that with this as a functional component. This branch is off of master.
-
-// our goal is to 
-//- pass each idx of avgTimesPerGradeArray to the min to time func and add that back to avgTimesPerGradeArray for each grade.
-//then at the very bottom  we will moa through avgTimesPerGradeArray and display each avg time
 
 const StudyInsights = (props) => {
 
@@ -36,8 +31,10 @@ const StudyInsights = (props) => {
           if(letterGradeArr.indexOf(grade) > -1){
             if(typeof avgTimesPerGradeArray[idx][1] == 'number'){
               avgTimesPerGradeArray[idx][1] += totalStudyTimeForTestGrade
+              avgTimesPerGradeArray[idx][2] += 1
             } else {
               avgTimesPerGradeArray[idx][1] = totalStudyTimeForTestGrade
+              avgTimesPerGradeArray[idx][2] = 1
             }
           }
         })
@@ -45,17 +42,25 @@ const StudyInsights = (props) => {
     }  
     
   }
-
+  
   getTotalTimePerGrade(allGrades)
 
-  // let list = this.state.avgTimesPerGradeArray.map(grade => {
-  //   return(
-  //     <tr key={grade[0]}>
-  //       <td className='cell'>{grade[0]}</td>
-  //       <td>{grade[1]}</td>
-  //     </tr>
-  //   )
-  // })
+  avgTimesPerGradeArray.map((gradeArr, idx) => {
+    if(typeof gradeArr[1] === 'number'){
+      debugger
+      let avgTimeInMin = gradeArr[1]/ avgTimesPerGradeArray[idx][2]
+      avgTimesPerGradeArray[idx][1] = props.convertMinuteToTime(avgTimeInMin)
+    }
+  })
+
+  let list = avgTimesPerGradeArray.map(grade => {
+    return(
+      <tr key={grade[0]}>
+        <td className='cell'>{grade[0]}</td>
+        <td>{grade[1]}</td>
+      </tr>
+    )
+  })
 
   return(
     <div >
@@ -70,7 +75,7 @@ const StudyInsights = (props) => {
               <th className='tableHeader'>Average Study Time</th>
             </tr>
           </thead>
-          {/* <tbody>{list}</tbody> */}
+          <tbody>{list}</tbody>
         </table>
       </div>
     </div>

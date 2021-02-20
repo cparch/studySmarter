@@ -6,6 +6,9 @@
 // - avg study time per grade letter
 //12/11: check add/display test grade functionality
 
+## Deployment:
+https://console.aws.amazon.com/amplify/home?region=us-east-1&code=50be536e249383542b86#/d3fe5r0jhsg5mi/master/7
+
 
 To start this project
 'npm start'

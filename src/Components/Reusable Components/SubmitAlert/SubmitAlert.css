@@ -1,5 +1,7 @@
 .submitAlertContainer{
   position: absolute;
+  top:0;
+  left:0;
   z-index: 1;
   background-color: rgba(128, 128, 128, 0.90);
   width: 100%;

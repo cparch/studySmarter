@@ -1,11 +1,9 @@
 .sidenav {
   height: 100%;
-  position: fixed;
   z-index: 1;
   background-color: rgb(145, 223, 243);
   overflow-x: hidden;
   padding-top: 20px;
-  width: 272px;
 }
 
 .sideNavList{
@@ -15,10 +13,6 @@
   padding: 0% 15% 0% 10%;
 }
 
-/* NavList {
-  display: flex;
-  flex-direction: column; 
-}  */
 a:-webkit-any-link {
   text-decoration: none;
 }
@@ -34,7 +28,6 @@ a:visited { text-decoration: none; color:black; }
 
 .sideNavList a.chosen,
 .sideNavList a:hover {
-  /* color: rgb(237, 237, 87); */
   color: rgb(37, 120, 245);
 }
 

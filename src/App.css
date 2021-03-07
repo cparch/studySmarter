@@ -10,13 +10,16 @@
   }
 }
 
+.outer-container {
+  display: flex;
+  max-width: 100vw;
+}
+
 .main {
-  margin-left: 272px;
   font-size: 28px;
-  /* position: relative;
-  z-index: 0; */
   background-color: white;
   height: 100vh;
+  width: 100%;
 }
 
 .mainContainer{
@@ -33,6 +36,8 @@ select {
   font-size: 15px;
   margin: 1%;
 }
+
+.nav {width: 28%;}
 
 @media(max-width: 900px) {
   .nav {

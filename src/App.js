@@ -422,7 +422,7 @@ class App extends React.Component {
 
     return (
       <BrowserRouter>
-        <div>
+        <div class='outer-container'>
           <div className='nav'>
             <Nav/>
           </div>

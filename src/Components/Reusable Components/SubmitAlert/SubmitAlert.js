@@ -10,10 +10,8 @@ const SubmitAlert = (props) => {
 
   if(showSubmitConfirmation){
     toDisplay =  <div className='submitAlertContainer'>
-       <div className='submitAlertContent'>
-        <div>
-          Your entrie has been submitted.
-        </div>
+      <div className='submitAlertContent'>
+        <div>Your entrie has been submitted.</div>
         <button onClick={() => dispatch(submitAcknowledged())}>ok</button>
         </div>
       </div>

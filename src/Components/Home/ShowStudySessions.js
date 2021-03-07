@@ -8,8 +8,6 @@ const ShowStudySession = (props) => {
   const studySessionList = useSelector(state => state.studySessionReducer[classId][testId].studySessionList)
 
   const listItems = studySessionList.map((studySessionObj, idx )=> {
-    console.log('line 21: studySession+idx: ', 'studySession'+idx)
-    console.log(studySessionObj['StudySession'+idx].SelectedStartTimeValueToDisplay)
     return(
       <div className='studySessionContainer' key={idx} >
         <div className='sessionNum' >

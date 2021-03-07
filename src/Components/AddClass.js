@@ -24,7 +24,6 @@ const AddClass = (props) => {
       <div className='AddClassHeaderImage' id='test'></div>
       <div className='mainContainer'>
         <h1>Add Class Name</h1>
-        {/* <form className='test' onSubmit={(event) => props.AddClassSubmitBtnHandler(event, classValue)}> */}
         <form className='test' onSubmit={(event) => submit(event, classValue)}>
 
           <Input

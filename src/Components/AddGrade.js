@@ -52,10 +52,8 @@ const AddGrade = (props) => {
         <h1>
           Add test grade!!!
         </h1>
-        {/* <form onSubmit={(event) => props.AddGradeHandler(event, gradeValue)}> */}
         <form onSubmit={(event) => submit(event, gradeValue)}>
           <label>
-            {/* <select name="selectedClass" onChange={props.FormHandler}> */}
             <select name="selectedClass" onChange={(event) => dispatch(formHandler(event))}>
             <option>Class Name:</option> 
               {classIdList.map((classId, idx) => (
@@ -80,9 +78,7 @@ const AddGrade = (props) => {
           <Input
              placeholder='A'
              name='gradeInput' 
-            //  onChangeFunc={props.FormHandler}
              onChangeFunc={(event) => dispatch(formHandler(event))}
-            //  value={props.entireState.gradeInput}
             value={gradeValue}
             label='Grade'
           />

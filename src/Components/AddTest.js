@@ -28,17 +28,11 @@ const AddTest = (props) => {
       <div className='addTestHeaderImage'></div>
       <div className='mainContainer'>
       <h1>Add Test</h1>
-
-        {/* <form className='test' onSubmit={(event) => props.AddClassSubmitBtnHandler(event, classValue)}> */}
-
         <form 
-          // onSubmit={props.AddTestSubmitBtnHandler}
-          // onSubmit={(event) => props.AddTestSubmitBtnHandler(event, testNameValue)}
           onSubmit={(event) => submit(event, testNameValue)}
           className='addTestForm'
         >
           <label> 
-              {/* <select className='select' name="selectedClass" onChange={props.FormHandler}> */}
               <select className='select' name="selectedClass" onChange={(event) => dispatch(formHandler(event))}>
                 <option>Class Name:</option>
 
@@ -48,20 +42,13 @@ const AddTest = (props) => {
                   </option>
                 ))}
 
-                {/* {props.entireState.classes.map((classes, idx) => (
-                  <option key={classes.classTitle} value={idx}>
-                    {classes.classTitle}
-                  </option>
-                ))} */}
               </select>
           </label>
           <br/>
           <Input
             placeholder='Chapter 1 test'
             name='testNameToAdd'
-            // onChangeFunc={props.FormHandler}
             onChangeFunc={(event) => dispatch(formHandler(event))}
-            // value={props.entireState.testNameToAdd}
             value={testNameValue}
             label="Test I'm Studying For"
           />

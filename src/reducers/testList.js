@@ -28,7 +28,6 @@ const testReducer = (state = testList, action) => {
       if(!updatedState[classIdNumber]){
         updatedState[classIdNumber] = {}
       }
-      debugger
 
       // create new test ID
       let newNum = Object.keys(updatedState[classIdNumber]).length

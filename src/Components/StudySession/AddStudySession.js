@@ -91,7 +91,6 @@ const AddStudySession = (props) => {
       <div className='AddStudySessionHeaderImage'></div>
       <div className='mainContainer'>
         <h1>Add Study Session</h1>
-        {/* <form onSubmit={props.addStudySessionSubmitBtnHandler}> */}
         <form onSubmit={(event) => submit(event)}>
           <label>
             <select name="selectedClass" onChange={(event) => dispatch(formHandler(event))}>
@@ -137,9 +136,7 @@ const AddStudySession = (props) => {
           </div>
           <br></br>
           <label>
-            <div>
-              Notes:
-            </div>
+            <div> Notes:</div>
               <textarea
                 onChange={(event) => dispatch(formHandler(event))}
                 name="notes"

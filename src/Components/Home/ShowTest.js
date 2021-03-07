@@ -30,10 +30,6 @@ const ShowTests = (props) => {
       let StudySession = null
 
       if(Object.keys(allStudySessions).length > 0 && allStudySessions[classId] && allStudySessions[classId][selectedTestId]){
-
-
-      //1/10:Test the site around adding classes, test, study sessions, and grades for errors. Try multiple of each per class.  Next we need to get AVG time studying spent to achieve a grade. 
-
         let timeInMinutes = allStudySessions[classId][selectedTestId].TotalTimeStudiedForTest
 
         // what to display for the test grade
@@ -69,7 +65,6 @@ const ShowTests = (props) => {
             key={testName}
           >
             {testName}: No Study Session info to display. Please add a study session.
-            
           </div> 
         )  
       }

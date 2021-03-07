@@ -47,7 +47,6 @@ const StudyInsights = (props) => {
 
   avgTimesPerGradeArray.map((gradeArr, idx) => {
     if(typeof gradeArr[1] === 'number'){
-      debugger
       let avgTimeInMin = gradeArr[1]/ avgTimesPerGradeArray[idx][2]
       avgTimesPerGradeArray[idx][1] = props.convertMinuteToTime(avgTimeInMin)
     }

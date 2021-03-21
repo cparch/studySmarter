@@ -35,7 +35,6 @@ describe('Home Page reducer test', () => {
 
   describe('Testing addNewClassToHomepage', () => {
     it('should return new obj class2',  () => {
-      console.log(addNewClassToHomepage())
       const newState = homePageReducer(undefined, addNewClassToHomepage())
       expect(newState).toEqual({
         "class0": {

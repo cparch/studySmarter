@@ -14,7 +14,7 @@
     "fibers": "^4.0.3",
     "jquery": "^3.5.1",
     "moment": "^2.24.0",
-    "mongoose": "^5.8.3",
+    "mongoose": "^5.12.6",
     "morgan": "^1.9.1",
     "node-sass": "^4.13.1",
     "rc-time-picker": "^3.7.2",

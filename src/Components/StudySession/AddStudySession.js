@@ -96,7 +96,7 @@ const AddStudySession = (props) => {
             <select name="selectedClass" onChange={(event) => dispatch(formHandler(event))}>
             <option>Class Name:</option> 
               {classesObj.allID.map((className, idx) => (
-                <option  key={classesObj.byID[className].classTitle} value={idx}>
+                <option  key={classesObj.byID[className].classTitle} value={idx} data-test="class-option">
                   {classesObj.byID[className].classTitle}
                 </option>
               ))}
@@ -107,7 +107,7 @@ const AddStudySession = (props) => {
             <select name="selectedTest" onChange={(event) => dispatch(formHandler(event))}> 
             <option>Test Name:</option> 
                 {chosenClassTestList.map((test, idx) => (
-                  <option key={test} value={idx}>
+                  <option key={test} value={idx} data-test="test-option">
                     {test}
                   </option>
                 ))}

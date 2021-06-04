@@ -11,9 +11,9 @@ const AddTest = (props) => {
   const allClassIdArr = useSelector(state => state.classesReducer.allID)
   const allClassObj = useSelector(state => state.classesReducer.byID)
 
-  allClassIdArr.map((classID) => (
-    console.log(allClassObj[classID].classTitle)    
-  ))
+  // allClassIdArr.map((classID) => (
+  //   console.log(allClassObj[classID].classTitle)    
+  // ))
 
   const submit = (event, testNameValue) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ const AddTest = (props) => {
                 <option>Class Name:</option>
 
                 {allClassIdArr.map((classID) => (
-                  <option key={allClassObj[classID].classTitle} value={allClassObj[classID].id}>
+                  <option key={allClassObj[classID].classTitle} value={allClassObj[classID].id} data-test="classNameOption">
                     {allClassObj[classID].classTitle}
                   </option>
                 ))}

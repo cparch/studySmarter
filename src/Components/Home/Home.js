@@ -29,6 +29,7 @@ const Home = (props) => {
       <div 
         className='courseContainer'
         key={classTitle}
+        data-test="classTitleComponent"
       >
         <div
           className='courseInfo' 
@@ -46,7 +47,7 @@ const Home = (props) => {
   return (
     <div>
       <div className='homeImage'/>
-      <div className='mainContainer'>
+      <div className='mainContainer' data-test="homePageComponent">
         <h1>Class Names: </h1>
         <h4>Want to see your Study Sessions? Below click on the class name, then the test name.</h4>
         <div>{courseNames}</div>

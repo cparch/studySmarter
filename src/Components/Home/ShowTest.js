@@ -72,7 +72,7 @@ const ShowTests = (props) => {
   }
 
   return(
-    <div>
+    <div data-test="classNameComponent">
       {listItems}
     </div>
   )

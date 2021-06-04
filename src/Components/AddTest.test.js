@@ -1,59 +1,55 @@
-import configureStore from 'redux-mock-store';
-import React from 'react';
+import AddTest from './AddTest'
+import { mount } from 'enzyme'
+import { findByTestAttr, testStore } from '../../utils'
+import React from 'react'
 import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
-import AddTest from './AddTest';
-import moment from 'moment';
 
- 
-const mockStore = configureStore([]);
+const setUp = (initialState = {}) => {
+  const store = testStore(initialState)
 
-describe('My Connected React-Redux Component', () => {
-  let store;
-  let component;
+  const wrapper = mount(<Provider store = {store}> <AddTest /> </Provider>)
 
- 
-  beforeEach(() => {
-    store = mockStore({
-      FormHandlerReducer : {
-        selectedClass: 0,
-        selectedTest: 0,
-        SelectedStartTimeValue: '',
-        SelectedEndTimeValue: '',
-        notes: '',
-        classNameToAdd: '',
-        testNameToAdd: '',
-        gradeInput: '',
-        showSubmitConfirmation: false,
-        startTimeValue: moment(),
-        endTimeValue: moment(),
-      },
-      classesReducer: {
-        byID : {
-          "class0": {
-            id: "class0",
-            classTitle: 'PsychologyRedux'
+  // console.log(wrapper.debug())
+  return wrapper
+}
+
+describe ('AddTest component', () => {
+
+  describe ('should render with no error', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      const initialState = {
+        classesReducer: {
+          byID : {
+            "class0": {
+              id: "class0",
+              classTitle: 'PsychologyReduxTest'
+            },
+            "class1": {
+              id: "class1",
+              classTitle: 'HistoryReduxTest',
+            },
+            "class2": {
+              id: "class2",
+              classTitle: 'MathReduxTest',
+            } 
           },
-          "class1": {
-            id: "class1",
-            classTitle: 'HistoryRedux',
-          } 
+          allID: ["class0", "class1", "class2"]    
         },
-        allID: ["class0", "class1"]
       }
-    });
-    component = renderer.create(
-      <Provider store={store}>
-        <AddTest />
-      </Provider>
-    );
-  });
 
-  it('should render with given state from Redux store', () => {
-    expect(component.toJSON()).toMatchSnapshot();
-  });
- 
-  it('should dispatch an action on button click', () => {
- 
-  });
-});
+      wrapper = setUp(initialState);
+    })
+  
+    it('Should render multiple classes', () => {
+      const component = findByTestAttr(wrapper, 'classNameOption')
+      expect(component.length).toBe(3)
+    })  
+
+    it('Should render form without errors', () => {
+      const component = findByTestAttr(wrapper, 'reusable-form')
+      expect(component.length).toBe(1)
+    })  
+  })
+})

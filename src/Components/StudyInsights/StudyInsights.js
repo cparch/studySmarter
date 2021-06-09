@@ -54,7 +54,7 @@ const StudyInsights = (props) => {
 
   let list = avgTimesPerGradeArray.map(grade => {
     return(
-      <tr key={grade[0]}>
+      <tr key={grade[0]} data-test="gradeRow">
         <td className='cell'>{grade[0]}</td>
         <td>{grade[1]}</td>
       </tr>

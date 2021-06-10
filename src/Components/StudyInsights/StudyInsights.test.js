@@ -26,23 +26,69 @@ const setUp = (initialState = {}) => {
 }
 
 describe ('StudyInsights component', () => {
+  describe('should render without error when no data is provided', () => {
+    let wrapper;
 
-  describe ('should render with no error', () => {
+    beforeEach(() => {
+      const initialState = {
+        testGradeReducer: {},
+        studySessionReducer: {}
+      }
+
+      wrapper = setUp(initialState);
+    })
+
+    it('Should render 5 grades', () => {
+      const component = findByTestAttr(wrapper, 'gradeRow')
+      expect(component.length).toBe(5)
+    })  
+
+    it('should render "no data" for all 5 grades', () => {
+      expect(
+        wrapper.containsMatchingElement(
+          <tbody>
+            <tr data-test="gradeRow">
+              <td className="cell">A</td>
+              <td>no Data</td>
+            </tr>
+            <tr data-test="gradeRow">
+              <td className="cell">B</td>
+              <td>no Data</td>
+            </tr>
+            <tr data-test="gradeRow">
+              <td className="cell">C</td>
+              <td>no Data</td>
+            </tr>
+            <tr data-test="gradeRow">
+              <td className="cell">D</td>
+              <td>no Data</td>
+            </tr>
+            <tr data-test="gradeRow">
+              <td className="cell">F</td>
+              <td>no Data</td>
+            </tr>
+          </tbody>
+        )
+      ).toBeTruthy()
+
+    })
+  })
+
+  describe ('should render without error when data is provided', () => {
     let wrapper;
 
     beforeEach(() => {
       const initialState = {
         testGradeReducer: {
-          class0 : {test0: {grade: 'A'}}
+          class0 : {
+            test0: {grade: 'A'}
+          }
         },
         studySessionReducer: {
           class0: {
-            test0: {
-              TotalTimeStudiedForTest: 90,
-            },
-          },
+            test0: {TotalTimeStudiedForTest: 90}
+          }
         }
-
       }
 
       wrapper = setUp(initialState);

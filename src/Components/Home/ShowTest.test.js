@@ -21,7 +21,7 @@ const setUp = (initialState = {}) => {
   const wrapper = mount(<Provider store = {store}> <ShowTest {...showTestProps}/> </Provider>)
   wrapper.setProps({ classId: 0 })
 
-  console.log(wrapper.debug())
+  // console.log(wrapper.debug())
   return wrapper
 }
 
@@ -63,7 +63,7 @@ describe ('ShowTest component', () => {
       }
       wrapper = setUp(initialState);
     })
-    
+
     it('Should render 1 addTestMessage', () => {
       const component = findByTestAttr(wrapper, 'addTestMessage')
       expect(component.length).toBe(1)

@@ -15,8 +15,8 @@ const SideDrawer = (props) => {
     toggleSideDrawer = 'SideDrawer Open'
   }
   return(
-    <div class= 'mobile-nav-container' >
-      <div className='menuBtn' onClick={() => dispatch(sideDrawerToggle())}>
+    <div className= 'mobile-nav-container' >
+      <div className='menuBtn' style={{'margin': '2% 0% 0% 3%'}} onClick={() => dispatch(sideDrawerToggle())}>
         <div className='menuBtnContainer'>
           <FontAwesomeIcon icon={faBars} color="black" size="lg" />
         </div>

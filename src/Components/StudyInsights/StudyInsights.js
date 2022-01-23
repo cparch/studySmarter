@@ -66,7 +66,7 @@ const StudyInsights = (props) => {
       <div className='StudyInsightsHeaderImage'></div>
       <div className='mainContainer'>
         <h1>Study Insights </h1>
-        <h3>This page is intended to give you an idea of what study habbits give you the best chance of earning a grade.</h3>
+        <span className='instructions'>This page is intended to give you an idea of what study habbits give you the best chance of earning a grade.</span>
         <table>
           <thead>
             <tr>

@@ -12,7 +12,40 @@
   justify-content: space-between;
 }
 
+.timeSelector label {
+  font-size: 6em;
+}
+
+.notes {
+  font-size: 6em;
+}
+
 textarea {
   width: 100%;
   font-size: 25px;
+}
+
+
+@media(min-width: 640px) {
+  .timeSelector label {
+    font-size: 4em;
+  }
+  
+  .notes {
+    font-size: 4em;
+  }
+
+  textarea {
+    margin-top: 3%;
+  } 
+}
+
+@media(min-width: 1024px) {
+  .timeSelector label {
+    font-size: 2.25em;
+  }
+  
+  .notes {
+    font-size: 2.25em;
+  }
 }

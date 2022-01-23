@@ -8,11 +8,18 @@
   position: relative;
 }
 
+.instructions{
+  font-size: 5.5em;
+  margin-bottom: 3%;
+}
+
 table {
   border: 1px solid black;
   border-collapse: collapse;
-  width: 90%;
+  width: 100%;
   cursor: default;
+  font-size: 6em;
+  margin-top: 7%;
 }
 
 th, td {
@@ -27,4 +34,26 @@ th {
 
  tr:nth-child(even) {
   background: rgb(145, 223, 243);
+}
+
+@media(min-width: 640px) {
+  .instructions{ 
+    font-size: 4em;
+  }
+
+  table {
+    font-size: 4.5em;
+    margin-top: 7%;
+  }
+}
+
+@media(min-width: 1024px) {
+  .instructions{ 
+    font-size: 3em;
+  }
+
+  table {
+    font-size: 2.5em;
+    margin-top: 7%;
+  }  
 }

@@ -65,7 +65,7 @@ const AddGrade = (props) => {
           </label>
           <br></br>
           <label>
-            <select name="selectedTest" onChange={(event) => dispatch(formHandler(event))}> 
+            <select className='selectedTest' name="selectedTest" onChange={(event) => dispatch(formHandler(event))}> 
               <option>Test Name:</option> 
                 {chosenClassTestList.map((testName, idx) => (
                   <option key={testName} value={idx}>

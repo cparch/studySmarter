@@ -6,3 +6,9 @@
   background-size: cover;
   position: relative;
 }
+
+@media(min-width: 640px) {
+  .selectedTest {
+    margin-bottom: 10%;
+  }
+}

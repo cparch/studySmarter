@@ -6,3 +6,13 @@
   background-size: cover;
   position: relative;
 }
+
+.addTestForm select {margin-bottom: 20%;}
+
+@media(min-width: 901px) {
+  .addTestForm select {margin-bottom: 12%;}
+}
+
+@media(min-width: 1250px) {
+  .addTestForm select {margin-bottom: 9%;}
+}

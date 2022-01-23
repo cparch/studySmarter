@@ -9,7 +9,7 @@ LEVEL 1. RESET STYLES
   border-radius: 0;
   border: none;
   font-family: inherit;
-  font-size: 1em;
+  font-size: 7em;
 }
 
 /*
@@ -47,6 +47,8 @@ LEVEL 3. PRESENTATION STYLES
   position: relative;
   box-sizing: border-box;
 }
+
+
 
 .a-field__input::-webkit-input-placeholder{
   opacity: 0;
@@ -92,7 +94,7 @@ LEVEL 3. PRESENTATION STYLES
   bottom: calc(50% - .5em);
 
   line-height: 1;
-  font-size: var(--uiFieldHintFontSize);
+  font-size: 7em;
 
   pointer-events: none;
   transition: bottom .2s cubic-bezier(0.9,-0.15, 0.1, 1.15), opacity .2s ease-out;
@@ -109,12 +111,6 @@ LEVEL 3. PRESENTATION STYLES
 .a-field_a1 .a-field__input{
   transition: border-color .2s ease-out;
   will-change: border-color;
-}
-
-@media(max-width: 400px){
-  .a-field_a1 .a-field__input{
-    margin-top: 25px;
-  }
 }
 
 .a-field_a1 .a-field__input:focus{
@@ -168,4 +164,28 @@ LEVEL 4. SETTINGS
   display: grid;
   grid-gap: 30px;
   align-items: flex-end;
+}
+
+@media(min-width: 1024px) {
+  .a-field__label{
+    font-size: 3em
+  }
+}
+
+@media(max-width: 400px){
+  .a-field_a1 .a-field__input{
+    margin-top: 25px;
+  }
+}
+
+@media(min-width: 640px) {
+  .field__input, .a-field__label{ 
+    font-size: 4em;
+  }  
+}
+
+@media(min-width: 1024px) {
+  .field__input, .a-field__label{ 
+    font-size: 3em;
+  }
 }

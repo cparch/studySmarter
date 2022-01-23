@@ -136,7 +136,7 @@ const AddStudySession = (props) => {
           </div>
           <br></br>
           <label>
-            <div> Notes:</div>
+            <div className='notes'> Notes:</div>
               <textarea
                 onChange={(event) => dispatch(formHandler(event))}
                 name="notes"

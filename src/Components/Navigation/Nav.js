@@ -6,7 +6,7 @@ const Nav = () => {
 
   return (
     <nav className='sidenav'>
-      <h2>StudySmarter</h2>
+      <span className='sideNavHeader'>StudySmarter</span>
       <div className='sideNavList' >
         <NavLink exact to='/' activeClassName="chosen">Home</NavLink>
         <NavLink to='/addclass' activeClassName="chosen">Add Class</NavLink>

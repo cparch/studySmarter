@@ -1,4 +1,17 @@
 .testName{
   margin-left: 5%;
   margin-bottom: 3%;
+  font-size: 4vw;
+}
+
+@media(min-width: 901px) {
+  .testName {
+    font-size: 2.5vw;
+  }
+}
+
+@media(min-width: 1250px) {
+  .testName {
+    font-size: 2em;
+  }
 }

@@ -24,3 +24,19 @@
 .testName{
   cursor: pointer;
 }
+
+.courseTitle {
+  font-size: 7vw;
+}
+
+@media(min-width: 640px) {
+  .courseTitle {
+    font-size: 4.5vw;
+  }
+}
+
+@media(min-width: 1024px) {
+  .courseTitle {
+    font-size: 2.5em;
+  }
+}
